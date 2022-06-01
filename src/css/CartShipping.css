@@ -1,0 +1,74 @@
+.cart-shipping h2 {
+  margin: 20px 0;
+  font-size: 20px;
+  color: rgb(94, 94, 94);
+}
+
+.cart-shipping {
+  margin: 5px 10px;
+}
+
+.cart-shipping-details {
+  display: flex;
+  list-style-type: none;
+}
+
+.cart-shipping-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: flex-start;
+  justify-content: space-between;
+}
+
+.shipping-infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.shipping-company {
+  width: 350px;
+}
+
+.shipping-company p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.shipping-timing {
+  display: flex;
+  font-size: 14px;
+  width: 200px;
+  height: 20px;
+}
+
+.shipping-timing p {
+  margin-left: 3px;
+  color: green;
+}
+
+.shipping-price,
+.shipping-select {
+  font-size: 14px;
+  width: 100px;
+  text-align: center;
+  height: 20px;
+  color: green;
+}
+
+.shipping-price p {
+  color: green;
+}
+
+.shipping-select {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50px;
+}
+
+.shipping-select button {
+  border: none;
+  margin-right: 5px;
+}

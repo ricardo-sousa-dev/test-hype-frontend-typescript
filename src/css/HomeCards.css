@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    font-family: Open Sans, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: rgb(94, 94, 94);
+}
+
+a:hover {
+    background-color: #f9b9bada;
+    text-decoration: none;
+}
+
+.categories {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5px;
+}
+
+.categories h2 {
+    width: max-content;
+}
+
+.category {
+    background-color: #f9b9ba;
+    border: 1px solid rgba(128, 128, 128, 0.418);
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px;
+    text-align: center;
+    min-width: 200px;
+}
+
+.cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
