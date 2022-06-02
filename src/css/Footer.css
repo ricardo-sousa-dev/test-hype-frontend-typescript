@@ -1,90 +1,26 @@
-* {
-    box-sizing: border-box;
-    font-family: Open Sans, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: rgb(94, 94, 94);
-}
-
-.footer {
+.simple-footer {
+    background-color: #353E52;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    background-color: #f9b9ba;
-    padding: 20px 20px 5px 20px;
-    box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.51);
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.social-media {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.block-1,
-.block-2 {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-}
-
-.block-1 a {
-    text-align: left;
-    text-decoration: none;
-    color: rgb(94, 94, 94);
-    font-size: 14px;
-}
-
-.block-1 a:hover {
-    background-color: #f9b9bada;
-}
-
-.block-2 {
-    justify-content: center;
-}
-
-.block-social {
-    text-align: center;
-    font-size: 40px;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.social-icon {
-    width: 30px;
-    padding: 10px;
-    font-size: 30px;
-}
-
-.social-icon:hover {
-    background-color: #f9b9bada;
-}
-
-.badges {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.badges img {
-    max-height: 30px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-}
-
-.block-identity {
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.block-identity h3 {
+    justify-content: space-between;
+    width: 150px;
+    font-size: 24px;
+    margin: 0 20px;
     padding: 0;
-    margin-bottom: 5px;
-    margin-right: 10px;
-    font-size: 12px;
-    text-align: center;
-    color: rgb(94, 94, 94);
+}
+
+.icon-social-media {
+    margin: 0 10px;
+}
+
+.developer, .icon-social-media path{
+    color: white;
 }

@@ -1,56 +1,45 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/Footer.css';
-// import securityNavigation from "../images/icons/security-navegation.jpeg";
+import { GrLinkedin } from 'react-icons/gr';
+import { FaGithub, FaRegEnvelope, FaWhatsapp } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <div className="footer">
-      <div className="block-1">
-        <a href="index.html">Home</a>
-        {/* <a href="#comprar">Como comprar</a> */}
-        {/* <a href='#'>Sobre a Hype</a> */}
-        {/* <a href='contato.html'>Contato</a> */}
-        <a href="politica-de-privacclassNameade.html">
-          Politica de Privacidade
+    <div className="simple-footer">
+      <div className="developer">
+        Developed by Ricardo Sousa
+      </div>
+      <div className="social-media">
+        <Link
+          to="https://github.com/ricardo-sousa-dev"
+          className="link-github"
+        >
+          <FaGithub className="icon-social-media" />
+        </Link>
+        <Link
+          to="https://www.linkedin.com/in/rwmsousa/"
+          className="link-linkedin"
+        >
+          <GrLinkedin className="icon-social-media" />
+        </Link>
+        <a
+          href="https://wa.me/5541987181564"
+          _target="_blank"
+          className="link-whatsapp"
+        >
+          <FaWhatsapp className="icon-social-media" />
         </a>
-        {/* <a href=''>Trocas e devoluções</a> */}
-        {/* <a href="revenda.html">Seja um Revendedor</a> */}
-      </div>
-
-      <div className="block-2">
-        <div className="block-social">
-          <div>
-            <a
-              className="social-icon"
-              href="https://www.instagram.com/hype."
-            >
-              <i className="fab fa-instagram-square" />
-            </a>
-          </div>
-          <div>
-            <a
-              className="social-icon"
-              href="https://www.facebook.com/hype."
-            >
-              <i className="fab fa-facebook-square" />
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="badges">
-        <a href="https://transparencyreport.google.com/safe-browsing/search?url=hype.com.br&hl=pt_BR">
-          {/* <img src={securityNavigation} alt="navegação segura" /> */}
+        <a
+          href="mailto:rwmsousa@gmail.com"
+          _target="_blank"
+          className="link-email"
+        >
+          <FaRegEnvelope className="icon-social-media" />
         </a>
       </div>
-      <div className="block-identity">
-        <h3>Feito com amor em Curitiba/PR <span role="img" aria-label="coração">&#128151;</span>.</h3>
-        <h3>Todos os direitos reservados.</h3>
-        <h3>®Hype  .</h3>
-        <h3>CNPJ: 37.407.074/0001-57</h3>
-      </div>
-
     </div>
   );
 }
-// scrolling = 'no';
+
 export default Footer;
