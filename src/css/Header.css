@@ -3,17 +3,7 @@
   font-family: Open Sans, sans-serif;
   margin: 0;
   padding: 0;
-}
-
-@media (max-width: 400px) {
-  .logo {
-    width: 120px;
-    margin-right: 0;
-  }
-
-  .fa-shopping-cart::before {
-    font-size: 20px;
-  }
+  text-decoration: none;
 }
 
 a {
@@ -36,7 +26,11 @@ a:hover {
 }
 
 .logo {
-  max-width: 150px;
+  font-family: 'Acme', sans-serif;
+  font-size: 45px;
+  color: white;
+  margin-right: 10px;
+  width: 190px;
 }
 
 .form-control,
@@ -56,7 +50,7 @@ a:hover {
 }
 
 .fa-shopping-cart {
-  font-size: 35px;
+  font-size: 25px;
 }
 
 .fa-shopping-cart path {
@@ -75,7 +69,7 @@ a:hover {
   align-items: center;
   height: 100%;
   width: 40px;
-  margin: 15px 20px;
+  margin: 15px 5px;
 }
 
 .container-quantity-cart {
@@ -104,4 +98,15 @@ a:hover {
   justify-content: center;
   align-items: center;
   font-size: 14px;
+}
+
+@media (max-width: 400px) {
+  .logo {
+    font-size: 30px;
+    width: 120px;
+  }
+
+  .fa-shopping-cart::before {
+    font-size: 20px;
+  }
 }

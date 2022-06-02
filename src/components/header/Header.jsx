@@ -22,7 +22,7 @@ function Header() {
     <>
     <div className="header">
       <Link to="/">
-        <img src={Logo} alt="Logo Hype" className="logo" />
+        <span className="logo">Acme Inc.</span>
       </Link>
       <div className="div-search-cart">
         <HeaderSearchBar />
