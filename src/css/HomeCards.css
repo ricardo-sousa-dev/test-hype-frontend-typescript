@@ -9,7 +9,7 @@ a:hover {
     text-decoration: none;
 }
 
-.container-cards{
+.container-cards, .home-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -25,7 +25,7 @@ a:hover {
     flex-wrap: wrap;
     justify-content: center;
     /* align-content: flex-start; */
-    align-items:flex-start;
+    align-items: flex-start;
     width: auto;
     min-height: inherit;
 }

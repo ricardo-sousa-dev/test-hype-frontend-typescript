@@ -24,12 +24,14 @@ function CardsHome() {
   }, [])
 
   return (
-    <div className="container-cards">
-      <div className="cards">
-        {loading ? <Loading /> : null}
-        {resultSearchBar.length === 0 ? products.map((product) =>
-          <HomeCardProduct key={product.id} product={product} />
-        ) : null}
+    <div className="home-cards">
+      {loading ? <Loading /> : null}
+      <div className="container-cards">
+        <div className="cards">
+          {resultSearchBar.length === 0 ? products.map((product) =>
+            <HomeCardProduct key={product.id} product={product} />
+          ) : null}
+        </div>
       </div>
     </div>
   );
