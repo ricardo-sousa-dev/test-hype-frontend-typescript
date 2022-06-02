@@ -3,7 +3,7 @@ import Context from '../../context/Context';
 import { Link } from 'react-router-dom';
 import Logo from '../../images/logo-hype.png';
 import HeaderSearchBar from '../../components/header/HeaderSearchBar';
-// import HomeCardProduct from '../../components/home/HomeCardProduct';
+import HomeCardProduct from '../../components/home/HomeCardProduct';
 import '../../css/Header.css';
 import { FaCartArrowDown } from "react-icons/fa";
 
@@ -40,13 +40,13 @@ function Header() {
         </div>
       </div>
       </div>
-      {/* {resultSearchBar.length > 0 ? (
+      {resultSearchBar.length > 0 ? (
         <div className="cards">
           {resultSearchBar.map((product) => (
             <HomeCardProduct key={product.ean} product={product} />
           ))}
         </div>
-      ) : null} */}
+      ) : null}
     </>
   );
 }

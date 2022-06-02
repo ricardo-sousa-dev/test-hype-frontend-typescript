@@ -67,7 +67,7 @@ const productsGenerator = async (quantity) => {
       name: fullName,
       image: await imageGenerator(),
       description: description,
-      value: valueGenerator(fullName.toString().length, description.toString().length),
+      price: valueGenerator(fullName.toString().length, description.toString().length),
     })
   }
 

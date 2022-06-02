@@ -9,7 +9,7 @@ import {
 
 function Home() {
   return (
-    <div>
+    <div className="page-home">
       <Header />
       <HomeCards />
       <Footer />

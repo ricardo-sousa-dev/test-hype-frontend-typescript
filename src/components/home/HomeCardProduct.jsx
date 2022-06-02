@@ -16,76 +16,65 @@ function HomeCardProduct(props) {
   //   window.location.reload();
   // };
 
-  // const addToCart = () => {
+  const addToCart = () => {
 
-  //   if (!JSON.parse(localStorage.getItem('cartProducts')) || JSON.parse(localStorage.getItem('cartProducts')).length === 0) {
-  //     const setProduct = product;
-  //     setProduct.quantity = 1;
-  //     localStorage.setItem('cartProducts', JSON.stringify([ setProduct ]));
+    if (!JSON.parse(localStorage.getItem('cartProducts')) || JSON.parse(localStorage.getItem('cartProducts')).length === 0) {
+      const setProduct = product;
+      setProduct.quantity = 1;
+      localStorage.setItem('cartProducts', JSON.stringify([ setProduct ]));
 
-  //   } else {
-  //     const findProduct = JSON.parse(localStorage.getItem('cartProducts')).find(
-  //       (productFind) => productFind.sku === product.sku,
-  //     );
+    } else {
+      const findProduct = JSON.parse(localStorage.getItem('cartProducts')).find(
+        (productFind) => productFind.sku === product.sku,
+      );
 
-  //     if (!findProduct) {
-  //       console.log('entrou no if');
-  //       const setProduct = product;
-  //       setProduct.quantity = 1;
-  //       const newArray = JSON.parse(localStorage.getItem('cartProducts')).filter(
-  //         (productFilter) => productFilter.sku !== setProduct.sku,
-  //       );
-  //       newArray.push(setProduct);
-  //       localStorage.setItem('cartProducts', JSON.stringify(newArray));
+      if (!findProduct) {
+        console.log('entrou no if');
+        const setProduct = product;
+        setProduct.quantity = 1;
+        const newArray = JSON.parse(localStorage.getItem('cartProducts')).filter(
+          (productFilter) => productFilter.sku !== setProduct.sku,
+        );
+        newArray.push(setProduct);
+        localStorage.setItem('cartProducts', JSON.stringify(newArray));
 
-  //     }
-  //     if (findProduct) {
-  //       console.log('entrou no else');
-  //       const setProduct = findProduct;
-  //       setProduct.quantity += 1;
-  //       const newArray = JSON.parse(localStorage.getItem('cartProducts')).filter(
-  //         (productFilter) => productFilter.sku !== setProduct.sku,
-  //       );
-  //       newArray.push(setProduct);
-  //       localStorage.setItem('cartProducts', JSON.stringify(newArray));
-  //     }
-  //   }
-  // };
+      }
+      if (findProduct) {
+        console.log('entrou no else');
+        const setProduct = findProduct;
+        setProduct.quantity += 1;
+        const newArray = JSON.parse(localStorage.getItem('cartProducts')).filter(
+          (productFilter) => productFilter.sku !== setProduct.sku,
+        );
+        newArray.push(setProduct);
+        localStorage.setItem('cartProducts', JSON.stringify(newArray));
+      }
+    }
+  };
   return (
 
     <div className="HomeCardProduct">
-      <div className="card-content">
+      <div className="card-body">
         <img
           src={product.image}
           alt={product.name}
           className="thumbnail"
         />
-        <div className="card-body">
-          <h4 className="cardTitle">{product.name}</h4>
-          <h5>{product.value}</h5>
+        <div className="card-title">
+          <h4>{product.name}</h4>
         </div>
-        <div className="card-cart">
-          {/* <button
-            type="button"
-            onClick={addToCart}
-            className="add-to-cart"
-          > */}
-          {/* <i className="fas fa-info-circle pr-1" /> */}
-          {/* Adicionar ao Carrinho */}
-          {/* </button> */}
-          {/* <button
-            value={`${ replaceSpecialChars(product.name).concat(
-              '-',
-              product.ean,
-            ) }`}
-            type="button"
-            onClick={redirectProductDetails}
-            className="go-to-details"
-          >
-            <i className="fas fa-info-circle pr-1" />
-            Ver Detalhes
-          </button> */}
+        <div className="card-price">
+          <h4>{product.price}</h4>
         </div>
+      </div>
+      <div className="card-cart">
+        <button
+          type="button"
+          onClick={addToCart}
+          className="add-to-cart"
+        >
+          Adicionar ao Carrinho
+        </button>
       </div>
     </div>
   );

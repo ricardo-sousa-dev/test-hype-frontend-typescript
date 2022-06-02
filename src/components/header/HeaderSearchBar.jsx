@@ -6,18 +6,17 @@ import '../../css/HeaderSearchBar.css';
 function SearchBar() {
   const [searchBar, setSearchBar] = useState('');
 
-  const { resultSearchBar } = useContext(Context);
+  const { resultSearchBar, setResultSearchBar, products } = useContext(Context);
 
   const handleSearchBar = ({ target: { value } }) => {
     setSearchBar(value);
-    // const { products } = database;
-    // setResultSearchBar(
-    //   products.filter(
-    //     (product) =>
-    //       product.name.toLowerCase().includes(value.toLowerCase()) &&
-    //       value !== '',
-    //   ),
-    // );
+    setResultSearchBar(
+      products.filter(
+        (product) =>
+          product.name.toLowerCase().includes(value.toLowerCase()) &&
+          value !== '',
+      ),
+    );
   };
 
   useEffect(() => {

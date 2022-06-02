@@ -6,6 +6,7 @@ export default function LoadingSpinner() {
     <div className="spinner-container">
       <div className="loading-spinner">
       </div>
+        Carregando produtos...
     </div>
   );
 }
