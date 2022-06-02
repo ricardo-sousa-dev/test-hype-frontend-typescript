@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import '../css/CardSelectQuantityProduct.css';
 import Context from '../context/Context';
 
 function SelectQuantityProduct(props) {
   const { product } = props;
-  let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')) || [], []);
   const findProduct = localStorageCart.find(
     (productFind) => productFind.sku === product.sku,
   );

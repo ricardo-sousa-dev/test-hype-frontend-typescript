@@ -2,12 +2,11 @@ import React, { useContext } from 'react';
 import Context from '../../context/Context';
 import SelectQuantityProduct from '../CardSelectQuantityProduct';
 import '../../css/CartListProducts.css';
-import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 
 function CartListProducts() {
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const { replaceSpecialChars, setViewProductDetails } = useContext(Context);
 
   let localStorageCart =
@@ -16,7 +15,7 @@ function CartListProducts() {
   const redirectProductDetails = (url, product) => {
     setViewProductDetails(product);
     localStorage.setItem('viewProductDetails', JSON.stringify(product));
-    history.push(`/product/${ url }`);
+    navigate(`/product/${ url }`);
   };
 
   return (
@@ -34,13 +33,13 @@ function CartListProducts() {
                   product.ean,
                 ) }`, product)}
                 className="go-to-details">
-                <img
+                {/* <img
                   className="img-product-cart"
                   src={require(`../../images/products/1-${ replaceSpecialChars(
                     product.name,
                   ) }.jpeg`)}
                   alt={product.title}
-                />
+                /> */}
               </Link>
               <div className="detail-product">
                 {/* <div className="delete-product">
@@ -68,13 +67,8 @@ function CartListProducts() {
             </div>
             {localStorageCart.length > 1 ? <hr className="divisor-item" /> : null}
           </li>
-        )
-
-        )
-
-        }
-
-      </ul> : history.push("/cart")}
+        ))}
+      </ul> : navigate("/cart")}
 
     </>
   );

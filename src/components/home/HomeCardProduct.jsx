@@ -1,19 +1,19 @@
 import PropTypes from "prop-types";
 import React, { useContext } from 'react';
 import '../../css/HomeCardProduct.css';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import Context from '../../context/Context';
 
 function HomeCardProduct(props) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { product } = props;
   const { setViewProductDetails, replaceSpecialChars } = useContext(Context);
 
   const redirectProductDetails = ({ target: { value } }) => {
     setViewProductDetails(product);
     localStorage.setItem('viewProductDetails', JSON.stringify(product));
-    history.push(`/product/${ value }`);
-    location.reload();
+    navigate(`/product/${ value }`);
+    window.location.reload();
   };
 
   // const addToCart = () => {
@@ -62,13 +62,13 @@ function HomeCardProduct(props) {
         </div>
       </div> */}
       <div className="card-content">
-        <img
+        {/* <img
           src={require(`../../images/products/1-${ replaceSpecialChars(
             product.name,
           ) }.jpeg`)}
           alt={product.name}
           className="thumbnail"
-        />
+        /> */}
         <div className="card-body">
           <h4 className="cardTitle">{product.name}</h4>
         </div>

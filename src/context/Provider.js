@@ -10,7 +10,7 @@ function Provider({ children }) {
   const providerValue = {
     resultSearchBar, setResultSearchBar,
     viewProductDetails, setViewProductDetails,
-    replaceSpecialChars, totalCart, setTotalCart,
+    totalCart, setTotalCart,
   };
 
   return (

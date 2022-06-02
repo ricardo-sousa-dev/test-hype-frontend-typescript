@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Footer, CheckoutFormShipping, CheckoutMercadoPago } from '../components';
+import { Header, Footer } from '../components';
 import { Breadcrumb } from 'react-bootstrap';
 import '../css/Checkout.css';
 
@@ -13,10 +13,9 @@ function Checkout() {
         <Breadcrumb.Item active>Pagamento do Pedido</Breadcrumb.Item>
       </Breadcrumb>
 
-        <div className="checkout">
+        {/* <div className="checkout">
           <CheckoutFormShipping />
-          <CheckoutMercadoPago />
-        </div>
+        </div> */}
         
         <Footer />
     </>

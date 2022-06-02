@@ -4,7 +4,7 @@ import Context from '../context/Context';
 import Footer from '../components/Footer';
 import HomeCardProduct from '../components/home/HomeCardProduct';
 import Header from '../components/header/Header';
-import { CartPaymentMethod, CartListProducts, CartEmpt, CartShipping} from '../components';
+import { CartListProducts, CartEmpt, CartShipping} from '../components';
 import CheckoutPaymentMethod from '../components/cart/CartPaymentMethod';
 import { Breadcrumb } from 'react-bootstrap';
 import { FaCreditCard } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa

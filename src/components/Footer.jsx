@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/Footer.css';
-import securityNavigation from "../images/icons/security-navegation.jpeg";
+// import securityNavigation from "../images/icons/security-navegation.jpeg";
 
 function Footer() {
   return (
@@ -39,7 +39,7 @@ function Footer() {
       </div>
       <div className="badges">
         <a href="https://transparencyreport.google.com/safe-browsing/search?url=singelee.com.br&hl=pt_BR">
-          <img src={securityNavigation} alt="navegação segura" />
+          {/* <img src={securityNavigation} alt="navegação segura" /> */}
         </a>
       </div>
       <div className="block-identity">

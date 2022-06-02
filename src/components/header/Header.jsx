@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useMemo} from 'react';
 import Context from '../../context/Context';
 import { Link } from 'react-router-dom';
-import Logo from '../../images/logo-singelee.svg';
+// import Logo from '../../images/logo-singelee.svg';
 import HeaderSearchBar from '../../components/header/HeaderSearchBar';
 import HomeCardProduct from '../../components/home/HomeCardProduct';
 import '../../css/Header.css';
@@ -9,7 +9,7 @@ import '../../css/Header.css';
 function Header() {
   const { resultSearchBar } = useContext(Context);
 
-  let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')) || [],[]);
 
   const [ quantityProductsInCart, setQuantityProductsInCart ] = useState(0);
 
@@ -21,7 +21,7 @@ function Header() {
     <>
     <div className="header">
       <Link to="/">
-        <img src={Logo} alt="Logo Singelee" className="logo" />
+        {/* <img src={Logo} alt="Logo Singelee" className="logo" /> */}
       </Link>
       <div className="div-search-cart">
         <HeaderSearchBar />

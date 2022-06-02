@@ -1,9 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useMemo } from 'react';
 import Context from '../context/Context';
 import { Link } from 'react-router-dom';
 import { Breadcrumb } from 'react-bootstrap';
 import HomeCardProduct from '../components/home/HomeCardProduct';
-import ProductPageCarousel from '../components/ProductPageCarousel';
 import Footer from '../components/Footer';
 import '../css/ProductPage.css';
 import Header from '../components/header/Header';
@@ -16,9 +15,8 @@ function ProductPage() {
     JSON.parse(localStorage.getItem('viewProductDetails')),
   );
 
-  let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  let localStorageCart = useMemo(() =>JSON.parse(localStorage.getItem('cartProducts')) || [],[]);
 
-  const [ quantityProductsInCart, setQuantityProductsInCart ] = useState(0);
 
   const [ quantityThisInCart, setQuantityThisInCart ] = useState();
 
@@ -27,7 +25,6 @@ function ProductPage() {
       (product) => product.sku === productDetails.sku,
     );
     setQuantityThisInCart(productInCart ? productInCart.quantity : 0);
-    setQuantityProductsInCart(localStorageCart.length);
   }, [ quantityThisInCart, productDetails, localStorageCart ]);
 
   return (
@@ -58,7 +55,7 @@ function ProductPage() {
       <div className="container-details">
         <div className="product-details">
           <div className="product">
-            <ProductPageCarousel />
+            {/* <ProductPageCarousel /> */}
             <div className="product-description">
               <h3>O que você precisa saber sobre este produto</h3>
               <p className="description">{productDetails.tips}</p>

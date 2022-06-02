@@ -1,23 +1,23 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Context from '../../context/Context';
-import database from '../../services/database';
+// import database from '../../services/database';
 import '../../css/HeaderSearchBar.css';
 
 function SearchBar() {
   const [searchBar, setSearchBar] = useState('');
 
-  const { resultSearchBar, setResultSearchBar } = useContext(Context);
+  const { resultSearchBar } = useContext(Context);
 
   const handleSearchBar = ({ target: { value } }) => {
     setSearchBar(value);
-    const { products } = database;
-    setResultSearchBar(
-      products.filter(
-        (product) =>
-          product.name.toLowerCase().includes(value.toLowerCase()) &&
-          value !== '',
-      ),
-    );
+    // const { products } = database;
+    // setResultSearchBar(
+    //   products.filter(
+    //     (product) =>
+    //       product.name.toLowerCase().includes(value.toLowerCase()) &&
+    //       value !== '',
+    //   ),
+    // );
   };
 
   useEffect(() => {
