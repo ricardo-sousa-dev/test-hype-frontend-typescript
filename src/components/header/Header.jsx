@@ -1,10 +1,11 @@
-import React, { useContext, useState, useEffect, useMemo} from 'react';
+import React, { useState, useEffect, useMemo, useContext} from 'react';
 import Context from '../../context/Context';
 import { Link } from 'react-router-dom';
-// import Logo from '../../images/logo-singelee.svg';
+import Logo from '../../images/logo-hype.png';
 import HeaderSearchBar from '../../components/header/HeaderSearchBar';
-import HomeCardProduct from '../../components/home/HomeCardProduct';
+// import HomeCardProduct from '../../components/home/HomeCardProduct';
 import '../../css/Header.css';
+import { FaCartArrowDown } from "react-icons/fa";
 
 function Header() {
   const { resultSearchBar } = useContext(Context);
@@ -21,7 +22,7 @@ function Header() {
     <>
     <div className="header">
       <Link to="/">
-        {/* <img src={Logo} alt="Logo Singelee" className="logo" /> */}
+        <img src={Logo} alt="Logo Hype" className="logo" />
       </Link>
       <div className="div-search-cart">
         <HeaderSearchBar />
@@ -29,7 +30,7 @@ function Header() {
       <div className="div-cart-button">
         <div className="div-icon-button">
           <Link to="/cart" type="button" className="button-cart">
-            <i className="fas fa-shopping-cart pr-2" />
+          <FaCartArrowDown className="fa-shopping-cart"/>
           </Link>
         </div>
         <div className="container-quantity-cart">
@@ -39,13 +40,13 @@ function Header() {
         </div>
       </div>
       </div>
-      {resultSearchBar.length > 0 ? (
+      {/* {resultSearchBar.length > 0 ? (
         <div className="cards">
           {resultSearchBar.map((product) => (
             <HomeCardProduct key={product.ean} product={product} />
           ))}
         </div>
-      ) : null}
+      ) : null} */}
     </>
   );
 }

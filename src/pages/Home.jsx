@@ -11,8 +11,8 @@ function Home() {
   return (
     <div>
       <Header />
-      <HomeCards />
-      <Footer />
+      {/* <HomeCards /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

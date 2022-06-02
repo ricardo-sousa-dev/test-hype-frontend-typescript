@@ -8,7 +8,7 @@ function Footer() {
       <div className="block-1">
         <a href="index.html">Home</a>
         {/* <a href="#comprar">Como comprar</a> */}
-        {/* <a href='#'>Sobre a Singelee</a> */}
+        {/* <a href='#'>Sobre a Hype</a> */}
         {/* <a href='contato.html'>Contato</a> */}
         <a href="politica-de-privacclassNameade.html">
           Politica de Privacidade
@@ -22,7 +22,7 @@ function Footer() {
           <div>
             <a
               className="social-icon"
-              href="https://www.instagram.com/singelee.geleias"
+              href="https://www.instagram.com/hype."
             >
               <i className="fab fa-instagram-square" />
             </a>
@@ -30,7 +30,7 @@ function Footer() {
           <div>
             <a
               className="social-icon"
-              href="https://www.facebook.com/singelee.geleias"
+              href="https://www.facebook.com/hype."
             >
               <i className="fab fa-facebook-square" />
             </a>
@@ -38,17 +38,17 @@ function Footer() {
         </div>
       </div>
       <div className="badges">
-        <a href="https://transparencyreport.google.com/safe-browsing/search?url=singelee.com.br&hl=pt_BR">
+        <a href="https://transparencyreport.google.com/safe-browsing/search?url=hype.com.br&hl=pt_BR">
           {/* <img src={securityNavigation} alt="navegação segura" /> */}
         </a>
       </div>
       <div className="block-identity">
         <h3>Feito com amor em Curitiba/PR <span role="img" aria-label="coração">&#128151;</span>.</h3>
         <h3>Todos os direitos reservados.</h3>
-        <h3>®Singelee Geleias Artesanais.</h3>
+        <h3>®Hype  .</h3>
         <h3>CNPJ: 37.407.074/0001-57</h3>
       </div>
-      
+
     </div>
   );
 }
