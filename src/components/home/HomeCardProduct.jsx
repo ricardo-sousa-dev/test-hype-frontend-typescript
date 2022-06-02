@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import React, { useContext } from 'react';
 import '../../css/HomeCardProduct.css';
 import { useNavigate } from 'react-router-dom';
@@ -7,14 +7,14 @@ import Context from '../../context/Context';
 function HomeCardProduct(props) {
   const navigate = useNavigate();
   const { product } = props;
-  const { setViewProductDetails, replaceSpecialChars } = useContext(Context);
+  // const { setViewProductDetails, replaceSpecialChars } = useContext(Context);
 
-  const redirectProductDetails = ({ target: { value } }) => {
-    setViewProductDetails(product);
-    localStorage.setItem('viewProductDetails', JSON.stringify(product));
-    navigate(`/product/${ value }`);
-    window.location.reload();
-  };
+  // const redirectProductDetails = ({ target: { value } }) => {
+  //   setViewProductDetails(product);
+  //   localStorage.setItem('viewProductDetails', JSON.stringify(product));
+  //   navigate(`/product/${ value }`);
+  //   window.location.reload();
+  // };
 
   // const addToCart = () => {
 
@@ -51,9 +51,13 @@ function HomeCardProduct(props) {
   //     }
   //   }
   // };
-
+  console.log('PRODUTO: ', product.name, 
+  'Nome: ', product.name.toString().length, 
+  'Desc: ', product.description.toString().length,
+  'Valor: ', product.value);
   return (
-    <div className="HomeCardProduct" key={product.ean}>
+
+    <div className="HomeCardProduct">
       {/* <div className="div-price">
         <div className="tag-price">
           <span className="price">
@@ -62,15 +66,14 @@ function HomeCardProduct(props) {
         </div>
       </div> */}
       <div className="card-content">
-        {/* <img
-          src={require(`../../images/products/1-${ replaceSpecialChars(
-            product.name,
-          ) }.jpeg`)}
+        <img
+          src={product.image}
           alt={product.name}
           className="thumbnail"
-        /> */}
+        />
         <div className="card-body">
           <h4 className="cardTitle">{product.name}</h4>
+          <h5>{product.value}</h5>
         </div>
         <div className="card-cart">
           {/* <button
@@ -81,7 +84,7 @@ function HomeCardProduct(props) {
           {/* <i className="fas fa-info-circle pr-1" /> */}
           {/* Adicionar ao Carrinho */}
           {/* </button> */}
-          <button
+          {/* <button
             value={`${ replaceSpecialChars(product.name).concat(
               '-',
               product.ean,
@@ -92,18 +95,18 @@ function HomeCardProduct(props) {
           >
             <i className="fas fa-info-circle pr-1" />
             Ver Detalhes
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
   );
 }
 
-HomeCardProduct.propTypes = {
-  ean: PropTypes.string,
-  name: PropTypes.string,
-  price: PropTypes.number,
-  categories: PropTypes.arrayOf(PropTypes.string),
-};
+// HomeCardProduct.propTypes = {
+//   ean: PropTypes.string,
+//   name: PropTypes.string,
+//   price: PropTypes.number,
+//   categories: PropTypes.arrayOf(PropTypes.string),
+// };
 
 export default HomeCardProduct;

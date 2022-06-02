@@ -11,7 +11,7 @@ function Home() {
   return (
     <div>
       <Header />
-      {/* <HomeCards /> */}
+      <HomeCards />
       <Footer />
     </div>
   );
