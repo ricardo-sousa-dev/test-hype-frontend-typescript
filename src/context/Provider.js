@@ -6,12 +6,16 @@ function Provider({ children }) {
   const [ products, setProducts ] = useState([]);
 
   const [ resultSearchBar, setResultSearchBar ] = useState('');
+  const [ productsCart, setProductsCart ] = useState([]);
   const [ viewProductDetails, setViewProductDetails ] = useState('');
   const [ totalCart, setTotalCart ] = useState(0);
+  const [ quantityCart, setQuantityCart ] = useState(0);
 
   const providerValue = {
     products, setProducts,
     resultSearchBar, setResultSearchBar,
+    productsCart, setProductsCart,
+    quantityCart, setQuantityCart,
     viewProductDetails, setViewProductDetails,
     totalCart, setTotalCart,
   };

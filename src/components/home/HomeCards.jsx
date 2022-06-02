@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-// import PropTypes from 'prop-types';
 import Context from '../../context/Context';
 import '../../css/HomeCards.css';
 import HomeCardProduct from './HomeCardProduct';
@@ -25,20 +24,15 @@ function CardsHome() {
   }, [])
 
   return (
-    <div className="cards">
-      {loading ? <Loading /> : null}
-      {resultSearchBar.length === 0 ? products.map((product) =>
-        <HomeCardProduct key={product.id} product={product} />
-      ) : null}
+    <div className="container-cards">
+      <div className="cards">
+        {loading ? <Loading /> : null}
+        {resultSearchBar.length === 0 ? products.map((product) =>
+          <HomeCardProduct key={product.id} product={product} />
+        ) : null}
+      </div>
     </div>
   );
 }
-
-// CardsHome.propTypes = {
-//   database: PropTypes.shape({
-//     categoryProducts: PropTypes.arrayOf(PropTypes.string),
-//     products: PropTypes.arrayOf(PropTypes.object),
-//   }).isRequired,
-// };
 
 export default CardsHome;

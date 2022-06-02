@@ -9,12 +9,23 @@ a:hover {
     text-decoration: none;
 }
 
+.container-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+}
+
 .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: flex-start;
+    /* align-content: flex-start; */
+    align-items:flex-start;
     width: auto;
-    height: inherit;
-    margin-top: 30px;
+    min-height: inherit;
 }

@@ -1,4 +1,3 @@
-// import PropTypes from "prop-types";
 import React, { useContext } from 'react';
 import '../../css/HomeCardProduct.css';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +6,8 @@ import Context from '../../context/Context';
 function HomeCardProduct(props) {
   const navigate = useNavigate();
   const { product } = props;
-  // const { setViewProductDetails, replaceSpecialChars } = useContext(Context);
+
+  const { quantityCart, setQuantityCart} = useContext(Context);
 
   // const redirectProductDetails = ({ target: { value } }) => {
   //   setViewProductDetails(product);
@@ -22,10 +22,11 @@ function HomeCardProduct(props) {
       const setProduct = product;
       setProduct.quantity = 1;
       localStorage.setItem('cartProducts', JSON.stringify([ setProduct ]));
+      setQuantityCart(quantityCart + 1);
 
     } else {
       const findProduct = JSON.parse(localStorage.getItem('cartProducts')).find(
-        (productFind) => productFind.sku === product.sku,
+        (productFind) => productFind.name === product.name,
       );
 
       if (!findProduct) {
@@ -33,26 +34,27 @@ function HomeCardProduct(props) {
         const setProduct = product;
         setProduct.quantity = 1;
         const newArray = JSON.parse(localStorage.getItem('cartProducts')).filter(
-          (productFilter) => productFilter.sku !== setProduct.sku,
+          (productFilter) => productFilter.name !== setProduct.name,
         );
         newArray.push(setProduct);
         localStorage.setItem('cartProducts', JSON.stringify(newArray));
-
+        setQuantityCart(quantityCart + 1);
       }
+
       if (findProduct) {
         console.log('entrou no else');
         const setProduct = findProduct;
         setProduct.quantity += 1;
         const newArray = JSON.parse(localStorage.getItem('cartProducts')).filter(
-          (productFilter) => productFilter.sku !== setProduct.sku,
+          (productFilter) => productFilter.name !== setProduct.name,
         );
         newArray.push(setProduct);
         localStorage.setItem('cartProducts', JSON.stringify(newArray));
       }
     }
   };
-  return (
 
+  return (
     <div className="HomeCardProduct">
       <div className="card-body">
         <img
@@ -79,12 +81,5 @@ function HomeCardProduct(props) {
     </div>
   );
 }
-
-// HomeCardProduct.propTypes = {
-//   ean: PropTypes.string,
-//   name: PropTypes.string,
-//   price: PropTypes.number,
-//   categories: PropTypes.arrayOf(PropTypes.string),
-// };
 
 export default HomeCardProduct;
