@@ -2,33 +2,34 @@ import React, { useContext, useEffect, useState } from 'react';
 // import PropTypes from 'prop-types';
 import Context from '../../context/Context';
 import '../../css/HomeCards.css';
-import HomeCardProduct from './HomeCardProduct'
+import HomeCardProduct from './HomeCardProduct';
+import Loading from '../Loading';
 import productsGenerator from '../../database/dataProducts';
 
 function CardsHome() {
   const { products, setProducts } = useContext(Context);
 
-  const [ loading, setLoading ] = useState(true);
+  const [ loading, setLoading ] = useState(false);
 
   const getProducts = async () => {
     const fetchProducts = await productsGenerator(5);
     setProducts(fetchProducts);
+    setLoading(false);
   }
 
   useEffect(() => {
-
-    getProducts();
-    setLoading(false);
-    console.log(products);
+    setLoading(true);
+    if (products.length === 0) {
+      getProducts();
+    }      
   }, [])
 
   return (
-      <div className="cards">
-        {loading ? <p>Carregando...</p> : null}
-        {products.map((product) =>
+    <div className="cards">
+      {loading ? <Loading /> : null}
+      {products.map((product) =>
         <HomeCardProduct key={product.id} product={product} />
-          // <img src={product.image} alt="product" />
-        )}
+      )}
 
       {/* {database.categoryProducts.map((category) => (
         category !== 'Revenda' ?

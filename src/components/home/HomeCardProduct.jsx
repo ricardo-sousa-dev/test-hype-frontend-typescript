@@ -51,20 +51,9 @@ function HomeCardProduct(props) {
   //     }
   //   }
   // };
-  console.log('PRODUTO: ', product.name, 
-  'Nome: ', product.name.toString().length, 
-  'Desc: ', product.description.toString().length,
-  'Valor: ', product.value);
   return (
 
     <div className="HomeCardProduct">
-      {/* <div className="div-price">
-        <div className="tag-price">
-          <span className="price">
-            R$ {product.price.toString().replace('.', ',')}
-          </span>
-        </div>
-      </div> */}
       <div className="card-content">
         <img
           src={product.image}

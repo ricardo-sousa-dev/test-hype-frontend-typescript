@@ -43,13 +43,12 @@ const descriptionGenerator = async () => {
 }
 
 const valueGenerator = (nameLength, descLength) => {
-  
+
   const formatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
     minimumFractionDigits: 2,
   });
-
   const calc = Math.floor((10 + nameLength) * ((500 - descLength) / (3 - nameLength)) * -1);
 
   return formatter.format(calc);
@@ -59,8 +58,10 @@ const productsGenerator = async (quantity) => {
   const products = []
 
   for (let i = 0; i < quantity; i++) {
+
     const fullName = nameGenerator();
     const description = await descriptionGenerator();
+
     products.push({
       id: i,
       name: fullName,
@@ -69,7 +70,7 @@ const productsGenerator = async (quantity) => {
       value: valueGenerator(fullName.toString().length, description.toString().length),
     })
   }
-  console.log(products)
+
   return products;
 }
 
