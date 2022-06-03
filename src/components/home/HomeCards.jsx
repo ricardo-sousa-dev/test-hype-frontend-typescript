@@ -21,7 +21,7 @@ function CardsHome() {
     setLoading(true);
     if (!localStorage.getItem('products')) {
       getProducts();
-    }else{
+    } else {
       setProducts(JSON.parse(localStorage.getItem('products')));
       setLoading(false);
     }
