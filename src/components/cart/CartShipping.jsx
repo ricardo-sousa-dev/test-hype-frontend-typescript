@@ -7,7 +7,7 @@ function CartEmpt() {
       <h2>Envio:</h2>
       <div className="cart-shipping-details">
         <div className="shipping-company">
-          <input type="radio" name="correios" value="correios" checked />
+          <input type="radio" name="correios" value="correios" defaultChecked />
           <label htmlFor="correios">Correios</label>
         </div>
         <div className="shipping-infos">

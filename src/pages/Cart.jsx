@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Context from '../context/Context';
 import Footer from '../components/Footer';
-import HomeCardProduct from '../components/home/HomeCardProduct';
 import Header from '../components/header/Header';
 import { CartListProducts, CartEmpt, CartShipping} from '../components';
 import CheckoutPaymentMethod from '../components/cart/CartPaymentMethod';
@@ -11,13 +10,10 @@ import '../css/Cart.css';
 
 function Cart() {
   let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  const totalCartStorage = localStorage.getItem('totalCart') || 0;
 
   const {totalCart} = useContext(Context);
-
-  useEffect(() => {
-    localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
-  }, [ localStorageCart ]);
-
+ 
   return (
     <div className="cart">
       <Header />
@@ -34,15 +30,15 @@ function Cart() {
           <div className="cart-finalize-payment">
             <CartShipping />
             <CheckoutPaymentMethod />
-            <h2 className="cart-total">Total: R$ {totalCart}</h2>
+            <h2 className="cart-total">Total: {totalCart || totalCartStorage }</h2>
             <Link type="button" to="/checkout" className="go-to-checkout">
               <FaCreditCard />
               <span className="text-button">Finalizar Compra</span>
             </Link>
-            <Link type="button" to="/" className="go-to-shopping">
+            <a type="button" to="/" className="go-to-shopping">
               <i className="fas fa-shopping-bag" />
               <span>Continuar comprando</span>
-            </Link>
+            </a>
           </div>
         </div> : <CartEmpt />}
       <Footer />

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function CartListProducts() {
 
   const navigate = useNavigate();
-  const { setViewProductDetails } = useContext(Context);
+  const { setViewProductDetails, productsCart } = useContext(Context);
 
   let localStorageCart =
     JSON.parse(localStorage.getItem('cartProducts')) || [];
@@ -19,9 +19,9 @@ function CartListProducts() {
     navigate(`/product/${ url }`);
   };
 
-  useEffect(() => {
-    setCartProducts(localStorageCart);
-  }, [ localStorageCart ]);
+  // useEffect(() => {
+  //   setCartProducts(localStorageCart);
+  // }, [ localStorageCart ]);
 
   return (
     <div className="cart-list-products">
