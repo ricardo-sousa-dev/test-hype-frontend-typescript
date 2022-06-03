@@ -1,13 +1,13 @@
-import PropTypes from "prop-types";
 import React, { useState, useEffect, useContext, useMemo } from 'react';
 import '../css/CardSelectQuantityProduct.css';
 import Context from '../context/Context';
+import formatCoin from '../utils/formatCoin';
 
 function SelectQuantityProduct(props) {
   const { product } = props;
-  let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')) || [], []);
+  let localStorageCart =JSON.parse(localStorage.getItem('cartProducts')) || [];
   const findProduct = localStorageCart.find(
-    (productFind) => productFind.sku === product.sku,
+    (productFind) => productFind.name === product.name,
   );
   const [ quantityInCart, setQuantityInCart ] = useState();
   const [ sumPriceProduct, setSumPriceProduct ] = useState();
@@ -20,7 +20,7 @@ function SelectQuantityProduct(props) {
       const element = localStorageCart[ index ];
       arrayPricesCart.push(element.price * element.quantity);
     }
-    const totalPriceCart = ((arrayPricesCart.reduce((a, b) => a + b, 0)) + 20).toFixed(2).replace('.', ',')
+    const totalPriceCart = (formatCoin((arrayPricesCart.reduce((a, b) => a + b, 0)) + 20))
     setTotalCart(totalPriceCart);
     localStorage.setItem('totalPriceCart', JSON.stringify(totalPriceCart));
 
@@ -28,12 +28,13 @@ function SelectQuantityProduct(props) {
 
   useEffect(() => {
     const productInCart = localStorageCart.find(
-      (productCart) => productCart.sku === product.sku,
+      (productCart) => productCart.name === product.name,
     );
     setQuantityInCart(productInCart ? productInCart.quantity : 0);
+
     setSumPriceProduct(
       productInCart
-        ? (productInCart.quantity * product.price).toFixed(2).replace('.', ',')
+        ? formatCoin((productInCart.quantity * Number(product.price.slice(3,-3))))
         : 0,
     );
   }, [ quantityInCart, sumPriceProduct, localStorageCart, product ]);
@@ -41,8 +42,10 @@ function SelectQuantityProduct(props) {
   const decrementCart = () => {
    if(findProduct){
     if (findProduct.quantity === 1) {
-      localStorageCart.splice(localStorageCart.indexOf(findProduct), 1);
-      localStorage.setItem('cartProducts', JSON.stringify(localStorageCart));
+      const newArray = localStorageCart.filter(
+        (productCart) => productCart.name !== product.name,
+      );
+      localStorage.setItem('cartProducts', JSON.stringify(newArray));
       setQuantityInCart(0);
       setSumPriceProduct(0);
     } else if (findProduct.quantity > 0) {
@@ -100,17 +103,10 @@ function SelectQuantityProduct(props) {
         </button>
       </div>
       <div className="total-product">
-        {sumPriceProduct !== 0 ? <span>R$ {sumPriceProduct}</span>: null}
+        {sumPriceProduct !== 0 ? <span>{sumPriceProduct}</span>: null}
       </div>
     </div>
   );
 }
-
-SelectQuantityProduct.propTypes = {
-  product: PropTypes.shape({
-    price: PropTypes.number,
-    sku: PropTypes.any,
-  }),
-};
 
 export default SelectQuantityProduct;

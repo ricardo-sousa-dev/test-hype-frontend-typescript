@@ -1,4 +1,5 @@
 import axios from 'axios';
+import formatCoin from '../utils/formatCoin';
 
 const allowedVerbs = [ "Armário", "Navio", "Mala", "Base", "Hidroavião", "Revista", "Carretel", "Minissaia", "Tamborim",
   "Andador", "Geladeira", "Estátua", "Rolo", "Crachá", "Peneira", "Bafômetro", "Desentupidor",
@@ -43,15 +44,9 @@ const descriptionGenerator = async () => {
 }
 
 const valueGenerator = (nameLength, descLength) => {
-
-  const formatter = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-  });
   const calc = Math.floor((10 + nameLength) * ((500 - descLength) / (3 - nameLength)) * -1);
 
-  return formatter.format(calc);
+  return formatCoin(calc);
 }
 
 const productsGenerator = async (quantity) => {

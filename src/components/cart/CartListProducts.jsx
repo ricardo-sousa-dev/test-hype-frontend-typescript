@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState} from 'react';
 import Context from '../../context/Context';
 import SelectQuantityProduct from '../CardSelectQuantityProduct';
 import '../../css/CartListProducts.css';
@@ -11,6 +11,7 @@ function CartListProducts() {
 
   let localStorageCart =
     JSON.parse(localStorage.getItem('cartProducts')) || [];
+  const [ cartProducts, setCartProducts ] = useState(localStorageCart);
 
   const redirectProductDetails = (url, product) => {
     setViewProductDetails(product);
@@ -18,56 +19,39 @@ function CartListProducts() {
     navigate(`/product/${ url }`);
   };
 
+  useEffect(() => {
+    setCartProducts(localStorageCart);
+  }, [ localStorageCart ]);
+
   return (
     <>
       <h2>Produtos:</h2>
-      {/* {localStorage.length > 0 ? <ul>
-        {localStorageCart.map((product) =>
+      {cartProducts.length > 0 ? <ul>
+        {cartProducts.map((product) =>
         (
-          <li className="li-product-cart" key={product.sku}>
+          <li className="li-product-cart" key={product.id}>
             <div className="info-product">
-              <Link
-                type="button"
-                onClick={() => redirectProductDetails(`${ replaceSpecialChars(product.name).concat(
-                  '-',
-                  product.name,
-                ) }`, product)}
-                className="go-to-details"> */}
-                {/* <img
-                  className="img-product-cart"
-                  src={require(`../../images/products/1-${ replaceSpecialChars(
-                    product.name,
-                  ) }.jpeg`)}
-                  alt={product.title}
-                /> */}
-              {/* </Link> */}
+              <img
+                className="img-product-cart"
+                src={product.image}
+                alt={product.name}
+              />
               <div className="detail-product">
-                {/* <div className="delete-product">
-                <button>
-                  <i className="far fa-trash-alt" />
-                </button>
-              </div> */}
                 <div className="name-product-cart">
-                  {/* <Link
-                    onClick={() => redirectProductDetails(`${ replaceSpecialChars(product.name).concat(
-                      '-',
-                      product.ean,
-                    ) }`, product)}>
-                    <h3>{product.name}</h3>
-                  </Link> */}
+                  <h3>{product.name}</h3>
                 </div>
                 <p className="price-product-cart">
-                  {/* Preço: R$ {product.price.toFixed(2).replace('.', ',')} */}
+                  Preço: {product.price}
                 </p>
                 <div className="sum-product-quantity-value">
-                  {/* <SelectQuantityProduct key={product.name} product={product} /> */}
+                  <SelectQuantityProduct key={product.name} product={product} />
                 </div>
               </div>
-            {/* </div> */}
-            {localStorageCart.length > 1 ? <hr className="divisor-item" /> : null}
-          {/* </li> */}
-        {/* ))} */}
-      {/* </ul> : navigate("/cart")} */}
+            </div>
+            {cartProducts.length > 1 ? <hr className="divisor-item" /> : null}
+          </li>
+        ))}
+      </ul> : navigate("/cart")}
 
     </>
   );
