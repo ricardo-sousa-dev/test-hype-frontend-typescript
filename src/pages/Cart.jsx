@@ -33,9 +33,7 @@ function Cart() {
           </div>
           <div className="cart-finalize-payment">
             <CartShipping />
-            <hr />
             <CheckoutPaymentMethod />
-            <hr />
             <h2 className="cart-total">Total: R$ {totalCart}</h2>
             <Link type="button" to="/checkout" className="go-to-checkout">
               <FaCreditCard />

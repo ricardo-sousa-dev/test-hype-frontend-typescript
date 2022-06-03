@@ -20,6 +20,7 @@ function CartEmpt() {
           </div>
         </div>
       </div>
+      <hr />
     </div>
   );
 }

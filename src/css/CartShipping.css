@@ -18,6 +18,7 @@
   flex-wrap: wrap;
   align-self: flex-start;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .shipping-infos {
