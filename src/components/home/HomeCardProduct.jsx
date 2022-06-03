@@ -14,13 +14,9 @@ function HomeCardProduct(props) {
   const { quantityCart, setQuantityCart } = useContext(Context);
 
   useEffect(() => {
-    if (favorites.length > 0) {
-      favorites.map((favorite) => {
-        if (favorite.id === product.id) {
-          setIsFavorite(true);
-        }
-      }
-      )
+    if (favorites && favorites.length > 0) {
+      const isFavorite = favorites.find((favorite) => favorite.id === product.id);
+      setIsFavorite(!!isFavorite);
     }
   }, [ favorites ]);
 

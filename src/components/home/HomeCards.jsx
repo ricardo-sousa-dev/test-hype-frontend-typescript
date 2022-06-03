@@ -6,7 +6,7 @@ import Loading from '../Loading';
 import productsGenerator from '../../database/dataProducts';
 
 function CardsHome() {
-  const { products, setProducts, resultSearchBar } = useContext(Context);
+  const { products, setProducts, resultSearchBar, searchBar } = useContext(Context);
 
   const [ loading, setLoading ] = useState(false);
 
@@ -33,9 +33,9 @@ function CardsHome() {
       {loading ? <Loading /> : null}
       <div className="container-cards">
         <div className="cards">
-          {resultSearchBar.length === 0 ? products.map((product) =>
-            <HomeCardProduct key={product.id} product={product} />
-          ) : null}
+          {resultSearchBar.length === 0 ?
+            products.map((product) =>
+              <HomeCardProduct key={product.id} product={product} />):null}
         </div>
       </div>
     </div>
