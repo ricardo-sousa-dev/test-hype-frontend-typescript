@@ -30,6 +30,9 @@
 .shipping-company {
   width: 350px;
 }
+.shipping-company input{
+  margin-right: 10px;
+}
 
 .shipping-company p {
   font-size: 16px;

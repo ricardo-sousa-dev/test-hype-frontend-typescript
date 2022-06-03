@@ -7,7 +7,8 @@ function CartEmpt() {
       <h2>Envio:</h2>
       <div className="cart-shipping-details">
         <div className="shipping-company">
-          <p>Correios</p>
+          <input type="radio" name="correios" value="correios" checked />
+          <label htmlFor="correios">Correios</label>
         </div>
         <div className="shipping-infos">
           <div className="shipping-timing">
@@ -16,11 +17,6 @@ function CartEmpt() {
           </div>
           <div className="shipping-price">
             <p>R$ 20,00</p>
-          </div>
-          <div className="shipping-select">
-            <button>
-              <i className="fas fa-check-square" />
-            </button>
           </div>
         </div>
       </div>

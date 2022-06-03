@@ -82,17 +82,3 @@ h2 {
   cursor: pointer;
   border: none;
 }
-
-/* 
-.delete-product {
-  position: absolute;
-  width: 260px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-
-.delete-product button {
-  border: none;
-  margin-right: 5px;
-} */
