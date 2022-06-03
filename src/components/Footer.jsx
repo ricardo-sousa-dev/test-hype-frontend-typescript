@@ -11,28 +11,30 @@ function Footer() {
         Developed by Ricardo Sousa
       </div>
       <div className="social-media">
-        <Link
-          to="https://github.com/ricardo-sousa-dev"
+        <a
+          href="https://github.com/ricardo-sousa-dev"
+          target="_blank"
           className="link-github"
         >
           <FaGithub className="icon-social-media" />
-        </Link>
-        <Link
-          to="https://www.linkedin.com/in/rwmsousa/"
+        </a>
+        <a
+          href="https://www.linkedin.com/in/rwmsousa/"
+          target="_blank"
           className="link-linkedin"
         >
           <GrLinkedin className="icon-social-media" />
-        </Link>
+        </a>
         <a
           href="https://wa.me/5541987181564"
-          _target="_blank"
+          target="_blank"
           className="link-whatsapp"
         >
           <FaWhatsapp className="icon-social-media" />
         </a>
         <a
           href="mailto:rwmsousa@gmail.com"
-          _target="_blank"
+          target="_blank"
           className="link-email"
         >
           <FaRegEnvelope className="icon-social-media" />
