@@ -21,10 +21,10 @@ function Cart() {
   return (
     <div className="cart">
       <Header />
-     <div className="breadcrumb">
-        <a href="/">Home</a>
+     <div className="route-page">
+        <a href="/" className="route-link">Home</a>
         <span>/</span>
-        <a active>Carrinho de Compras</a>
+        <a className="route-link-current">Carrinho de Compras</a>
      </div>
       {localStorageCart.length > 0 ?
         <div className="cart-container">
@@ -45,16 +45,6 @@ function Cart() {
               <i className="fas fa-shopping-bag" />
               <span>Continuar comprando</span>
             </Link>
-          </div>
-          <div className="div-other-products">
-            <h3>Veja outros produtos</h3>
-            {/* <div className="other-products">
-              {database.products.map((product) =>
-                product.categories.some((cat) => cat === 'Para presente') ? (
-                  <HomeCardProduct key={product.ean} product={product} />
-                ) : null,
-              )}
-            </div> */}
           </div>
         </div> : <CartEmpt />}
       <Footer />

@@ -4,13 +4,14 @@ body {
   padding: 0;
 }
 
-.page-home{
+.page-home {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   min-height: 900px;
 }
+
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
