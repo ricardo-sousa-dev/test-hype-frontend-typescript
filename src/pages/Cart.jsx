@@ -11,7 +11,7 @@ import { FaCreditCard } from "react-icons/fa"; //https://react-icons.github.io/r
 import '../css/Cart.css';
 
 function Cart() {
-  const { totalCart, database } = useContext(Context);
+  // const { totalCart, database } = useContext(Context);
   let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
 
   return (
@@ -31,7 +31,7 @@ function Cart() {
             <hr />
             <CheckoutPaymentMethod />
             <hr />
-            <h2 className="cart-total">Total: R$ {totalCart}</h2>
+            {/* <h2 className="cart-total">Total: R$ {totalCart}</h2> */}
             <Link type="button" to="/checkout" className="go-to-checkout">
               <FaCreditCard />
               <span className="text-button">Finalizar Compra</span>
@@ -43,13 +43,13 @@ function Cart() {
           </div>
           <div className="div-other-products">
             <h3>Veja outros produtos</h3>
-            <div className="other-products">
+            {/* <div className="other-products">
               {database.products.map((product) =>
                 product.categories.some((cat) => cat === 'Para presente') ? (
                   <HomeCardProduct key={product.ean} product={product} />
                 ) : null,
               )}
-            </div>
+            </div> */}
           </div>
         </div> : <CartEmpt />}
       <Footer />

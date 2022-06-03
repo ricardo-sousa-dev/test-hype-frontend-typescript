@@ -13,14 +13,19 @@ function CardsHome() {
   const getProducts = async () => {
     const fetchProducts = await productsGenerator(10);
     setProducts(fetchProducts);
+    localStorage.setItem('products', JSON.stringify(fetchProducts));
     setLoading(false);
   }
 
   useEffect(() => {
     setLoading(true);
-    if (products.length === 0) {
+    if (!localStorage.getItem('products')) {
       getProducts();
+    }else{
+      setProducts(JSON.parse(localStorage.getItem('products')));
+      setLoading(false);
     }
+
   }, [])
 
   return (

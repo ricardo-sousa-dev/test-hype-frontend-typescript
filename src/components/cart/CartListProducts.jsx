@@ -21,7 +21,7 @@ function CartListProducts() {
   return (
     <>
       <h2>Produtos:</h2>
-      {localStorage.length > 0 ? <ul>
+      {/* {localStorage.length > 0 ? <ul>
         {localStorageCart.map((product) =>
         (
           <li className="li-product-cart" key={product.sku}>
@@ -30,9 +30,9 @@ function CartListProducts() {
                 type="button"
                 onClick={() => redirectProductDetails(`${ replaceSpecialChars(product.name).concat(
                   '-',
-                  product.ean,
+                  product.name,
                 ) }`, product)}
-                className="go-to-details">
+                className="go-to-details"> */}
                 {/* <img
                   className="img-product-cart"
                   src={require(`../../images/products/1-${ replaceSpecialChars(
@@ -40,7 +40,7 @@ function CartListProducts() {
                   ) }.jpeg`)}
                   alt={product.title}
                 /> */}
-              </Link>
+              {/* </Link> */}
               <div className="detail-product">
                 {/* <div className="delete-product">
                 <button>
@@ -48,27 +48,26 @@ function CartListProducts() {
                 </button>
               </div> */}
                 <div className="name-product-cart">
-                  <Link
+                  {/* <Link
                     onClick={() => redirectProductDetails(`${ replaceSpecialChars(product.name).concat(
                       '-',
                       product.ean,
                     ) }`, product)}>
                     <h3>{product.name}</h3>
-                  </Link>
+                  </Link> */}
                 </div>
-                <p className="sku-product-cart">SKU: {product.sku}</p>
                 <p className="price-product-cart">
-                  Preço: R$ {product.price.toFixed(2).replace('.', ',')}
+                  {/* Preço: R$ {product.price.toFixed(2).replace('.', ',')} */}
                 </p>
                 <div className="sum-product-quantity-value">
-                  <SelectQuantityProduct key={product.sku} product={product} />
+                  {/* <SelectQuantityProduct key={product.name} product={product} /> */}
                 </div>
               </div>
-            </div>
+            {/* </div> */}
             {localStorageCart.length > 1 ? <hr className="divisor-item" /> : null}
-          </li>
-        ))}
-      </ul> : navigate("/cart")}
+          {/* </li> */}
+        {/* ))} */}
+      {/* </ul> : navigate("/cart")} */}
 
     </>
   );

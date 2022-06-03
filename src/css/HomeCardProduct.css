@@ -32,20 +32,31 @@ a:hover {
   max-height: 100px;
 }
 
-.thumbnail:hover,
-.thumbnail:focus {
-  transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  -moz-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -o-transform: scale(1.5);
+.icon-heart{
+  font-size: 20px;
+  position: absolute;
+  width: 156px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5px;
+  padding-top: 5px;
+  color: rgba(128, 128, 128, 0.55)
 }
+
+.icon-heart button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 30px;
+  height: 30px;
+}
+
 
 .card-body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;;
   padding: 0;
   margin-bottom: 10px;
 }

@@ -7,13 +7,13 @@ import '../../css/Header.css';
 import { FaCartArrowDown } from "react-icons/fa";
 
 function Header() {
-  const { resultSearchBar,  quantityCart, setQuantityCart } = useContext(Context);
+  const { resultSearchBar, quantityCart, setQuantityCart } = useContext(Context);
 
   let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
 
   useEffect(() => {
     setQuantityCart(localStorageCart.length);
-  }, [ localStorageCart]);
+  }, [ localStorageCart ]);
 
   return (
     <>
@@ -24,18 +24,18 @@ function Header() {
         <div className="div-search-cart">
           <HeaderSearchBar />
         </div>
-        <div className="div-cart-button">
-          <div className="div-icon-button">
-            <Link to="/cart" type="button" className="button-cart">
+        <Link to="/cart" type="button" className="button-cart">
+          <div className="div-cart-button">
+            <div className="div-icon-button">
               <FaCartArrowDown className="fa-shopping-cart" />
-            </Link>
+            </div>
+            <div className="container-quantity-cart">
+              {localStorageCart.length !== 0 ? <div className="quantity-products-cart">
+                {quantityCart}
+              </div> : null}
+            </div>
           </div>
-          <div className="container-quantity-cart">
-            {localStorageCart.length !== 0 ? <div className="quantity-products-cart">
-              {quantityCart}
-            </div> : null}
-          </div>
-        </div>
+        </Link>
       </div>
       {resultSearchBar.length > 0 ? (
         <div className="cards">
