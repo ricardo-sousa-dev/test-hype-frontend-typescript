@@ -19,16 +19,12 @@ function CartListProducts() {
     navigate(`/product/${ url }`);
   };
 
-  // useEffect(() => {
-  //   setCartProducts(localStorageCart);
-  // }, [ localStorageCart ]);
-
   return (
     <div className="cart-list-products">
       <h2>Produtos:</h2>
       <div className="list-products">
-        {cartProducts.length > 0 ? <ul>
-          {cartProducts.map((product) =>
+        {localStorageCart.length > 0 ? <ul>
+          {localStorageCart.map((product) =>
           (
             <li className="li-product-cart" key={product.id}>
               <div className="info-product">

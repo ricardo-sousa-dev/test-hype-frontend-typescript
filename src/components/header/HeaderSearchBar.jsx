@@ -14,7 +14,7 @@ function SearchBar() {
   const handleSearchBar = ({ target: { value } }) => {
     setSearchBar(value);
     value === '' ? setEmptyResult(false) : setEmptyResult(true);
-    
+
     const productsFiltered = products.filter((product) =>
       product.name.toLowerCase().includes(value.toLowerCase()) &&
       value !== '',
@@ -34,22 +34,27 @@ function SearchBar() {
   };
 
   const handleFavorites = () => {
-    setSelectedFavorite(!selectedFavorite);
     const favorites = JSON.parse(localStorage.getItem('favorites'));
+    setSelectedFavorite(!selectedFavorite);
 
     if (selectedFavorite) {
       if (!favorites || favorites.length === 0) {
+        console.log('ENTROU NO IF FAVORITES')
+        document.getElementById('favorites').checked = false;
+
         setTimeout(() => {
           setEmptyFavorites(false);
         }, 5000);
+
         setEmptyFavorites(true);
+        setResultSearchBar(products);
 
       } else {
         setEmptyFavorites(false);
         setResultSearchBar(favorites);
       }
-
-    } else {
+    }
+    else {
       setResultSearchBar(products);
     }
   }
@@ -74,8 +79,11 @@ function SearchBar() {
           {emptyResult ? <div className="message">Nenhum resultado encontrado!</div> : null}
         </div>
       </div>
-      <input type="checkbox" id="favorites" className="favorites" onClick={handleFavorites} />
-      <label htmlFor="favorites" className="favorites-label">Favoritos</label>
+
+      <div className="select-favorites">
+        <input type="checkbox" id="favorites" className="favorites" onClick={handleFavorites} />
+        <label htmlFor="favorites" className="favorites-label">Favoritos</label>
+      </div>
     </div>
   );
 }

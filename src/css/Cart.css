@@ -12,10 +12,6 @@
   min-height: 900px;
 }
 
-a:hover {
-  background-color: transparent;
-}
-
 .route-page {
   padding: 20px;
   display: flex;
@@ -79,7 +75,28 @@ a:hover {
   margin-left: 10px;
 }
 
+.go-to-checkout, .go-to-shopping {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 335px;
+    padding: 0;
+    border: 1px solid #353E52;;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: rgba(0, 128, 0, 0.683);
+    margin-top: 15px;
+}
+.go-to-shopping{
+  background-color: #353e5292;
+  margin-bottom: 20px;
+}
+
 .text-button {
+  display: flex;
+  justify-content: center;
+  color: #fff;
   margin-left: 10px;
 }
 
