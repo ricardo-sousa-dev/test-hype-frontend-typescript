@@ -9,7 +9,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 900px;
+  min-height: 100vh;
 }
 
 ::-webkit-scrollbar {

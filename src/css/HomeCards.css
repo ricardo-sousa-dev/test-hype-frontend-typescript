@@ -13,8 +13,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-self: stretch;
-    max-width: 1200px;
-    min-height: 700px;
+    position: relative;
 }
 
 .home-cards {

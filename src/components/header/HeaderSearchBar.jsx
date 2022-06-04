@@ -39,7 +39,6 @@ function SearchBar() {
 
     if (selectedFavorite) {
       if (!favorites || favorites.length === 0) {
-        console.log('ENTROU NO IF FAVORITES')
         document.getElementById('favorites').checked = false;
 
         setTimeout(() => {
@@ -74,6 +73,7 @@ function SearchBar() {
             placeholder='Buscar produto...'
           />
         </div>
+
         <div className="div-messages">
           {emptyFavorites ? <div className="message">Você não tem produtos favoritos!</div> : null}
           {emptyResult ? <div className="message">Nenhum resultado encontrado!</div> : null}

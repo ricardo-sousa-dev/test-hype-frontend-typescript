@@ -40,7 +40,7 @@ function Header() {
       {resultSearchBar.length > 0 ? (
         <div className="cards">
           {resultSearchBar.map((product) => (
-            <HomeCardProduct key={product.ean} product={product} />
+            <HomeCardProduct key={product.id} product={product} />
           ))}
         </div>
       ) : null}

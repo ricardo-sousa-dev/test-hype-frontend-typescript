@@ -117,7 +117,7 @@ function ProductPage() {
             {database.products.map((product) =>
               product.ean !== productDetails.ean &&
                 product.categories.some((cat) => cat === 'Para presente') ? (
-                <HomeCardProduct key={product.ean} product={product} />
+                <HomeCardProduct key={product.id} product={product} />
               ) : null,
             )}
           </div>
