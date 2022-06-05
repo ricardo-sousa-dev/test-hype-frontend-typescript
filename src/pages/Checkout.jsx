@@ -1,24 +1,30 @@
 import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { HeaderGeneric, Footer } from '../components';
-import { Breadcrumb } from 'react-bootstrap';
 import '../css/Checkout.css';
 
 function Checkout() {
+  const { state } = useLocation();
+  const { sale } = state || {};
+
   return (
-    <>
+    <div className="checkout">
       <HeaderGeneric />
 
-      <Breadcrumb className="breadcrumb">
-        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item active>Pagamento do Pedido</Breadcrumb.Item>
-      </Breadcrumb>
+      <div className="route-page">
+        <Link to="/" className="route-link">Home</Link>
+        <span>/</span>
+        <span className="route-link-current">Checkout</span>
+      </div>
+      <div className="sale">
+      <h1>Resultado do Desafio</h1>
+        <pre>
+          {JSON.stringify(sale, null, 4)}
+        </pre>
+      </div>
 
-        {/* <div className="checkout">
-          <CheckoutFormShipping />
-        </div> */}
-        
-        <Footer />
-    </>
+      <Footer />
+    </div>
   );
 }
 

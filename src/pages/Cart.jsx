@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Context from '../context/Context';
 import Footer from '../components/Footer';
@@ -16,8 +16,19 @@ function Cart() {
 
   const { totalCart } = useContext(Context);
 
+  const [ paymentMethod, setPaymentMethod ] = useState('pix');
+  const [ shippingMethod, setShippingMethod ] = useState('correios');
+
+  const sale = {
+    client: 'Hype',
+    products: localStorageCart,
+    paymentMethod: paymentMethod,
+    shippingMethod: shippingMethod,
+    total: totalCartStorage
+  }
+
   const goCheckout = () => {
-    navigate('/checkout');
+    navigate('/checkout', { state: { sale } });
   }
 
   return (
@@ -35,7 +46,7 @@ function Cart() {
           </div>
           <div className="cart-finalize-payment">
             <CartShipping />
-            <CheckoutPaymentMethod />
+            <CheckoutPaymentMethod method={setPaymentMethod} />
             <h2 className="cart-total">Total: {totalCart || totalCartStorage}</h2>
             <button type="button" onClick={() => goCheckout()} className="go-to-cart">
               <span className="text-button">
