@@ -18,7 +18,7 @@ function SelectQuantityProduct(props) {
     const arrayPricesCart = [];
     for (let index = 0; index < localStorageCart.length; index++) {
       const element = localStorageCart[ index ];
-      arrayPricesCart.push(Number(element.price.slice(3, -3)) * element.quantity);
+      arrayPricesCart.push(element.price * element.quantity);
     }
     const totalPriceCart = (formatCoin((arrayPricesCart.reduce((a, b) => a + b, 0)) + 20))
     setTotalCart(totalPriceCart);
@@ -29,7 +29,7 @@ function SelectQuantityProduct(props) {
     const productInCart = localStorageCart.find((productCart) => productCart.name === product.name);
     setQuantityInCart(productInCart ? productInCart.quantity : 0);
     setSumPriceProduct(
-      productInCart ? formatCoin((productInCart.quantity * Number(product.price.slice(3, -3)))) : 0);
+      productInCart ? formatCoin(productInCart.quantity * product.price) : 0);
   }, [ quantityInCart, sumPriceProduct, localStorageCart, product ]);
 
   const decrementCart = () => {

@@ -23,6 +23,16 @@ h2 {
   margin: 10px 0;
 }
 
+.product-detail-cart{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: start;
+  text-decoration: none;
+  border:none;
+  background-color: transparent;
+}
+
 .li-product-cart {
   display: flex;
   flex-direction: column;
@@ -56,6 +66,7 @@ h2 {
 }
 
 .name-product-cart h3 {
+  text-align: left;
   margin-bottom: 0;
   font-size: 16px;
 }

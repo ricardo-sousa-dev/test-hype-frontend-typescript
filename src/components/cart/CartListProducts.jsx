@@ -3,6 +3,7 @@ import Context from '../../context/Context';
 import SelectQuantityProduct from '../CardSelectQuantityProduct';
 import '../../css/CartListProducts.css';
 import { useNavigate } from 'react-router-dom';
+import formatCoin from '../../utils/formatCoin';
 
 function CartListProducts() {
 
@@ -13,10 +14,10 @@ function CartListProducts() {
     JSON.parse(localStorage.getItem('cartProducts')) || [];
   const [ cartProducts, setCartProducts ] = useState(localStorageCart);
 
-  const redirectProductDetails = (url, product) => {
+  const redirectProductDetails = (product) => {
     setViewProductDetails(product);
     localStorage.setItem('viewProductDetails', JSON.stringify(product));
-    navigate(`/product/${ url }`);
+    navigate(`/product/${ product.id }`);
   };
 
   return (
@@ -28,18 +29,28 @@ function CartListProducts() {
           (
             <li className="li-product-cart" key={product.id}>
               <div className="info-product">
-                <img
-                  className="img-product-cart"
-                  src={product.image}
-                  alt={product.name}
-                />
+                <button
+                  className="product-detail-cart"
+                  type="button"
+                  onClick={()=>redirectProductDetails(product)}>
+                  <img
+                    className="img-product-cart"
+                    src={product.image}
+                    alt={product.name}
+                  />
+                </button>
                 <div className="detail-product">
-                  <div className="name-product-cart">
-                    <h3>{product.name}</h3>
-                  </div>
-                  <p className="price-product-cart">
-                    Preço: {product.price}
-                  </p>
+                  <button
+                    className="product-detail-cart"
+                    type="button"
+                    onClick={()=>redirectProductDetails(product)}>
+                    <div className="name-product-cart">
+                      <h3>{product.name}</h3>
+                    </div>
+                    <p className="price-product-cart">
+                      Preço: {formatCoin(product.price)}
+                    </p>
+                  </button>
                   <div className="sum-product-quantity-value">
                     <SelectQuantityProduct key={product.name} product={product} />
                   </div>

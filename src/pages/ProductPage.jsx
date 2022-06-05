@@ -6,6 +6,7 @@ import '../css/ProductPage.css';
 import HeaderGeneric from '../components/header/HeaderGeneric';
 import SelectQuantityProduct from '../components/CardSelectQuantityProduct';
 import { FaCartArrowDown, FaCreditCard } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
+import formatCoin from '../utils/formatCoin';
 
 function ProductPage() {
   const { viewProductDetails } = useContext(Context);
@@ -28,7 +29,7 @@ function ProductPage() {
             <div className="product-details">
               <h1 className="product-detail-name">{product.name}</h1>
               <h4 className="product-description">{product.description}</h4>
-              <h3 className="product-price">{product.price}</h3>
+              <h3 className="product-price">{formatCoin(product.price)}</h3>
               <h6 className="product-avaliable">Estoque disponível</h6>
               <hr />
               <h6 className="add-cart">Adicionar ao Carrinho</h6>
