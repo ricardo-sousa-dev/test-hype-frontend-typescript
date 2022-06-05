@@ -1,0 +1,66 @@
+# Versão do Docker Compose (ver documentação do Docker Compose)
+version: '3.8'
+
+services:
+  front:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: hype-frontend
+    container_name: hype-frontend
+    volumes:
+      - frontend-data:/usr/app
+    ports:
+      - "3000:3000"
+    networks:
+      - frontend
+    command: npm start
+
+networks:
+    # Define o tipo de rede que será utilizado. Bridge é ponte entre os containers
+    frontend:
+        driver: bridge
+   
+volumes:
+    # Define o tipo de volume que será utilizado. Bind é um volume de um container para outro. Local é um volume local no container.
+    frontend-data:
+      driver: local
+
+# Para criar uma compilação para toda a aplicação, execute:
+# docker-compose build
+
+# Para criar e iniciar o sistema multi-container, execute:
+# docker-compose up -d
+
+# Para parar o sistema multi-container, execute:
+# docker-compose down --rmi all -v
+# --rmi all -v remove todas as imagens e volumes criados
+
+# Para abrir o frontend no navegador, http://localhost:3000 
+# O servidor de back-end está ativo http://localhost:5000
+# E o MongoDB está rodando em http://localhost:27017
+
+# Para inspecionar serviços em execução use o comando "docker-compose ps"
+
+# O "docker-compose logs" mostrará os logs de todos os serviços em execução.
+
+# O docker-compose down --volumes para todos os serviços e remove todos os volumes. ATENÇÃO!!!
+
+# lista imagens
+# docker-compose images
+
+# lista containeres
+# docker-compose ps
+
+# mostra os containeres que estão rodando
+#docker-compose top
+
+# remove containeres parados
+# docker-compose remove
+
+# Referência:
+# https://www.digitalocean.com/community/tutorials/how-to-set-up-flask-with-mongodb-and-docker-pt
+# https://blog.tericcabrel.com/using-docker-and-docker-compose-with-nodejs-and-mongodb/
+# https://medium.com/bb-tutorials-and-thoughts/how-to-run-mern-stack-on-docker-compose-fad2050b9e
+# https://www.youtube.com/watch?v=Kzcz-EVKBEQ
+# https://docs.docker.com/compose/reference/down/

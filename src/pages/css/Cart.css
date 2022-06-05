@@ -79,7 +79,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 315px;
+    min-width: 280px;
+    max-width: 315px;
     padding: 0;
     border: 1px solid #353E52;
     height: 40px;
