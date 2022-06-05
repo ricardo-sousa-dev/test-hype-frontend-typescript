@@ -1,16 +1,57 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Context from '../context/Context';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import '../css/ProductPage.css';
 import HeaderGeneric from '../components/header/HeaderGeneric';
 import SelectQuantityProduct from '../components/CardSelectQuantityProduct';
-import { FaCartArrowDown, FaCreditCard } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
+import { FaCartArrowDown, FaCreditCard, FaHeart } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
 import formatCoin from '../utils/formatCoin';
 
 function ProductPage() {
   const { viewProductDetails } = useContext(Context);
   const product = JSON.parse(localStorage.getItem('viewProductDetails')) || viewProductDetails;
+
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+  const [ isFavorite, setIsFavorite ] = useState(false);
+
+  const { quantityCart, setQuantityCart, setViewProductDetails } = useContext(Context);
+
+  useEffect(() => {
+    if (favorites && favorites.length > 0) {
+      const isFavorite = favorites.find((favorite) => favorite.id === product.id);
+      setIsFavorite(!!isFavorite);
+    }
+  }, [ favorites ]);
+
+  const addFavorite = () => {
+    if (!JSON.parse(localStorage.getItem('favorites')) || JSON.parse(localStorage.getItem('favorites')).length === 0) {
+      const setProduct = product;
+      localStorage.setItem('favorites', JSON.stringify([ setProduct ]));
+      setIsFavorite(true);
+    } else {
+      const findProduct = JSON.parse(localStorage.getItem('favorites')).find(
+        (productFind) => productFind.name === product.name,
+      );
+
+      if (!findProduct) {
+        const setProduct = product;
+        const newArray = JSON.parse(localStorage.getItem('favorites')).filter(
+          (productFilter) => productFilter.name !== setProduct.name,
+        );
+        newArray.push(setProduct);
+        localStorage.setItem('favorites', JSON.stringify(newArray));
+        setIsFavorite(true);
+      } else {
+        const newArray = JSON.parse(localStorage.getItem('favorites')).filter(
+          (productFilter) => productFilter.name !== findProduct.name,
+        );
+        localStorage.setItem('favorites', JSON.stringify(newArray));
+        setIsFavorite(false);
+      }
+    }
+  };
 
   return (
     <>
@@ -27,7 +68,18 @@ function ProductPage() {
               <img src={product.image} alt={product.name} />
             </div>
             <div className="product-details">
-              <h1 className="product-detail-name">{product.name}</h1>
+              <div className="product-name">
+                <h1 className="product-detail-name">{product.name}</h1>
+                <div className="icon-heart-detail">
+                  <button type="button" onClick={addFavorite}>
+                    {
+                      isFavorite ?
+                        <FaHeart style={{ fill: 'red', cursor: 'pointer', fontSize: '20px' }} /> :
+                        <FaHeart style={{ fill: 'rgba(128, 128, 128, 0.55)', cursor: 'pointer', fontSize: '20px' }} />
+                    }
+                  </button>
+                </div>
+              </div>
               <h4 className="product-description">{product.description}</h4>
               <h3 className="product-price">{formatCoin(product.price)}</h3>
               <h6 className="product-avaliable">Estoque disponível</h6>
@@ -37,18 +89,18 @@ function ProductPage() {
               />
               <div className="buttons">
 
-              <Link type="button" to="/cart" className="go-to-cart">
-                <span className="text-button">
-                  <FaCreditCard style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
-                  Ver carrinho de compras
-                </span>
-              </Link>
-              <Link type="button" to="/" className="go-to-shopping">
-                <span className="text-button">
-                  <FaCartArrowDown style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
-                  Continuar comprando
-                </span>
-              </Link>
+                <Link type="button" to="/cart" className="go-to-cart">
+                  <span className="text-button">
+                    <FaCreditCard style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
+                    Ver carrinho de compras
+                  </span>
+                </Link>
+                <Link type="button" to="/" className="go-to-shopping">
+                  <span className="text-button">
+                    <FaCartArrowDown style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
+                    Continuar comprando
+                  </span>
+                </Link>
               </div>
             </div>
           </div>

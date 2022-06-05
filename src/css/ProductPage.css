@@ -55,11 +55,31 @@ a:hover {
     margin: 0 10px;
     padding: 20px 20px 10px 20px;
     height: fit-content;
+    width: 43vh;
 }
 
 .product-details {
-    min-height:43vh;
+    min-height: 43vh;
 }
+
+.product-name{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.icon-heart-detail{
+    position: relative;
+    width:35px;
+    display: flex;
+    justify-content: center;
+}
+
+.icon-heart-detail button{
+    background-color:transparent;
+    border: none;
+}
+
 .product-detail-name {
     font-size: 25px;
     font-weight: bold;
@@ -84,11 +104,12 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.buttons{
+.buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .product-cart {
     background-color: blue;
 }
@@ -102,7 +123,7 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 335px;
+    width: 315px;
     padding: 0;
     border: 1px solid #353E52;
     height: 40px;
@@ -112,8 +133,9 @@ a:hover {
     margin-top: 15px;
 }
 
-.go-to-cart:hover , .go-to-shopping:hover {
-background-color: #353E52;
+.go-to-cart:hover,
+.go-to-shopping:hover {
+    background-color: #353E52;
 }
 
 .go-to-shopping {
