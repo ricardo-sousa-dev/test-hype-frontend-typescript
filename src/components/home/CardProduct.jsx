@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useMemo} from 'react';
 import '../../css/CardProduct.css';
 import { useNavigate } from 'react-router-dom';
 import Context from '../../context/Context';
@@ -8,7 +8,8 @@ import formatCoin from '../../utils/formatCoin';
 function HomeCardProduct(props) {
   const navigate = useNavigate();
   const { product } = props;
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+  const favorites = useMemo(() => JSON.parse(localStorage.getItem('favorites')) || [], []);
 
   const [ isFavorite, setIsFavorite ] = useState(false);
 
@@ -19,7 +20,7 @@ function HomeCardProduct(props) {
       const isFavorite = favorites.find((favorite) => favorite.id === product.id);
       setIsFavorite(!!isFavorite);
     }
-  }, [ favorites ]);
+  }, [ favorites, product.id ]);
 
   const redirectProductDetails = () => {
     setViewProductDetails(product);
@@ -111,7 +112,7 @@ function HomeCardProduct(props) {
           className="thumbnail"
         />
         <button
-        className="link-product-detail"
+          className="link-product-detail"
           type="button"
           onClick={redirectProductDetails}>
           <div className="card-title">

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useMemo } from 'react';
 import Context from '../../context/Context';
 import { useNavigate } from 'react-router-dom';
 import HomeCardProduct from '../home/CardProduct';
@@ -9,12 +9,12 @@ function Header() {
   const navigate = useNavigate();
   const { resultSearchBar, quantityCart, setQuantityCart, setResultSearchBar } = useContext(Context);
 
-  let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  let localStorageCart = useMemo(()=>JSON.parse(localStorage.getItem('cartProducts')) || [], []);
   const currentPage = window.location.pathname.substring(1, 5);
 
   useEffect(() => {
     setQuantityCart(localStorageCart.length);
-  }, [ localStorageCart ]);
+  }, [ localStorageCart, setQuantityCart ]);
 
   const clearSearch = () => {
     setResultSearchBar([]);

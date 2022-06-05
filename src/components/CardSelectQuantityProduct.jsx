@@ -1,31 +1,33 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import '../css/CardSelectQuantityProduct.css';
 import Context from '../context/Context';
 import formatCoin from '../utils/formatCoin';
 
 function SelectQuantityProduct(props) {
   const { product } = props;
+  const { totalCart, setTotalCart} = useContext(Context);
+  
+  const [ sumPriceProduct, setSumPriceProduct ] = useState();
+  const [ quantityInCart, setQuantityInCart ] = useState();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
 
-  let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
   const findProduct = localStorageCart.find(
     (productFind) => productFind.name === product.name,
   );
-  const [ quantityInCart, setQuantityInCart ] = useState();
-  const [ sumPriceProduct, setSumPriceProduct ] = useState();
-  const { totalCart, setTotalCart, setProductsCart } = useContext(Context);
 
-  useEffect(() => {
+  useEffect(() => { //update total price
     const arrayPricesCart = [];
     for (let index = 0; index < localStorageCart.length; index++) {
       const element = localStorageCart[ index ];
       arrayPricesCart.push(element.price * element.quantity);
     }
     const totalPriceCart = (formatCoin((arrayPricesCart.reduce((a, b) => a + b, 0)) + 20))
-    setTotalCart(totalPriceCart);
     localStorage.setItem('totalPriceCart', JSON.stringify(totalPriceCart));
-  }, [ localStorageCart, totalCart ]);
+    setTotalCart(totalPriceCart);
+  }, [ localStorageCart, totalCart, setTotalCart ]);
 
-  useEffect(() => {
+  useEffect(() => { //update quantity in cart
     const productInCart = localStorageCart.find((productCart) => productCart.name === product.name);
     setQuantityInCart(productInCart ? productInCart.quantity : 0);
     setSumPriceProduct(

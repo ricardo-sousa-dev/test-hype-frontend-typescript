@@ -17,7 +17,7 @@ function Cart() {
   const { totalCart } = useContext(Context);
 
   const [ paymentMethod, setPaymentMethod ] = useState('pix');
-  const [ shippingMethod, setShippingMethod ] = useState('correios');
+  const [ shippingMethod ] = useState('correios');
 
   const sale = {
     client: {
@@ -57,7 +57,7 @@ function Cart() {
           <div className="cart-finalize-payment">
             <CartShipping />
             <CheckoutPaymentMethod method={setPaymentMethod} />
-            <h2 className="cart-total">Total: {totalCart || totalCartStorage}</h2>
+            <h2 className="cart-total">Total: {totalCart || 0}</h2>
             <button type="button" onClick={() => goCheckout()} className="go-to-cart">
               <span className="text-button">
                 <FaCreditCard style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />

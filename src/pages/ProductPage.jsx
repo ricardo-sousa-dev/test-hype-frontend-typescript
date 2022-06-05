@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Context from '../context/Context';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import '../css/ProductPage.css';
@@ -9,21 +8,17 @@ import { FaCartArrowDown, FaCreditCard, FaHeart } from "react-icons/fa"; //https
 import formatCoin from '../utils/formatCoin';
 
 function ProductPage() {
-  const { viewProductDetails } = useContext(Context);
-  const product = JSON.parse(localStorage.getItem('viewProductDetails')) || viewProductDetails;
-
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const product = useMemo(() => JSON.parse(localStorage.getItem('viewProductDetails')) || [], []);
+  const favorites = useMemo(() => JSON.parse(localStorage.getItem('favorites')) || [], []);
 
   const [ isFavorite, setIsFavorite ] = useState(false);
-
-  const { quantityCart, setQuantityCart, setViewProductDetails } = useContext(Context);
 
   useEffect(() => {
     if (favorites && favorites.length > 0) {
       const isFavorite = favorites.find((favorite) => favorite.id === product.id);
       setIsFavorite(!!isFavorite);
     }
-  }, [ favorites ]);
+  }, [ favorites, product.id ]);
 
   const addFavorite = () => {
     if (!JSON.parse(localStorage.getItem('favorites')) || JSON.parse(localStorage.getItem('favorites')).length === 0) {
@@ -60,7 +55,7 @@ function ProductPage() {
         <div className="route-page">
           <a href="/" className="route-link">Home</a>
           <span>/</span>
-          <a className="route-link-current">Carrinho de Compras</a>
+          <span className="route-link-current">Carrinho de Compras</span>
         </div>
         <div className="container-details">
           <div className='details'>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Context from '../../context/Context';
 import SelectQuantityProduct from '../CardSelectQuantityProduct';
 import '../../css/CartListProducts.css';
@@ -8,11 +8,11 @@ import formatCoin from '../../utils/formatCoin';
 function CartListProducts() {
 
   const navigate = useNavigate();
-  const { setViewProductDetails, productsCart } = useContext(Context);
+  const { setViewProductDetails } = useContext(Context);
 
   let localStorageCart =
     JSON.parse(localStorage.getItem('cartProducts')) || [];
-  const [ cartProducts, setCartProducts ] = useState(localStorageCart);
+  const [ cartProducts ] = useState(localStorageCart);
 
   const redirectProductDetails = (product) => {
     setViewProductDetails(product);
