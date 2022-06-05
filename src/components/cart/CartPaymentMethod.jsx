@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/CartPaymentMethod.css';
+import './css/CartPaymentMethod.css';
 import iconPix from '../../images/icon-pix.png';
 import iconVisa from '../../images/icon-visa.png';
 import iconMastercard from '../../images/icon-mastercard.png';

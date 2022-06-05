@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Context from '../../context/Context';
-import SelectQuantityProduct from '../CardSelectQuantityProduct';
-import '../../css/CartListProducts.css';
+import SelectQuantityProduct from '../cards/CardSelectQuantityProduct';
+import './css/CartListProducts.css';
 import { useNavigate } from 'react-router-dom';
 import formatCoin from '../../utils/formatCoin';
 

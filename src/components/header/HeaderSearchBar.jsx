@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Context from '../../context/Context';
-import '../../css/HeaderSearchBar.css';
+import './css/HeaderSearchBar.css';
 
 function SearchBar() {
   const [ selectedFavorite, setSelectedFavorite ] = useState(true);

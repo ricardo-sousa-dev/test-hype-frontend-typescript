@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Context from '../../context/Context';
-import '../../css/HomeCards.css';
+import './css/HomeCards.css';
 import HomeCardProduct from './CardProduct';
-import Loading from '../Loading';
+import Loading from '../home/Loading';
 import productsGenerator from '../../database/dataProducts';
 
 function CardsHome() {
-  const { products, setProducts, resultSearchBar, searchBar } = useContext(Context);
+  const { products, setProducts, resultSearchBar } = useContext(Context);
 
   const [ loading, setLoading ] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getProducts = async () => {
     const fetchProducts = await productsGenerator(10);
     setProducts(fetchProducts);
@@ -26,7 +27,7 @@ function CardsHome() {
       setLoading(false);
     }
 
-  }, [])
+  }, [getProducts, setProducts]);
 
   return (
     <div className="home-cards">

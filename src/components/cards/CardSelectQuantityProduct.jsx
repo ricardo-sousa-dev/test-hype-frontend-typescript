@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
-import '../css/CardSelectQuantityProduct.css';
-import Context from '../context/Context';
-import formatCoin from '../utils/formatCoin';
+import './css/CardSelectQuantityProduct.css';
+import Context from '../../context/Context';
+import formatCoin from '../../utils/formatCoin';
 
 function SelectQuantityProduct(props) {
   const { product } = props;

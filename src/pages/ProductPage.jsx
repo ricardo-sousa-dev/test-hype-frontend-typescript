@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../components/Footer';
-import '../css/ProductPage.css';
-import HeaderGeneric from '../components/header/HeaderGeneric';
-import SelectQuantityProduct from '../components/CardSelectQuantityProduct';
+import {Footer, HeaderGeneric, SelectQuantityProduct} from '../components';
+import './css/ProductPage.css';
 import { FaCartArrowDown, FaCreditCard, FaHeart } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
 import formatCoin from '../utils/formatCoin';
 

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import '../css/Footer.css';
+import './css/Footer.css';
 import { GrLinkedin } from 'react-icons/gr';
 import { FaGithub, FaRegEnvelope, FaWhatsapp } from 'react-icons/fa';
 
@@ -13,28 +12,28 @@ function Footer() {
       <div className="social-media">
         <a
           href="https://github.com/ricardo-sousa-dev"
-          target="_blank"
+          target="blank"
           className="link-github"
         >
           <FaGithub className="icon-social-media" />
         </a>
         <a
           href="https://www.linkedin.com/in/rwmsousa/"
-          target="_blank"
+          target="blank"
           className="link-linkedin"
         >
           <GrLinkedin className="icon-social-media" />
         </a>
         <a
           href="https://wa.me/5541987181564"
-          target="_blank"
+          target="blank"
           className="link-whatsapp"
         >
           <FaWhatsapp className="icon-social-media" />
         </a>
         <a
           href="mailto:rwmsousa@gmail.com"
-          target="_blank"
+          target="blank"
           className="link-email"
         >
           <FaRegEnvelope className="icon-social-media" />

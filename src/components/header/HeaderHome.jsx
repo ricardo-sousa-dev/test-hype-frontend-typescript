@@ -1,21 +1,21 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useMemo } from 'react';
 import Context from '../../context/Context';
 import { Link } from 'react-router-dom';
 import {useNavigate} from 'react-router';
 import HeaderSearchBar from './HeaderSearchBar';
-import HomeCardProduct from '../home/CardProduct';
-import '../../css/HeaderHome.css';
+import HomeCardProduct from '../cards/CardProduct';
+import './css/HeaderHome.css';
 import { FaCartArrowDown } from "react-icons/fa";
 
 function HeaderHome() {
   const navigate = useNavigate();
   const { resultSearchBar, setResultSearchBar, quantityCart, setQuantityCart } = useContext(Context);
-
-  let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
 
   useEffect(() => {
     setQuantityCart(localStorageCart.length);
-  }, [ localStorageCart ]);
+  }, [ localStorageCart, setQuantityCart ]);
 
   const clearSearch = ()=> {
     setResultSearchBar([]);

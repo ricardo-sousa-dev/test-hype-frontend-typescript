@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/CartShipping.css';
+import './css/CartShipping.css';
 
 function CartEmpt() {
   return (

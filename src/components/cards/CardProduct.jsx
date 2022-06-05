@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, useMemo} from 'react';
-import '../../css/CardProduct.css';
+import './css/CardProduct.css';
 import { useNavigate } from 'react-router-dom';
 import Context from '../../context/Context';
 import { FaHeart } from "react-icons/fa";

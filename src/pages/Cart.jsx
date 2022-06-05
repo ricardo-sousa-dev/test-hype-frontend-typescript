@@ -1,12 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Context from '../context/Context';
-import Footer from '../components/Footer';
-import HeaderGeneric from '../components/header/HeaderGeneric';
-import { CartListProducts, CartEmpt, CartShipping } from '../components';
-import CheckoutPaymentMethod from '../components/cart/CartPaymentMethod';
+import { CartPaymentMethod, CartListProducts, CartEmpt, CartShipping, Footer, HeaderGeneric } from '../components';
 import { FaCartArrowDown, FaCreditCard } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
-import '../css/Cart.css';
+import './css/Cart.css';
 
 
 function Cart() {
@@ -56,7 +53,7 @@ function Cart() {
           </div>
           <div className="cart-finalize-payment">
             <CartShipping />
-            <CheckoutPaymentMethod method={setPaymentMethod} />
+            <CartPaymentMethod method={setPaymentMethod} />
             <h2 className="cart-total">Total: {totalCart || 0}</h2>
             <button type="button" onClick={() => goCheckout()} className="go-to-cart">
               <span className="text-button">

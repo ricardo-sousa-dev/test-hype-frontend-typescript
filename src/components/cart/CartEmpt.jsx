@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaCartArrowDown } from "react-icons/fa";
-import '../../css/CartEmpty.css';
+import './css/CartEmpty.css';
 
 function CartEmpt() {
   return (

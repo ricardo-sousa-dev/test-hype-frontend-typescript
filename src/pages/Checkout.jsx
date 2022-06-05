@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { HeaderGeneric, Footer } from '../components';
-import '../css/Checkout.css';
+import './css/Checkout.css';
 
 function Checkout() {
   const { state } = useLocation();

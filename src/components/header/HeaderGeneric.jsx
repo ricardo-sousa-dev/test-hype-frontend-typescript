@@ -1,8 +1,8 @@
 import React, { useEffect, useContext, useMemo } from 'react';
 import Context from '../../context/Context';
 import { useNavigate } from 'react-router-dom';
-import HomeCardProduct from '../home/CardProduct';
-import '../../css/HeaderGeneric.css';
+import HomeCardProduct from '../cards/CardProduct';
+import './css/HeaderGeneric.css';
 import { FaCartArrowDown, FaArrowLeft } from "react-icons/fa";
 
 function Header() {

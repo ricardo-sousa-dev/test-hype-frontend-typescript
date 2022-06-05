@@ -1,16 +1,16 @@
 
-import HomeCards from '../components/home/HomeCards';
-import Footer from './Footer';
+import HomeCards from '../components/cards/HomeCards';
+import Footer from './footer/Footer';
 import HeaderHome from './header/HeaderHome';
 import HeaderGeneric from './header/HeaderGeneric';
 import HeaderSearchBar from '../components/header/HeaderSearchBar.jsx';
-import HomeCardProduct from './home/CardProduct';
+import HomeCardProduct from './cards/CardProduct';
 import CartEmpt from '../components/cart/CartEmpt';
 import CartPaymentMethod from '../components/cart/CartPaymentMethod';
-import SelectQuantityProduct from './CardSelectQuantityProduct';
+import SelectQuantityProduct from './cards/CardSelectQuantityProduct';
 import CartListProducts from '../components/cart/CartListProducts';
 import CartShipping from './cart/CartShipping';
-import CheckoutSendPayment from '../components/checkout/CheckoutSendPayment';
+
 
 export {
   HomeCardProduct,
@@ -24,5 +24,4 @@ export {
   SelectQuantityProduct,
   CartListProducts,
   CartShipping,
-  CheckoutSendPayment,
 };
