@@ -20,11 +20,21 @@ function Cart() {
   const [ shippingMethod, setShippingMethod ] = useState('correios');
 
   const sale = {
-    client: 'Hype',
-    products: localStorageCart,
+    client: {
+      name: 'Hype',
+      address: 'Rua paraíso, 71',
+      complement: 'travessa 15',
+      city: 'São Paulo',
+      state: 'SP',
+      zipCode: '01452002',
+      country: 'Brasil',
+      phone: '+5511999999999',
+      email: 'melhor_candidato@gmail.com',
+    },
     paymentMethod: paymentMethod,
     shippingMethod: shippingMethod,
-    total: totalCartStorage
+    total: totalCartStorage,
+    products: localStorageCart,
   }
 
   const goCheckout = () => {

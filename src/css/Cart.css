@@ -9,7 +9,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 900px;
 }
 
 .route-page {
@@ -36,7 +35,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* padding: 10px; */
 }
 
 .cart-products {

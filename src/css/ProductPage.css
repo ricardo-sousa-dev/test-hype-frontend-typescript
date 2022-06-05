@@ -14,7 +14,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 75vh;
 }
 
 .route-page {
@@ -34,7 +33,7 @@ a:hover {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    min-height: 73vh;
+    min-height: 70vh;
     width: auto;
 }
 
