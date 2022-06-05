@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import Context from '../../context/Context';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import HomeCardProduct from '../home/CardProduct';
 import '../../css/HeaderGeneric.css';
 import { FaCartArrowDown, FaArrowLeft } from "react-icons/fa";
@@ -25,7 +24,7 @@ function Header() {
   return (
     <>
       <div className="header">
-        <Link to="/">  <FaArrowLeft className="fa-return" style={{ fill: '#fff', cursor: 'pointer', fontSize: '30px', marginRight: '10px' }}/>  </Link>
+        <button onClick={() => navigate(-1)} className="button-previous">  <FaArrowLeft className="fa-return" style={{ fill: '#fff', cursor: 'pointer', fontSize: '30px', marginRight: '10px' }}/>  </button>
         {currentPage === "prod" ?
           <span className="name-page">Detalhes do Produto</span> :
           <span className="name-page">Carrinho de Compras</span>}

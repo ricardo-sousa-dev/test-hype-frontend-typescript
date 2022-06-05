@@ -103,6 +103,10 @@ a:hover {
   }
 }
 
+.button-previous{
+  background-color: transparent;
+  border: none;
+}
 .name-page{
   font-family: 'Acme', sans-serif;
   font-size: 30px;
