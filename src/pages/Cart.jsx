@@ -19,9 +19,9 @@ function Cart() {
     <div className="cart">
       <HeaderGeneric />
       <div className="route-page">
-        <a href="/" className="route-link">Home</a>
+        <Link to="/" className="route-link">Home</Link>
         <span>/</span>
-        <a className="route-link-current">Carrinho de Compras</a>
+        <span className="route-link-current">Carrinho de Compras</span>
       </div>
       {localStorageCart.length > 0 ?
         <div className="cart-container">
@@ -32,7 +32,7 @@ function Cart() {
             <CartShipping />
             <CheckoutPaymentMethod />
             <h2 className="cart-total">Total: {totalCart || totalCartStorage}</h2>
-            <Link type="button" to="/checkout" className="go-to-checkout">
+            <Link type="button" to="/checkout" className="go-to-cart">
               <span className="text-button">
                 <FaCreditCard style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
                 Finalizar Compra

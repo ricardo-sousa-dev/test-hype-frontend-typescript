@@ -34,12 +34,12 @@ a:hover {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    min-height: 70vh;
+    min-height: 73vh;
     width: auto;
 }
 
 .product-image img {
-    width: 45vh;
+    width: 43vh;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -57,6 +57,9 @@ a:hover {
     height: fit-content;
 }
 
+.product-details {
+    min-height:43vh;
+}
 .product-detail-name {
     font-size: 25px;
     font-weight: bold;

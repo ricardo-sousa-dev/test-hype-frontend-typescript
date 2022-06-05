@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context';
 import { Link } from 'react-router-dom';
-import HomeCardProduct from '../components/home/CardProduct';
 import Footer from '../components/Footer';
 import '../css/ProductPage.css';
 import HeaderGeneric from '../components/header/HeaderGeneric';

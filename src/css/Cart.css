@@ -75,29 +75,35 @@
   margin-left: 10px;
 }
 
-.go-to-checkout, .go-to-shopping {
+
+.go-to-cart,
+.go-to-shopping {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 335px;
     padding: 0;
-    border: 1px solid #353E52;;
+    border: 1px solid #353E52;
     height: 40px;
     border-radius: 5px;
     font-size: 14px;
     background-color: rgba(0, 128, 0, 0.683);
     margin-top: 15px;
 }
-.go-to-shopping{
-  background-color: #353e5292;
-  margin-bottom: 20px;
+
+.go-to-cart:hover , .go-to-shopping:hover {
+background-color: #353E52;
+}
+
+.go-to-shopping {
+    background-color: #353e5292;
 }
 
 .text-button {
-  display: flex;
-  justify-content: center;
-  color: #fff;
-  margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    margin-left: 10px;
 }
 
 @media (max-width: 400px) {

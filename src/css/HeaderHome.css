@@ -57,11 +57,12 @@ a:hover {
 
 .button-cart{
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  height: 40px;
-  width: fit-content;
+  align-items: baseline;
+  justify-content: flex-end;
+  height: fit-content;
   align-self: center;
+  background-color: transparent;
+  border: none;
 }
 
 .container-quantity-cart {
@@ -71,8 +72,8 @@ a:hover {
 
 .fa-shopping-cart {
   margin-right: 15px;
-  margin-top: 10px;
-  font-size: 35px;
+  margin-top: 5px;
+  font-size: 40px;
 }
 
 .quantity-products-cart {
