@@ -1,12 +1,12 @@
 import React from 'react';
-import { Header, Footer } from '../components';
+import { HeaderGeneric, Footer } from '../components';
 import { Breadcrumb } from 'react-bootstrap';
 import '../css/Checkout.css';
 
 function Checkout() {
   return (
     <>
-      <Header />
+      <HeaderGeneric />
 
       <Breadcrumb className="breadcrumb">
         <Breadcrumb.Item href="/">Home</Breadcrumb.Item>

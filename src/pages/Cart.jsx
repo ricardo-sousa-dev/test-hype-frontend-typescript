@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Context from '../context/Context';
 import Footer from '../components/Footer';
-import Header from '../components/header/Header';
+import HeaderGeneric from '../components/header/HeaderGeneric';
 import { CartListProducts, CartEmpt, CartShipping } from '../components';
 import CheckoutPaymentMethod from '../components/cart/CartPaymentMethod';
 import { FaCartArrowDown, FaCreditCard } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
@@ -17,7 +17,7 @@ function Cart() {
 
   return (
     <div className="cart">
-      <Header />
+      <HeaderGeneric />
       <div className="route-page">
         <a href="/" className="route-link">Home</a>
         <span>/</span>

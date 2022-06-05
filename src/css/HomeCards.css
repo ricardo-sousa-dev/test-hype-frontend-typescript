@@ -9,17 +9,18 @@ a:hover {
     text-decoration: none;
 }
 
+.home-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 75vh;
+}
+
 .container-cards{
     display: flex;
     flex-direction: column;
     align-self: stretch;
     position: relative;
-}
-
-.home-cards {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .cards {

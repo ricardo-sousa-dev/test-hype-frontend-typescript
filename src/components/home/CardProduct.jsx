@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import '../../css/HomeCardProduct.css';
+import '../../css/CardProduct.css';
 import { useNavigate } from 'react-router-dom';
 import Context from '../../context/Context';
 import { FaHeart } from "react-icons/fa";
@@ -11,7 +11,7 @@ function HomeCardProduct(props) {
 
   const [ isFavorite, setIsFavorite ] = useState(false);
 
-  const { quantityCart, setQuantityCart } = useContext(Context);
+  const { quantityCart, setQuantityCart, setViewProductDetails } = useContext(Context);
 
   useEffect(() => {
     if (favorites && favorites.length > 0) {
@@ -20,12 +20,11 @@ function HomeCardProduct(props) {
     }
   }, [ favorites ]);
 
-  // const redirectProductDetails = ({ target: { value } }) => {
-  //   setViewProductDetails(product);
-  //   localStorage.setItem('viewProductDetails', JSON.stringify(product));
-  //   navigate(`/product/${ value }`);
-  //   window.location.reload();
-  // };
+  const redirectProductDetails = () => {
+    setViewProductDetails(product);
+    localStorage.setItem('viewProductDetails', JSON.stringify(product));
+    navigate(`/product/${ product.id }`);
+  };
 
   const addToCart = () => {
 
@@ -83,7 +82,7 @@ function HomeCardProduct(props) {
         newArray.push(setProduct);
         localStorage.setItem('favorites', JSON.stringify(newArray));
         setIsFavorite(true);
-      }else{
+      } else {
         const newArray = JSON.parse(localStorage.getItem('favorites')).filter(
           (productFilter) => productFilter.name !== findProduct.name,
         );
@@ -110,12 +109,17 @@ function HomeCardProduct(props) {
           alt={product.name}
           className="thumbnail"
         />
-        <div className="card-title">
-          <h4>{product.name}</h4>
-        </div>
-        <div className="card-price">
-          <h4>{product.price}</h4>
-        </div>
+        <button
+        className="link-product-detail"
+          type="button"
+          onClick={redirectProductDetails}>
+          <div className="card-title">
+            <h4>{product.name}</h4>
+          </div>
+          <div className="card-price">
+            <h4>{product.price}</h4>
+          </div>
+        </button>
       </div>
       <div className="card-cart">
         <button

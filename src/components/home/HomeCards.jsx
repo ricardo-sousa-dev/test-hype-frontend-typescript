@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Context from '../../context/Context';
 import '../../css/HomeCards.css';
-import HomeCardProduct from './HomeCardProduct';
+import HomeCardProduct from './CardProduct';
 import Loading from '../Loading';
 import productsGenerator from '../../database/dataProducts';
 

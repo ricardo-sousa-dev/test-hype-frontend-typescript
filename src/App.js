@@ -8,10 +8,10 @@ function App() {
     <Provider>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/cart" element={<Cart />} />
-          <Route exact path="/product/:id" element={<ProductPage />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route exact path="/" element={<Home />} title="Home" />
+          <Route exact path="/cart" element={<Cart />} title="Carrinho de Compras" />
+          <Route exact path="/product/:id" element={<ProductPage />} title="Detalhes do Produto" />
+          <Route path="/checkout" element={<Checkout />} title="Checkout"/>
         </Routes>
       </Router>
     </Provider>

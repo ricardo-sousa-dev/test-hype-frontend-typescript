@@ -1,9 +1,10 @@
 
 import HomeCards from '../components/home/HomeCards';
 import Footer from './Footer';
-import Header from './header/Header';
+import HeaderHome from './header/HeaderHome';
+import HeaderGeneric from './header/HeaderGeneric';
 import HeaderSearchBar from '../components/header/HeaderSearchBar.jsx';
-import HomeCardProduct from '../components/home/HomeCardProduct';
+import HomeCardProduct from './home/CardProduct';
 import CartEmpt from '../components/cart/CartEmpt';
 import CartPaymentMethod from '../components/cart/CartPaymentMethod';
 import SelectQuantityProduct from './CardSelectQuantityProduct';
@@ -15,7 +16,8 @@ export {
   HomeCardProduct,
   HomeCards,
   Footer,
-  Header,
+  HeaderHome,
+  HeaderGeneric,
   HeaderSearchBar,
   CartEmpt,
   CartPaymentMethod,
