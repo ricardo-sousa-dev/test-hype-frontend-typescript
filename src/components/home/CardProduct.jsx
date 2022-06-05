@@ -3,6 +3,7 @@ import '../../css/CardProduct.css';
 import { useNavigate } from 'react-router-dom';
 import Context from '../../context/Context';
 import { FaHeart } from "react-icons/fa";
+import formatCoin from '../../utils/formatCoin';
 
 function HomeCardProduct(props) {
   const navigate = useNavigate();
@@ -117,7 +118,7 @@ function HomeCardProduct(props) {
             <h4>{product.name}</h4>
           </div>
           <div className="card-price">
-            <h4>{product.price}</h4>
+            <h4>{formatCoin(product.price)}</h4>
           </div>
         </button>
       </div>

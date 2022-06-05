@@ -43,12 +43,12 @@ function ProductPage() {
                   Ver carrinho de compras
                 </span>
               </Link>
-              <a type="button" to="/" className="go-to-shopping">
+              <Link type="button" to="/" className="go-to-shopping">
                 <span className="text-button">
                   <FaCartArrowDown style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
                   Continuar comprando
                 </span>
-              </a>
+              </Link>
               </div>
             </div>
           </div>

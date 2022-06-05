@@ -16,7 +16,7 @@ function Header() {
     setQuantityCart(localStorageCart.length);
   }, [ localStorageCart ]);
 
-  const clearSearch = ()=> {
+  const clearSearch = () => {
     setResultSearchBar([]);
     navigate('/cart');
   }
@@ -24,17 +24,17 @@ function Header() {
   return (
     <>
       <div className="header">
-        <button onClick={() => navigate(-1)} className="button-previous">  <FaArrowLeft className="fa-return" style={{ fill: '#fff', cursor: 'pointer', fontSize: '30px', marginRight: '10px' }}/>  </button>
-        {currentPage === "prod" ?
-          <span className="name-page">Detalhes do Produto</span> :
-          <span className="name-page">Carrinho de Compras</span>}
+        <button onClick={() => navigate(-1)} className="button-previous">  <FaArrowLeft className="fa-return" style={{ fill: '#fff', cursor: 'pointer', fontSize: '30px', marginRight: '10px' }} />  </button>
+        {currentPage === "prod" ? <span className="name-page">Detalhes do Produto</span> : null}
+        {currentPage === "cart" ? <span className="name-page">Carrinho de Compras</span> : null}
+        {currentPage === "chec" ? <span className="name-page">Checkout</span> : null}
         <button onClick={clearSearch} type="button" className="button-cart">
-            <div className="container-quantity-cart">
-              {localStorageCart.length !== 0 ? <div className="quantity-products-cart">
-                {quantityCart}
-              </div> : null}
-            </div>
-              <FaCartArrowDown className="fa-shopping-cart" />
+          <div className="container-quantity-cart">
+            {localStorageCart.length !== 0 ? <div className="quantity-products-cart">
+              {quantityCart}
+            </div> : null}
+          </div>
+          <FaCartArrowDown className="fa-shopping-cart" />
         </button>
       </div>
       {resultSearchBar.length > 0 ? (

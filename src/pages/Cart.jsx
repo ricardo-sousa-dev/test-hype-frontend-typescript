@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Context from '../context/Context';
 import Footer from '../components/Footer';
 import HeaderGeneric from '../components/header/HeaderGeneric';
@@ -10,10 +10,15 @@ import '../css/Cart.css';
 
 
 function Cart() {
+  const navigate = useNavigate();
   let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
   const totalCartStorage = localStorage.getItem('totalCart') || 0;
 
   const { totalCart } = useContext(Context);
+
+  const goCheckout = () => {
+    navigate('/checkout');
+  }
 
   return (
     <div className="cart">
@@ -32,18 +37,18 @@ function Cart() {
             <CartShipping />
             <CheckoutPaymentMethod />
             <h2 className="cart-total">Total: {totalCart || totalCartStorage}</h2>
-            <Link type="button" to="/checkout" className="go-to-cart">
+            <button type="button" onClick={() => goCheckout()} className="go-to-cart">
               <span className="text-button">
                 <FaCreditCard style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
                 Finalizar Compra
               </span>
-            </Link>
-            <a type="button" to="/" className="go-to-shopping">
+            </button>
+            <Link type="button" to="/" className="go-to-shopping">
               <span className="text-button">
                 <FaCartArrowDown style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
                 Continuar comprando
               </span>
-            </a>
+            </Link>
           </div>
         </div> : <CartEmpt />}
       <Footer />
