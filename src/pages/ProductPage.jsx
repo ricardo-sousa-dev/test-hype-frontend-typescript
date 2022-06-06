@@ -52,7 +52,7 @@ function ProductPage() {
       <div className="route-page">
         <a href="/" className="route-link">Home</a>
         <span>/</span>
-        <span className="route-link-current">Carrinho de Compras</span>
+        <span className="route-link-current">{product.name}</span>
       </div>
       <div className="container-details">
         <div className='details'>

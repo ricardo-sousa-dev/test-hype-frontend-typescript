@@ -14,7 +14,7 @@ function CardProduct(props) {
 
   const [ isFavorite, setIsFavorite ] = useState(false);
 
-  const { quantityCart, setQuantityCart, setViewProductDetails } = useContext(Context);
+  const { quantityCart, setQuantityCart, setViewProductDetails, setResultSearchBar } = useContext(Context);
 
   useEffect(() => {
     if (favorites && favorites.length > 0) {
@@ -26,6 +26,7 @@ function CardProduct(props) {
   const redirectProductDetails = () => {
     setViewProductDetails(product);
     localStorage.setItem('viewProductDetails', JSON.stringify(product));
+    setResultSearchBar([]);
     navigate(`/product/${ product.id }`);
   };
 
