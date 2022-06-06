@@ -1,5 +1,5 @@
 
-import HomeCards from '../components/cards/HomeCards';
+import CardsHome from '../components/cards/CardsHome';
 import Footer from './footer/Footer';
 import HeaderHome from './header/HeaderHome';
 import HeaderGeneric from './header/HeaderGeneric';
@@ -14,7 +14,7 @@ import CartShipping from './cart/CartShipping';
 
 export {
   HomeCardProduct,
-  HomeCards,
+  CardsHome,
   Footer,
   HeaderHome,
   HeaderGeneric,

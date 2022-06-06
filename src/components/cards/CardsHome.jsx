@@ -27,7 +27,7 @@ function CardsHome() {
       setLoading(false);
     }
 
-  }, [getProducts, setProducts]);
+  }, []);
 
   return (
     <div className="home-cards">

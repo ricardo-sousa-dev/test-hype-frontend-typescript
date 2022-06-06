@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useContext, useEffect, useState, useMemo} from 'react';
 import './css/CardProduct.css';
 import { useNavigate } from 'react-router-dom';
@@ -5,7 +6,7 @@ import Context from '../../context/Context';
 import { FaHeart } from "react-icons/fa";
 import formatCoin from '../../utils/formatCoin';
 
-function HomeCardProduct(props) {
+function CardProduct(props) {
   const navigate = useNavigate();
   const { product } = props;
 
@@ -136,4 +137,14 @@ function HomeCardProduct(props) {
   );
 }
 
-export default HomeCardProduct;
+CardProduct.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.any,
+    image: PropTypes.any,
+    name: PropTypes.any,
+    price: PropTypes.any,
+  }),
+};
+
+
+export default CardProduct;

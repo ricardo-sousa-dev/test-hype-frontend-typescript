@@ -12,15 +12,17 @@ function SelectQuantityProduct(props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
 
-  const findProduct = localStorageCart.find(
+  const findProduct = localStorageCart? localStorageCart.find(
     (productFind) => productFind.name === product.name,
-  );
+  ):null;
 
   useEffect(() => { //update total price
     const arrayPricesCart = [];
-    for (let index = 0; index < localStorageCart.length; index++) {
-      const element = localStorageCart[ index ];
-      arrayPricesCart.push(element.price * element.quantity);
+    if(localStorageCart) {
+      for (let index = 0; index < localStorageCart.length; index++) {
+        const element = localStorageCart[ index ];
+        arrayPricesCart.push(element.price * element.quantity);
+      }
     }
     const totalPriceCart = (formatCoin((arrayPricesCart.reduce((a, b) => a + b, 0)) + 20))
     localStorage.setItem('totalPriceCart', JSON.stringify(totalPriceCart));
@@ -28,7 +30,7 @@ function SelectQuantityProduct(props) {
   }, [ localStorageCart, totalCart, setTotalCart ]);
 
   useEffect(() => { //update quantity in cart
-    const productInCart = localStorageCart.find((productCart) => productCart.name === product.name);
+    const productInCart = localStorageCart ? localStorageCart.find((productCart) => productCart.name === product.name):null;
     setQuantityInCart(productInCart ? productInCart.quantity : 0);
     setSumPriceProduct(
       productInCart ? formatCoin(productInCart.quantity * product.price) : 0);

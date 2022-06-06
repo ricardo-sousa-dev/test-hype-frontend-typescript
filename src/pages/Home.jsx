@@ -3,7 +3,7 @@ import './css/Home.css';
 
 import {
   HeaderHome,
-  HomeCards,
+  CardsHome,
   Footer,
 } from '../components';
 
@@ -11,7 +11,7 @@ function Home() {
   return (
     <div className="page-home">
       <HeaderHome />
-      <HomeCards />
+      <CardsHome />
       <Footer />
     </div>
   );

@@ -10,11 +10,12 @@ import { FaCartArrowDown } from "react-icons/fa";
 function HeaderHome() {
   const navigate = useNavigate();
   const { resultSearchBar, setResultSearchBar, quantityCart, setQuantityCart } = useContext(Context);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
 
   useEffect(() => {
+    if (localStorageCart) {
     setQuantityCart(localStorageCart.length);
+    }
   }, [ localStorageCart, setQuantityCart ]);
 
   const clearSearch = ()=> {
@@ -33,7 +34,7 @@ function HeaderHome() {
         </div>
         <button onClick={clearSearch} type='button' className="button-cart">
           <div className="container-quantity-cart">
-            {localStorageCart.length !== 0 ? <div className="quantity-products-cart">
+            {localStorageCart && localStorageCart.length !== 0 ? <div className="quantity-products-cart">
               {quantityCart}
             </div> : null}
           </div>
