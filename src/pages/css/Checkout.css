@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-height: 75vh;
+  height: 100vh;
 }
 
 h1 {
@@ -30,6 +30,7 @@ h1 {
   font-weight: bold;
   margin-top: 20px;
 }
+
 .sale button:hover{
   background-color: rgba(0, 128, 0, 0.683);
   color: #fff;

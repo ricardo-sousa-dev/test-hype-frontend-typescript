@@ -5,13 +5,19 @@ Este é um projeto desenvolvido para um teste na empresa Hype Empreendimentos, e
 
 A aplicação é um simples Shopping Cart, que inicialmente faz uma requisição a uma api pública para obter imagens aleatórias e com dados forncecidos pela empresa, gera o nome dos produtos, preços e descrição.
 
+&nbsp;&nbsp;
 ## Instruções para visualizar o projeto
+&nbsp;&nbsp;
+
+### Visualizar deploy no Heroku
+1. Acesse pelo navegador:
+[https://hype-frontend.herokuapp.com/](https://hype-frontend.herokuapp.com/)
 
 &nbsp;&nbsp;
 
 ### Visualizar com instalação do projeto
 #### Através do terminal do seu computador:
-1. Clone o repositório
+1. Clone o repositório:
     * `git clone git@github.com:ricardo-sousa-dev/test-hype-frontend.git`
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd test-hype-frontend`
