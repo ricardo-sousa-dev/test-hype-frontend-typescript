@@ -13,7 +13,6 @@ function SearchBar() {
 
   const handleSearchBar = ({ target: { value } }) => {
     setSearchBar(value);
-    value === '' ? setEmptyResult(false) : setEmptyResult(true);
 
     const productsFiltered = products.filter((product) =>
       product.name.toLowerCase().includes(value.toLowerCase()) &&
