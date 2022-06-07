@@ -3,13 +3,12 @@ import Context from '../../context/Context';
 import './css/HeaderSearchBar.css';
 
 function SearchBar() {
-  const [ selectedFavorite, setSelectedFavorite ] = useState(true);
   const [ searchBar, setSearchBar ] = useState('');
 
   const [ emptyResult, setEmptyResult ] = useState(false);
   const [ emptyFavorites, setEmptyFavorites ] = useState(false);
 
-  const { setResultSearchBar, products } = useContext(Context);
+  const { setResultSearchBar, products, selectedFavorite, setSelectedFavorite } = useContext(Context);
 
   const handleSearchBar = ({ target: { value } }) => {
     setSearchBar(value);

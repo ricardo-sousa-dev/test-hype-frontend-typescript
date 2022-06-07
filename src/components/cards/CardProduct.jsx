@@ -14,7 +14,7 @@ function CardProduct(props) {
 
   const [ isFavorite, setIsFavorite ] = useState(false);
 
-  const { quantityCart, setQuantityCart, setViewProductDetails, setResultSearchBar } = useContext(Context);
+  const { products, quantityCart, setQuantityCart, setViewProductDetails, setResultSearchBar, selectedFavorite, setSelectedFavorite } = useContext(Context);
 
   useEffect(() => {
     if (favorites && favorites.length > 0) {

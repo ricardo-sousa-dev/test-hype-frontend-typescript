@@ -10,6 +10,7 @@ function Provider({ children }) {
   const [ viewProductDetails, setViewProductDetails ] = useState('');
   const [ totalCart, setTotalCart ] = useState(0);
   const [ quantityCart, setQuantityCart ] = useState(0);
+  const [ selectedFavorite, setSelectedFavorite ] = useState(true);
 
   const providerValue = {
     products, setProducts,
@@ -18,6 +19,7 @@ function Provider({ children }) {
     quantityCart, setQuantityCart,
     viewProductDetails, setViewProductDetails,
     totalCart, setTotalCart,
+    selectedFavorite, setSelectedFavorite
   };
 
   return (
