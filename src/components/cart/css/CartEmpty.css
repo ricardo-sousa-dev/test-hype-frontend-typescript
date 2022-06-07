@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 71vh;
+  height: 65vh;
 }
 
 .div-icon-empty {
@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 65vh;
 }
 
 .cart-empty-message {

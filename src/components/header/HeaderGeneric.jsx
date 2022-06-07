@@ -9,11 +9,13 @@ function Header() {
   const navigate = useNavigate();
   const { resultSearchBar, quantityCart, setQuantityCart, setResultSearchBar } = useContext(Context);
 
-  let localStorageCart = useMemo(()=>JSON.parse(localStorage.getItem('cartProducts')) || [], []);
+  let localStorageCart = useMemo(()=>JSON.parse(localStorage.getItem('cartProducts')));
   const currentPage = window.location.pathname.substring(1, 5);
 
   useEffect(() => {
-    setQuantityCart(localStorageCart.length);
+    if (localStorageCart) {
+      setQuantityCart(localStorageCart.length);
+    }
   }, [ localStorageCart, setQuantityCart ]);
 
   const clearSearch = () => {
@@ -30,7 +32,7 @@ function Header() {
         {currentPage === "chec" ? <span className="name-page">Checkout</span> : null}
         <button onClick={clearSearch} type="button" className="button-cart">
           <div className="container-quantity-cart">
-            {localStorageCart.length !== 0 ? <div className="quantity-products-cart">
+            {localStorageCart && localStorageCart.length !== 0 ? <div className="quantity-products-cart">
               {quantityCart}
             </div> : null}
           </div>

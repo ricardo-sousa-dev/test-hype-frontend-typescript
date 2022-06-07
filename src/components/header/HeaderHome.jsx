@@ -1,6 +1,5 @@
 import React, { useEffect, useContext, useMemo } from 'react';
 import Context from '../../context/Context';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import HeaderSearchBar from './HeaderSearchBar';
 import HomeCardProduct from '../cards/CardProduct';
