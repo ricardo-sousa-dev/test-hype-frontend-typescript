@@ -12,7 +12,7 @@ function CardsHome() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const getProducts = async () => {
-    const fetchProducts = await productsGenerator(10);
+    const fetchProducts = await productsGenerator(18);
     setProducts(fetchProducts);
     localStorage.setItem('products', JSON.stringify(fetchProducts));
     setLoading(false);
