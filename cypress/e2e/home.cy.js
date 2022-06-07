@@ -1,6 +1,7 @@
 describe('Testa Home Page da aplicação', () => {
   before(() => {
     cy.visit('http://localhost:3000/');
+    /* eslint-disable cypress/no-unnecessary-waiting */
     cy.wait(5000);
   });
 

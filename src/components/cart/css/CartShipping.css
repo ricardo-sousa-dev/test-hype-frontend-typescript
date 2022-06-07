@@ -9,11 +9,7 @@
 }
 
 .cart-shipping-details {
-  display: flex;
   list-style-type: none;
-}
-
-.cart-shipping-details {
   display: flex;
   flex-wrap: wrap;
   align-self: flex-start;
@@ -31,7 +27,7 @@
 .shipping-company {
   width: 350px;
 }
-.shipping-company input{
+.shipping-company input {
   margin-right: 10px;
 }
 

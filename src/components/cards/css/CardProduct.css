@@ -31,10 +31,10 @@ a:hover {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   max-height: 100px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.icon-heart{
+.icon-heart {
   font-size: 20px;
   position: absolute;
   width: 156px;
@@ -42,10 +42,10 @@ a:hover {
   justify-content: flex-end;
   padding-right: 5px;
   padding-top: 5px;
-  color: rgba(128, 128, 128, 0.55)
+  color: rgba(128, 128, 128, 0.55);
 }
 
-.icon-heart button{
+.icon-heart button {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -54,11 +54,10 @@ a:hover {
   height: 30px;
 }
 
-
 .card-body {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;;
+  justify-content: flex-start;
   padding: 0;
   margin-bottom: 10px;
 }
@@ -76,20 +75,19 @@ a:hover {
   justify-content: center;
 }
 
-button:hover{
+button:hover {
   cursor: pointer;
 }
 
 .card-price {
-  width: 30px;
   text-align: center;
   font-size: 16px;
   width: 100%;
 }
 
-.link-product-detail{
+.link-product-detail {
   text-decoration: none;
-  border:none;
+  border: none;
   background-color: transparent;
 }
 
@@ -102,7 +100,7 @@ button:hover{
   height: 25px;
   border-radius: 5px;
   font-size: 10px;
-  background-color: #353E52;
+  background-color: #353e52;
   margin-top: 5px;
   color: white;
 }

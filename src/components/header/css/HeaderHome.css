@@ -12,12 +12,12 @@ a {
 }
 
 a:hover {
-  background-color: #353E52;
+  background-color: #353e52;
   text-decoration: none;
 }
 
 .header {
-  background-color: #353E52;
+  background-color: #353e52;
   margin-bottom: 0;
   padding: 20px;
   display: flex;
@@ -26,12 +26,12 @@ a:hover {
   position: relative;
 }
 
-.button-logo{
+.button-logo {
   background-color: transparent;
   border: none;
 }
 .logo {
-  font-family: 'Acme', sans-serif;
+  font-family: "Acme", sans-serif;
   font-size: 45px;
   color: white;
   margin-right: 10px;
@@ -45,21 +45,13 @@ a:hover {
   font-size: 14px;
 }
 
-.fa-shopping-cart {
-  font-size: 25px;
-}
-
-.fa-shopping-cart path {
-  fill: #fff;
-}
-
 .div-search {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.button-cart{
+.button-cart {
   display: flex;
   align-items: baseline;
   justify-content: flex-end;
@@ -78,6 +70,10 @@ a:hover {
   margin-right: 15px;
   margin-top: 5px;
   font-size: 40px;
+}
+
+.fa-shopping-cart path {
+  fill: #fff;
 }
 
 .quantity-products-cart {

@@ -21,19 +21,38 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "cypress": "^10.0.2",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-airbnb": "^0.0.1-security",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-markdown": "^2.2.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "prettier": "^2.6.2",
+    "stylelint": "^14.8.5",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-prettier": "^2.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
-    "cypress:open": "./node_modules/.bin/cypress open"
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx --fix",
+    "cypress:open": "./node_modules/.bin/cypress open",
+    "stylelint": "stylelint \"src/**/*.css\" --fix"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest",
-      "plugin:cypress/recommended"
+      "plugin:cypress/recommended",
+      "stylelint-config-standard"
     ]
   },
   "browserslist": {
@@ -47,19 +66,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "cypress": "^10.0.2",
-    "eslint": "^8.17.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-airbnb": "^0.0.1-security",
-    "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-markdown": "^2.2.1",
-    "eslint-plugin-react": "^7.30.0",
-    "eslint-plugin-react-hooks": "^4.5.0",
-    "stylelint": "^14.8.5",
-    "stylelint-order": "^5.0.0"
   }
 }

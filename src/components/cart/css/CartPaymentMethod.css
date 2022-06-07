@@ -21,7 +21,7 @@
   align-items: center;
   width: 100%;
 }
-.payment-method-icons hr{
+.payment-method-icons hr {
   width: 95%;
   align-self: center;
 }
@@ -35,7 +35,7 @@
   height: 50px;
 }
 
-.payment-select img{
+.payment-select img {
   margin-left: 10px;
 }
 

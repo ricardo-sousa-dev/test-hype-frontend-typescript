@@ -1,4 +1,4 @@
-.cart-empty{
+.cart-empty {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -6,7 +6,7 @@
   height: 71vh;
 }
 
-.div-icon-empty{
+.div-icon-empty {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,11 +14,11 @@
   height: 70vh;
 }
 
-.cart-empty-message{
+.cart-empty-message {
   font-size: 25px;
 }
 
-.fa-cart-empty{
+.fa-cart-empty {
   font-size: 100px;
   color: black;
   margin-top: 30px;

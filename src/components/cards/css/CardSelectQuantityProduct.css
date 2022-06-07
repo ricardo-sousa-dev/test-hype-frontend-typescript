@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px 5px 5px 0;
-  width:220px;
+  width: 220px;
 }
 
 .quantity-product {
@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: space-between;
   width: 87px;
-  border: 1px solid #353E52;
+  border: 1px solid #353e52;
   height: 25px;
   border-radius: 5px;
 }
@@ -40,7 +40,7 @@
 }
 
 .quantity-product button:hover {
-  background-color: #353E52;
+  background-color: #353e52;
   color: white;
 }
 

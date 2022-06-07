@@ -11,7 +11,7 @@ h2 {
   color: rgb(94, 94, 94);
 }
 
-.list-products{
+.list-products {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -23,13 +23,13 @@ h2 {
   margin: 10px 0;
 }
 
-.product-detail-cart{
+.product-detail-cart {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-self: start;
   text-decoration: none;
-  border:none;
+  border: none;
   background-color: transparent;
 }
 
@@ -89,7 +89,7 @@ h2 {
   border: none;
 }
 
-.go-to-details:onClick {
+.go-to-details:hover {
   cursor: pointer;
   border: none;
 }

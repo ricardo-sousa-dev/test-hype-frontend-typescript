@@ -1,33 +1,33 @@
 * {
-    box-sizing: border-box;
-    font-family: Open Sans, sans-serif;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  font-family: Open Sans, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .home-cards {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 75vh;
-    padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 75vh;
+  padding-top: 20px;
 }
 
-.container-cards{
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-    position: relative;
+.container-cards {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  position: relative;
 }
 
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: auto;
 }
