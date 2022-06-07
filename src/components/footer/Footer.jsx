@@ -9,34 +9,34 @@ function Footer() {
       <div className="developer">
         Developed by Ricardo Sousa
       </div>
-      <div className="social-media">
+      <div className="social-media" data-testid="social-media">
         <a
           href="https://github.com/ricardo-sousa-dev"
           target="blank"
           className="link-github"
         >
-          <FaGithub className="icon-social-media" />
+          <FaGithub className="icon-social-media" data-testid="icon-social-media"/>
         </a>
         <a
           href="https://www.linkedin.com/in/rwmsousa/"
           target="blank"
           className="link-linkedin"
         >
-          <GrLinkedin className="icon-social-media" />
+          <GrLinkedin className="icon-social-media" data-testid="icon-social-media"/>
         </a>
         <a
           href="https://wa.me/5541987181564"
           target="blank"
           className="link-whatsapp"
         >
-          <FaWhatsapp className="icon-social-media" />
+          <FaWhatsapp className="icon-social-media" data-testid="icon-social-media"/>
         </a>
         <a
           href="mailto:rwmsousa@gmail.com"
           target="blank"
           className="link-email"
         >
-          <FaRegEnvelope className="icon-social-media" />
+          <FaRegEnvelope className="icon-social-media" data-testid="icon-social-media"/>
         </a>
       </div>
     </div>

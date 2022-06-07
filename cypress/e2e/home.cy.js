@@ -1,4 +1,4 @@
-describe('Testa página inicial da aplicação', () => {
+describe('Testa Home Page da aplicação', () => {
   before(() => {
     cy.visit('http://localhost:3000/');
     cy.wait(5000);
@@ -23,8 +23,7 @@ describe('Testa página inicial da aplicação', () => {
   it('Verifica se a página contém uma lista de 10 produtos', () => {
     cy.get('[data-testid="container-cards"]').should('exist');
     cy.get('[data-testid="cards"]').should('exist');
-    cy.get('[data-testid="cards"]').find('[data-testid="card-product"]').should('exist');
-    cy.get('[data-testid="cards"]').find('[data-testid="card-product"]').should('have.length', 10);
+    cy.get('[data-testid="card-product"]').should('have.length', 10);
   })
 
   it('Verifica se o ao digitar no input de busca um nome inexistente, uma mensagem aparece na tela', () => {
@@ -61,29 +60,9 @@ describe('Testa página inicial da aplicação', () => {
     cy.get('[data-testid="card-product"]').should('have.length', 1);
   })
 
-
-
-//   it('Verifica se as máscaras de CNPJ e Data formatam os dados corretamente', () => {
-//     cy.get('input[name="cnpj"]')
-//       .type('12345678901234')
-//       .should('have.value', '12.345.678/9012-34');
-
-//     cy.get('input[name="dataInicial"]')
-//       .type('12012020')
-//       .should('have.value', '12/01/2020');
-//   });
-
-//   it('Verifica se os campos do formulário são preenchidos corretamente e são enviados', () => {
-//     cy.get('[data-cy=input-nome]').type('João da Silva');
-//     cy.get('[data-cy=input-dataInicial]').type('22102000');
-//     cy.get('[data-cy=input-dataFinal]').type('10122010');
-//     cy.get('[data-cy=input-idPropriedade]').type('12345');
-//     cy.get('[data-cy=input-nomePropriedade]').type('Fazenda Paraíso');
-//     cy.get('[data-cy=input-cnpj]').type('27505101010101');
-//     cy.get('[data-cy=input-idLaboratorio]').type('1234');
-//     cy.get('[data-cy=input-nomeLaboratorio]').type('Laboratório de Testes');
-//     cy.get('[data-cy=input-observacoes]').type('Observações');
-//     cy.get('[data-cy=button-enviar]').click();
-//     cy.contains('Enviando...');
-//   });
+  it('Verifica se a página contém os ícones das redes sociais', () => {
+    cy.get('[data-testid="social-media"]').should('exist');
+    cy.get('[data-testid="social-media"]').find('[data-testid="icon-social-media"]').should('exist');
+    cy.get('[data-testid="social-media"]').find('[data-testid="icon-social-media"]').should('have.length', 4);
+  })
 });
