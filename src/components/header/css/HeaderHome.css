@@ -26,6 +26,10 @@ a:hover {
   position: relative;
 }
 
+.button-logo{
+  background-color: transparent;
+  border: none;
+}
 .logo {
   font-family: 'Acme', sans-serif;
   font-size: 45px;

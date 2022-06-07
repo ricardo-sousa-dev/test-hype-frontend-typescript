@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useMemo } from 'react';
 import Context from '../../context/Context';
 import { Link } from 'react-router-dom';
-import {useNavigate} from 'react-router';
+import { useNavigate } from 'react-router';
 import HeaderSearchBar from './HeaderSearchBar';
 import HomeCardProduct from '../cards/CardProduct';
 import './css/HeaderHome.css';
@@ -14,31 +14,31 @@ function HeaderHome() {
 
   useEffect(() => {
     if (localStorageCart) {
-    setQuantityCart(localStorageCart.length);
+      setQuantityCart(localStorageCart.length);
     }
   }, [ localStorageCart, setQuantityCart ]);
 
-  const clearSearch = ()=> {
+  const clearSearch = (page) => {
     setResultSearchBar([]);
-    navigate('/cart');
+    navigate(page);
   }
 
   return (
     <>
       <div className="header">
-        <Link to="/">
+        <button onClick={()=>clearSearch('/')} type="button" className="button-logo">
           <span className="logo" data-testid="logo">Acme Inc.</span>
-        </Link>
+        </button>
         <div className="div-search">
           <HeaderSearchBar />
         </div>
-        <button onClick={clearSearch} type='button' className="button-cart">
+        <button onClick={()=>clearSearch('/cart')} type='button' className="button-cart">
           <div className="container-quantity-cart">
             {localStorageCart && localStorageCart.length !== 0 ? <div className="quantity-products-cart">
               {quantityCart}
             </div> : null}
           </div>
-          <FaCartArrowDown className="fa-shopping-cart" data-testid="cart-button"/>
+          <FaCartArrowDown className="fa-shopping-cart" data-testid="cart-button" />
         </button>
       </div>
       {resultSearchBar.length > 0 ? (
