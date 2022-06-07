@@ -27,7 +27,7 @@ function CartListProducts() {
         {localStorageCart.length > 0 ? <ul>
           {localStorageCart.map((product) =>
           (
-            <li className="li-product-cart" key={product.id}>
+            <li className="li-product-cart" key={product.id} data-testid='li-product-cart'>
               <div className="info-product">
                 <button
                   className="product-detail-cart"

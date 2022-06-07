@@ -97,10 +97,10 @@ function CardProduct(props) {
   };
 
   return (
-    <div className="HomeCardProduct">
+    <div className="HomeCardProduct" data-testid="card-product">
       <div className="card-body">
         <div className="icon-heart">
-          <button type="button" onClick={addFavorite}>
+          <button type="button" onClick={addFavorite} data-testid="set-favorite">
             {
               isFavorite ?
                 <FaHeart style={{ fill: 'red', cursor: 'pointer', fontSize: '20px' }} /> :
@@ -116,7 +116,8 @@ function CardProduct(props) {
         <button
           className="link-product-detail"
           type="button"
-          onClick={redirectProductDetails}>
+          onClick={redirectProductDetails}
+          data-testid='link-product-detail'>
           <div className="card-title">
             <h4>{product.name}</h4>
           </div>
@@ -130,6 +131,7 @@ function CardProduct(props) {
           type="button"
           onClick={addToCart}
           className="add-to-cart"
+          data-testid="add-to-cart"
         >
           Adicionar ao Carrinho
         </button>

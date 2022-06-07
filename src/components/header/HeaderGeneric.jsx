@@ -24,7 +24,7 @@ function Header() {
   return (
     <>
       <div className="header">
-        <button onClick={() => navigate(-1)} className="button-previous">  <FaArrowLeft className="fa-return" style={{ fill: '#fff', cursor: 'pointer', fontSize: '30px', marginRight: '10px' }} />  </button>
+        <button onClick={() => navigate(-1)} className="button-previous">  <FaArrowLeft className="fa-return" style={{ fill: '#fff', cursor: 'pointer', fontSize: '30px', marginRight: '10px' }} data-testid="button-previous"/>  </button>
         {currentPage === "prod" ? <span className="name-page">Detalhes do Produto</span> : null}
         {currentPage === "cart" ? <span className="name-page">Carrinho de Compras</span> : null}
         {currentPage === "chec" ? <span className="name-page">Checkout</span> : null}

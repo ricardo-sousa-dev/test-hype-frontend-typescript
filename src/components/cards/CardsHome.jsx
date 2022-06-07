@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Context from '../../context/Context';
 import './css/HomeCards.css';
-import HomeCardProduct from './CardProduct';
+import CardProduct from './CardProduct';
 import Loading from '../home/Loading';
 import productsGenerator from '../../database/dataProducts';
 
@@ -32,11 +32,11 @@ function CardsHome() {
   return (
     <div className="home-cards">
       {loading ? <Loading /> : null}
-      <div className="container-cards">
-        <div className="cards">
+      <div className="container-cards" data-testid="container-cards">
+        <div className="cards" data-testid="cards">
           {resultSearchBar.length === 0 ?
             products.map((product) =>
-              <HomeCardProduct key={product.id} product={product} />):null}
+              <CardProduct key={product.id} product={product} />):null}
         </div>
       </div>
     </div>

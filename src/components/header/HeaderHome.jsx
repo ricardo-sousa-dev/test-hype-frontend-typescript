@@ -27,7 +27,7 @@ function HeaderHome() {
     <>
       <div className="header">
         <Link to="/">
-          <span className="logo">Acme Inc.</span>
+          <span className="logo" data-testid="logo">Acme Inc.</span>
         </Link>
         <div className="div-search">
           <HeaderSearchBar />
@@ -38,7 +38,7 @@ function HeaderHome() {
               {quantityCart}
             </div> : null}
           </div>
-          <FaCartArrowDown className="fa-shopping-cart" />
+          <FaCartArrowDown className="fa-shopping-cart" data-testid="cart-button"/>
         </button>
       </div>
       {resultSearchBar.length > 0 ? (

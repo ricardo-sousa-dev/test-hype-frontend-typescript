@@ -75,13 +75,13 @@ function SearchBar() {
 
         <div className="div-messages">
           {emptyFavorites ? <div className="message">Você não tem produtos favoritos!</div> : null}
-          {emptyResult ? <div className="message">Nenhum resultado encontrado!</div> : null}
+          {emptyResult ? <div className="message" data-testid="message-empty">Nenhum resultado encontrado!</div> : null}
         </div>
       </div>
 
       <div className="select-favorites">
-        <input type="checkbox" id="favorites" className="favorites" onClick={handleFavorites} />
-        <label htmlFor="favorites" className="favorites-label">Favoritos</label>
+        <input type="checkbox" id="favorites" className="favorites" onClick={handleFavorites} data-testid="favorites-select"/>
+        <label htmlFor="favorites" className="favorites-label" data-testid="favorites-label">Favoritos</label>
       </div>
     </div>
   );
