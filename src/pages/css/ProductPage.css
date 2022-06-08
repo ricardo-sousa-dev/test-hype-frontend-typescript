@@ -40,6 +40,7 @@ a:hover {
 }
 
 .product-image img {
+  margin-top: 20px;
   width: 43vh;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -58,6 +59,9 @@ a:hover {
   width: 43vh;
 }
 
+.product-details{
+  padding-bottom: 30px;
+}
 .product-name {
   display: flex;
   justify-content: space-between;
