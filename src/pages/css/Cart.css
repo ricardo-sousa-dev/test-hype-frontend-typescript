@@ -35,8 +35,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20px;
-  width: 350px;
+  margin-top: 30px;
+  /* width: 350px; */
 }
 
 .cart-products {
@@ -48,6 +48,7 @@
   border: 1px solid #353e5252;
   border-radius: 5px;
   padding: 10px;
+  margin: 20px;
   height: fit-content;
   width: 350px;
 }
