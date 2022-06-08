@@ -44,7 +44,6 @@ function CardProduct(props) {
       );
 
       if (!findProduct) {
-        console.log('entrou no if');
         const setProduct = product;
         setProduct.quantity = 1;
         const newArray = JSON.parse(localStorage.getItem('cartProducts')).filter(
@@ -56,7 +55,6 @@ function CardProduct(props) {
       }
 
       if (findProduct) {
-        console.log('entrou no else');
         const setProduct = findProduct;
         setProduct.quantity += 1;
         const newArray = JSON.parse(localStorage.getItem('cartProducts')).filter(

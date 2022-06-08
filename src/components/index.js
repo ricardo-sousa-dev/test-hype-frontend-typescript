@@ -10,6 +10,7 @@ import CartPaymentMethod from '../components/cart/CartPaymentMethod';
 import SelectQuantityProduct from './cards/CardSelectQuantityProduct';
 import CartListProducts from '../components/cart/CartListProducts';
 import CartShipping from './cart/CartShipping';
+import CartModal from './cart/CartModal';
 
 
 export {
@@ -24,4 +25,5 @@ export {
   SelectQuantityProduct,
   CartListProducts,
   CartShipping,
+  CartModal
 };

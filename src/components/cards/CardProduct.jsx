@@ -14,7 +14,7 @@ function CardProduct(props) {
 
   const [ isFavorite, setIsFavorite ] = useState(false);
 
-  const { products, quantityCart, setQuantityCart, setViewProductDetails, setResultSearchBar, selectedFavorite, setSelectedFavorite } = useContext(Context);
+  const { setShowModalCart, quantityCart, setQuantityCart, setViewProductDetails, setResultSearchBar, selectedFavorite, setSelectedFavorite } = useContext(Context);
 
   useEffect(() => {
     if (favorites && favorites.length > 0) {
@@ -31,6 +31,8 @@ function CardProduct(props) {
   };
 
   const addToCart = () => {
+    setShowModalCart(true);
+
 
     if (!JSON.parse(localStorage.getItem('cartProducts')) || JSON.parse(localStorage.getItem('cartProducts')).length === 0) {
       const setProduct = product;
@@ -44,7 +46,6 @@ function CardProduct(props) {
       );
 
       if (!findProduct) {
-        console.log('entrou no if');
         const setProduct = product;
         setProduct.quantity = 1;
         const newArray = JSON.parse(localStorage.getItem('cartProducts')).filter(
@@ -56,7 +57,6 @@ function CardProduct(props) {
       }
 
       if (findProduct) {
-        console.log('entrou no else');
         const setProduct = findProduct;
         setProduct.quantity += 1;
         const newArray = JSON.parse(localStorage.getItem('cartProducts')).filter(
