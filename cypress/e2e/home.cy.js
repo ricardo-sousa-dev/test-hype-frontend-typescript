@@ -24,6 +24,7 @@ describe('Testa Home Page da aplicação', () => {
   it('Verifica se a página contém uma lista de 10 produtos', () => {
     cy.get('[data-testid="container-cards"]').should('exist');
     cy.get('[data-testid="cards"]').should('exist');
+    cy.wait(5000);
     cy.get('[data-testid="card-product"]').should('have.length', 16);
   })
 
