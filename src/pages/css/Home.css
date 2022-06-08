@@ -5,14 +5,14 @@ body {
 }
 
 .page-home {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   min-height: 100vh;
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
   background: transparent;
+  width: 0px;
 }

@@ -1,7 +1,7 @@
 .cart-shipping h2 {
-  margin: 20px 0;
-  font-size: 20px;
   color: rgb(94, 94, 94);
+  font-size: 20px;
+  margin: 20px 0;
 }
 
 .cart-shipping {
@@ -9,17 +9,17 @@
 }
 
 .cart-shipping-details {
-  list-style-type: none;
+  align-self: flex-start;
   display: flex;
   flex-wrap: wrap;
-  align-self: flex-start;
   justify-content: space-between;
+  list-style-type: none;
   margin-bottom: 20px;
 }
 
 .shipping-infos {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
   width: 350px;
 }
@@ -39,22 +39,22 @@
 .shipping-timing {
   display: flex;
   font-size: 14px;
-  width: 200px;
   height: 20px;
+  width: 200px;
 }
 
 .shipping-timing p {
-  margin-left: 3px;
   color: green;
+  margin-left: 3px;
 }
 
 .shipping-price,
 .shipping-select {
-  font-size: 14px;
-  width: 100px;
-  text-align: center;
-  height: 20px;
   color: green;
+  font-size: 14px;
+  height: 20px;
+  text-align: center;
+  width: 100px;
 }
 
 .shipping-price p {
@@ -62,8 +62,8 @@
 }
 
 .shipping-select {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: flex-end;
   width: 50px;
 }

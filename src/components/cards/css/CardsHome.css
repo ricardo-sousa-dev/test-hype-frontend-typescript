@@ -10,17 +10,17 @@ a:hover {
 }
 
 .container-cards {
+  align-self: stretch;
   display: flex;
   flex-direction: column;
-  align-self: stretch;
   position: relative;
 }
 
 .cards {
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
-  width: auto;
   padding-top: 120px;
+  width: auto;
 }

@@ -1,17 +1,17 @@
 .cart-empty {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   height: 65vh;
+  justify-content: space-between;
 }
 
 .div-icon-empty {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 65vh;
+  justify-content: center;
 }
 
 .cart-empty-message {
@@ -19,7 +19,7 @@
 }
 
 .fa-cart-empty {
-  font-size: 100px;
   color: black;
+  font-size: 100px;
   margin-top: 30px;
 }

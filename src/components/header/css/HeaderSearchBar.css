@@ -5,33 +5,33 @@
 }
 
 .searchBar {
-  display: flex;
   align-items: center;
+  display: flex;
   height: 80px;
 }
 
 .search {
-  margin: 0 10px;
+  align-items: center;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid grey;
-  background-color: white;
-  border-radius: 5px;
   height: 30px;
+  margin: 0 10px;
 }
 
 .search input {
-  border: transparent;
   background: transparent;
+  border: transparent;
   height: 27px;
-  width: 100%;
   padding: 10px;
+  width: 100%;
 }
 
 .search input::placeholder {
-  font-size: 14px;
   color: rgba(94, 94, 94, 0.459);
+  font-size: 14px;
 }
 
 .search input:focus {
@@ -43,17 +43,17 @@
 }
 
 .div-messages {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  width: 170px;
+  display: flex;
   height: 50px;
+  justify-content: center;
   margin-top: 5px;
+  width: 170px;
 }
 
 .message {
-  font-size: 12px;
   color: white;
+  font-size: 12px;
 }
 
 .favorites {
@@ -61,14 +61,14 @@
 }
 
 .favorites-label {
-  font-size: 12px;
   color: white;
+  font-size: 12px;
 }
 
 @media (max-width: 550px) {
   .cart-products {
-    width: 390px;
     margin: 10px 0;
+    width: 390px;
   }
 
   .search {
@@ -81,8 +81,8 @@
   }
 
   .search input {
-    width: 50px;
     padding: 0;
+    width: 50px;
   }
 
   .select-favorites {

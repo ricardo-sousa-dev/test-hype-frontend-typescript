@@ -6,60 +6,60 @@
 }
 
 a:hover {
-  text-decoration: none;
   background-color: transparent;
+  text-decoration: none;
 }
 
 .HomeCardProduct {
+  align-content: space-between;
   align-items: center;
   border: 1px groove #353e5250;
-  border-top: transparent;
   border-radius: 3px;
+  border-top: transparent;
   display: flex;
   flex-direction: column;
   height: 230px;
-  padding-bottom: 10px;
   justify-content: flex-start;
   margin: 8px;
+  padding-bottom: 10px;
   width: 156px;
-  align-content: space-between;
 }
 
 .thumbnail {
-  margin-bottom: 10px;
-  width: 156px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  max-height: 100px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  max-height: 100px;
+  width: 156px;
 }
 
 .icon-heart {
-  font-size: 20px;
-  position: absolute;
-  width: 156px;
+  color: rgba(128, 128, 128, 0.55);
   display: flex;
+  font-size: 20px;
   justify-content: flex-end;
   padding-right: 5px;
   padding-top: 5px;
-  color: rgba(128, 128, 128, 0.55);
+  position: absolute;
+  width: 156px;
 }
 
 .icon-heart button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  height: 30px;
   outline: none;
   width: 30px;
-  height: 30px;
 }
 
 .card-body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 0;
   margin-bottom: 10px;
+  padding: 0;
 }
 
 .card-title {
@@ -80,27 +80,27 @@ button:hover {
 }
 
 .card-price {
-  text-align: center;
   font-size: 16px;
+  text-align: center;
   width: 100%;
 }
 
 .link-product-detail {
-  text-decoration: none;
-  border: none;
   background-color: transparent;
+  border: none;
+  text-decoration: none;
 }
 
 .add-to-cart {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  width: 120px;
-  padding: 5px;
-  height: 25px;
-  border-radius: 5px;
-  font-size: 10px;
   background-color: #353e52;
-  margin-top: 5px;
+  border-radius: 5px;
   color: white;
+  display: flex;
+  font-size: 10px;
+  height: 25px;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 5px;
+  width: 120px;
 }

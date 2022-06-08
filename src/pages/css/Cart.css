@@ -5,16 +5,16 @@
 }
 
 .cart {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   height: 100vh;
+  justify-content: space-between;
 }
 
 .route-page {
-  padding-left: 20px;
   display: flex;
+  padding-left: 20px;
   width: 100%;
 }
 
@@ -25,82 +25,80 @@
 }
 
 .route-link {
-  margin-right: 10px;
   color: #353e52;
+  margin-right: 10px;
   text-decoration: underline;
 }
 
 .cart-container {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 30px;
-  /* width: 350px; */
+  width: 100%;
 }
 
 .cart-products {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   border: 1px solid #353e5252;
   border-radius: 5px;
-  padding: 10px;
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   height: fit-content;
+  justify-content: center;
+  margin: 20px;
+  padding: 10px;
   width: 350px;
 }
 
 .cart-finalize-payment {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   border: 1px solid #353e5252;
   border-radius: 5px;
-  max-width: 350px;
+  display: flex;
+  flex-direction: column;
   height: fit-content;
+  justify-content: flex-start;
   margin: 20px;
+  max-width: 350px;
   padding: 10px 10px 30px 10px;
 }
 
 .cart-total {
-  font-size: 20px;
   color: green;
-  font-weight: bold;
   display: flex;
+  font-size: 20px;
+  font-weight: bold;
   justify-content: center;
   margin-left: 10px;
 }
 
 .go-to-cart,
 .go-to-shopping {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  min-width: 280px;
-  max-width: 315px;
-  padding: 0;
-  border: 1px solid #353e52;
-  height: 40px;
-  border-radius: 5px;
-  font-size: 14px;
   background-color: rgba(0, 128, 0, 0.683);
+  border: 1px solid #353e52;
+  border-radius: 5px;
+  display: flex;
+  font-size: 14px;
+  height: 40px;
+  justify-content: center;
   margin-top: 15px;
+  max-width: 315px;
+  min-width: 280px;
+  padding: 0;
 }
 
-.cart-shipping{
-  width: 100%;
+.cart-shipping {
   padding-left: 10px;
+  width: 100%;
 }
 
 .payment-method-icons {
-  /* width: 100%; */
+  align-items: center;
   display: flex;
   justify-content: space-around;
-  align-items: center;
 }
 
 .go-to-shopping {
@@ -113,14 +111,8 @@
 }
 
 .text-button {
+  color: #fff;
   display: flex;
   justify-content: center;
-  color: #fff;
   margin-left: 10px;
-}
-
-@media (max-width: 400px) {
-  /* .cart-products {
-    width: 390px;
-  } */
 }
