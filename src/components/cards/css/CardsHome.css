@@ -9,12 +9,12 @@ a:hover {
   text-decoration: none;
 }
 
-.home-cards {
+.cards-home {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 75vh;
-  padding-top: 20px;
+  padding-top: 140px;
 }
 
 .container-cards {

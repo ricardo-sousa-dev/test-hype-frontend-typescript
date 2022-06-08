@@ -28,6 +28,7 @@ a:hover {
   align-self: stretch;
   position: relative;
   align-items: center;
+  margin: 20px;
 }
 
 .details {
@@ -36,7 +37,6 @@ a:hover {
   justify-content: center;
   align-items: flex-start;
   min-height: 70vh;
-  /* width: ; */
 }
 
 .product-image img {
@@ -49,18 +49,13 @@ a:hover {
 .product-cart {
   border: 1px solid #353e525e;
   border-radius: 5px;
-  max-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 0 10px;
+  margin: 20px;
   padding: 20px;
   height: fit-content;
   width: 43vh;
-}
-
-.product-details {
-  min-height: 43vh;
 }
 
 .product-name {

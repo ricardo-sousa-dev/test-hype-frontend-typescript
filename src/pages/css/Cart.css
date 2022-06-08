@@ -43,7 +43,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 10px;
+  margin: 20px;
   border: 1px solid #353e5252;
   border-radius: 5px;
   padding: 10px;
@@ -60,7 +60,7 @@
   border-radius: 5px;
   width: 400px;
   height: fit-content;
-  margin: 10px;
+  margin: 20px;
   padding: 10px;
 }
 

@@ -23,7 +23,11 @@ a:hover {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  position: relative;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
@@ -55,6 +59,7 @@ a:hover {
   align-self: center;
   background-color: transparent;
   border: none;
+  width: 50px;
 }
 
 .container-quantity-cart {
@@ -88,17 +93,6 @@ a:hover {
   font-size: 14px;
 }
 
-@media (max-width: 400px) {
-  .logo {
-    font-size: 30px;
-    width: 120px;
-  }
-
-  .fa-shopping-cart::before {
-    font-size: 20px;
-  }
-}
-
 .button-previous {
   background-color: transparent;
   border: none;
@@ -108,4 +102,13 @@ a:hover {
   font-size: 30px;
   color: white;
   margin-right: 10px;
+}
+
+@media (max-width: 550px) {
+  .fa-shopping-cart::before {
+    font-size: 20px;
+  }
+  .name-page{
+    font-size: 25px;
+  }
 }
