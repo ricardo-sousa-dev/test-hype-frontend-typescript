@@ -30,7 +30,7 @@ function CardsHome() {
   }, []);
 
   return (
-    <div className="cards-home">
+    <>
       {loading ? <Loading /> : null}
       <div className="container-cards" data-testid="container-cards">
         <div className="cards" data-testid="cards">
@@ -39,7 +39,7 @@ function CardsHome() {
               <CardProduct key={product.id} product={product} />):null}
         </div>
       </div>
-    </div>
+   </>
   );
 }
 

@@ -9,14 +9,6 @@ a:hover {
   text-decoration: none;
 }
 
-.cards-home {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 75vh;
-  padding-top: 120px;
-}
-
 .container-cards {
   display: flex;
   flex-direction: column;
@@ -30,4 +22,5 @@ a:hover {
   justify-content: center;
   align-items: flex-start;
   width: auto;
+  padding-top: 120px;
 }
