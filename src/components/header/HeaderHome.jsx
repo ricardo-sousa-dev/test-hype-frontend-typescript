@@ -7,8 +7,9 @@ import './css/HeaderHome.css';
 import { FaCartArrowDown } from "react-icons/fa";
 
 function HeaderHome() {
+
   const navigate = useNavigate();
-  const { resultSearchBar, setResultSearchBar, quantityCart, setQuantityCart } = useContext(Context);
+  const { resultSearchBar, setResultSearchBar, quantityCart, setQuantityCart, setSelectedFavorite, selectedFavorite } = useContext(Context);
   let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
 
   useEffect(() => {
@@ -20,18 +21,22 @@ function HeaderHome() {
   const clearSearch = (page) => {
     setResultSearchBar([]);
     navigate(page);
+    setSelectedFavorite(!selectedFavorite)
+    
+    document.getElementById('favorites').checked && selectedFavorite === false ?
+      document.getElementById('favorites').checked = false : null;
   }
 
   return (
     <>
       <div className="header">
-        <button onClick={()=>clearSearch('/')} type="button" className="button-logo">
+        <button onClick={() => clearSearch('/')} type="button" className="button-logo">
           <span className="logo" data-testid="logo">Acme Inc.</span>
         </button>
         <div className="div-search">
           <HeaderSearchBar />
         </div>
-        <button onClick={()=>clearSearch('/cart')} type='button' className="button-cart">
+        <button onClick={() => clearSearch('/cart')} type='button' className="button-cart">
           <div className="container-quantity-cart">
             {localStorageCart && localStorageCart.length !== 0 ? <div className="quantity-products-cart">
               {quantityCart}

@@ -34,7 +34,9 @@ function SearchBar() {
 
   const handleFavorites = () => {
     const favorites = JSON.parse(localStorage.getItem('favorites'));
+    console.log(selectedFavorite);
     setSelectedFavorite(!selectedFavorite);
+    document.getElementById('favorites').checked = selectedFavorite;
 
     if (selectedFavorite) {
       if (!favorites || favorites.length === 0) {
