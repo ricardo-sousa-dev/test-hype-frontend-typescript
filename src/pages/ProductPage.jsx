@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useContext} from 'react';
+import Context from '../context/Context';
 import { Link } from 'react-router-dom';
-import { Footer, HeaderGeneric, SelectQuantityProduct } from '../components';
+import { Footer, HeaderGeneric, SelectQuantityProduct, CartModal } from '../components';
 import './css/ProductPage.css';
 import { FaCartArrowDown, FaCreditCard, FaHeart } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
 import formatCoin from '../utils/formatCoin';
@@ -10,13 +11,15 @@ function ProductPage() {
   const favorites = useMemo(() => JSON.parse(localStorage.getItem('favorites')) || [], []);
 
   const [ isFavorite, setIsFavorite ] = useState(false);
+  const { showModalCart } = useContext(Context);
 
   useEffect(() => {
+    console.log(showModalCart)
     if (favorites && favorites.length > 0) {
       const isFavorite = favorites.find((favorite) => favorite.id === product.id);
       setIsFavorite(!!isFavorite);
     }
-  }, [ favorites, product.id ]);
+  }, [ favorites, product.id, showModalCart]);
 
   const addFavorite = () => {
     if (!JSON.parse(localStorage.getItem('favorites')) || JSON.parse(localStorage.getItem('favorites')).length === 0) {
@@ -46,8 +49,10 @@ function ProductPage() {
     }
   };
 
+
   return (
     <div className="product-page">
+      {showModalCart && <CartModal />}
       <HeaderGeneric />
       <div className="route-page">
         <a href="/" className="route-link">Home</a>

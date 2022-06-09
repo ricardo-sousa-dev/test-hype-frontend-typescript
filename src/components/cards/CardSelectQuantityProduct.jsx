@@ -5,7 +5,7 @@ import formatCoin from '../../utils/formatCoin';
 
 function SelectQuantityProduct(props) {
   const { product } = props;
-  const { totalCart, setTotalCart} = useContext(Context);
+  const { setShowModalCart, totalCart, setTotalCart} = useContext(Context);
   
   const [ sumPriceProduct, setSumPriceProduct ] = useState();
   const [ quantityInCart, setQuantityInCart ] = useState();
@@ -37,6 +37,8 @@ function SelectQuantityProduct(props) {
   }, [ quantityInCart, sumPriceProduct, localStorageCart, product ]);
 
   const decrementCart = () => {
+    setShowModalCart(true);
+
     if (findProduct) {
       if (findProduct.quantity === 1) {
         const newArray = localStorageCart.filter(
@@ -55,6 +57,8 @@ function SelectQuantityProduct(props) {
   };
 
   const incrementCart = () => {
+    setShowModalCart(true);
+
     if (!JSON.parse(localStorage.getItem('cartProducts'))) {
       const setProduct = product;
       setProduct.quantity = 1;
