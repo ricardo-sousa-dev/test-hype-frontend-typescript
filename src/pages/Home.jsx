@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Context from '../context/Context';
 import './css/Home.css';
 
@@ -11,8 +11,12 @@ import {
 
 function Home() {
 
-  const { showModalCart } = useContext(Context);
+  const { showModalCart, setShowModalCart } = useContext(Context);
   
+  useEffect(() => {
+    setShowModalCart(false)
+  },[])
+
   return (
     <div className="page-home">
       {showModalCart && <CartModal />}

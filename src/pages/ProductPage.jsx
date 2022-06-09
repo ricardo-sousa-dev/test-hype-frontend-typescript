@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useContext} from 'react';
+import React, { useEffect, useState, useMemo, useContext } from 'react';
 import Context from '../context/Context';
 import { Link } from 'react-router-dom';
 import { Footer, HeaderGeneric, SelectQuantityProduct, CartModal } from '../components';
@@ -11,15 +11,18 @@ function ProductPage() {
   const favorites = useMemo(() => JSON.parse(localStorage.getItem('favorites')) || [], []);
 
   const [ isFavorite, setIsFavorite ] = useState(false);
-  const { showModalCart } = useContext(Context);
+  const { showModalCart, setShowModalCart } = useContext(Context);
 
   useEffect(() => {
-    console.log(showModalCart)
+    setShowModalCart(false)
+  },[])
+
+  useEffect(() => {
     if (favorites && favorites.length > 0) {
       const isFavorite = favorites.find((favorite) => favorite.id === product.id);
       setIsFavorite(!!isFavorite);
     }
-  }, [ favorites, product.id, showModalCart]);
+  }, [ favorites, product.id, showModalCart ]);
 
   const addFavorite = () => {
     if (!JSON.parse(localStorage.getItem('favorites')) || JSON.parse(localStorage.getItem('favorites')).length === 0) {
