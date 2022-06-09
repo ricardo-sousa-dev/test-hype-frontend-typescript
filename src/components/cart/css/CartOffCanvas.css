@@ -8,15 +8,17 @@
   z-index: 9999;
   display: flex;
   justify-content: flex-end;
+  overflow: auto;
 }
 
 .cart-offCanvas-content {
-  width: 35%;
-  height: 100%;
+  width: 400px;
+  height: fit-content;
+  min-height: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
@@ -27,6 +29,18 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.cart-offCanvas-content-header button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: #353e5234;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 .cart-offCanvas-content-header-close {
@@ -57,20 +71,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.painel-offCanvas {
-  display: flex;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 400px;
-  width: 100%;
-  align-self: flex-end;
-  padding: 50px;
-  text-align: center;
-  font-size: 1.2rem;
-  z-index: 1;
-  background-color: blue;
+  height: 100%;
 }

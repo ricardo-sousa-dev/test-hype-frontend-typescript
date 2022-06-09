@@ -1,7 +1,7 @@
 .payment-method h2 {
   color: rgb(94, 94, 94);
   font-size: 20px;
-  margin: 20px 10px 10px 10px;
+  margin: 10px;
 }
 
 .payment-method {
@@ -41,4 +41,8 @@
 
 .payment-icon {
   width: 40px;
+}
+
+hr{
+  margin-top: 20px;
 }
