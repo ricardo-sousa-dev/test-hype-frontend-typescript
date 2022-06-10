@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import Context from '../../context/Context';
 import './css/HeaderSearchBar.css';
 
@@ -12,31 +12,28 @@ function SearchBar() {
 
   const handleSearchBar = ({ target: { value } }) => {
     setSearchBar(value);
-    document.getElementById('favorites').checked = false;
 
     const productsFiltered = products.filter((product) =>
       product.name.toLowerCase().includes(value.toLowerCase()) &&
       value !== '',
     )
-
-    if ((!productsFiltered || productsFiltered.length === 0) && searchBar !== '') {
-      setTimeout(() => {
+    if (value.length > 0) {
+      if (!productsFiltered || productsFiltered.length === 0) {
+        setTimeout(() => {
+          setEmptyResult(false);
+        }, 5000);
+        setEmptyResult(true);
+        setResultSearchBar(products)
+      } else {
         setEmptyResult(false);
-      }, 5000);
-      setEmptyResult(true);
-      setResultSearchBar(products)
-
-    } else {
-      setEmptyResult(false);
-      setResultSearchBar(productsFiltered);
+        setResultSearchBar(productsFiltered);
+      }
     }
   };
 
   const handleFavorites = () => {
     const favorites = JSON.parse(localStorage.getItem('favorites'));
-    console.log(selectedFavorite);
     setSelectedFavorite(!selectedFavorite);
-    document.getElementById('favorites').checked = selectedFavorite;
 
     if (selectedFavorite) {
       if (!favorites || favorites.length === 0) {
@@ -51,6 +48,7 @@ function SearchBar() {
 
       } else {
         setEmptyFavorites(false);
+
         setResultSearchBar(favorites);
       }
     }
@@ -61,31 +59,30 @@ function SearchBar() {
 
   return (
     <div className="searchBar">
+      <div className="div-messages">
+        {emptyFavorites ? <div className="message">Você não tem produtos favoritos!</div> : null}
+        {emptyResult ? <div className="message" data-testid="message-empty">Nenhum resultado encontrado!</div> : null}
+      </div>
+
       <div className="search">
-        <div className="div-input">
-          <input
-            type="text"
-            data-testid="search-input"
-            name="searchInput"
-            className="searchInput"
-            value={searchBar}
-            onChange={handleSearchBar}
-            onFocus={() => setSearchBar('')}
-            placeholder='Buscar produto...'
-          />
-        </div>
+        <input
+          type="text"
+          data-testid="search-input"
+          name="searchInput"
+          className="searchInput"
+          id="searchInput"
+          value={searchBar}
+          onChange={handleSearchBar}
+          onFocus={() => setSearchBar('')}
+          placeholder='Buscar produto...'
+        />
 
-        <div className="div-messages">
-          {emptyFavorites ? <div className="message">Você não tem produtos favoritos!</div> : null}
-          {emptyResult ? <div className="message" data-testid="message-empty">Nenhum resultado encontrado!</div> : null}
+        <div className="div-favorites">
+          <input type="checkbox" id="favorites" className="favorites" onClick={handleFavorites} data-testid="favorites-select" />
+          <label htmlFor="favorites" className="favorites-label" data-testid="favorites-label">Favoritos</label>
         </div>
       </div>
-
-      <div className="select-favorites">
-        <input type="checkbox" id="favorites" className="favorites" onClick={handleFavorites} data-testid="favorites-select"/>
-        <label htmlFor="favorites" className="favorites-label" data-testid="favorites-label">Favoritos</label>
-      </div>
-    </div>
+    </div >
   );
 }
 

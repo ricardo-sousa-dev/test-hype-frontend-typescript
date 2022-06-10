@@ -36,12 +36,14 @@ a:hover {
   background-color: transparent;
   border: none;
 }
+
 .logo {
   color: white;
   font-family: "Acme", sans-serif;
   font-size: 45px;
   margin-right: 10px;
-  width: 190px;
+  width: fit-content;
+  white-space: nowrap;
 }
 
 .form-control,

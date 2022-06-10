@@ -33,9 +33,7 @@ function HeaderHome() {
         <button onClick={() => clearSearch('/')} type="button" className="button-logo">
           <span className="logo" data-testid="logo">Acme Inc.</span>
         </button>
-        <div className="div-search">
           <HeaderSearchBar />
-        </div>
         <button onClick={() => clearSearch('/cart')} type='button' className="button-cart">
           <div className="container-quantity-cart">
             {localStorageCart && localStorageCart.length !== 0 ? <div className="quantity-products-cart">
