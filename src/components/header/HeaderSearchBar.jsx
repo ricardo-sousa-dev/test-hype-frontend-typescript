@@ -9,50 +9,111 @@ function SearchBar() {
   const [ emptyFavorites, setEmptyFavorites ] = useState(false);
 
   const { setResultSearchBar, products, selectedFavorite, setSelectedFavorite } = useContext(Context);
+  
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
   const handleSearchBar = ({ target: { value } }) => {
     setSearchBar(value);
 
-    const productsFiltered = products.filter((product) =>
-      product.name.toLowerCase().includes(value.toLowerCase()) &&
-      value !== '',
-    )
-    if (value.length > 0) {
-      if (!productsFiltered || productsFiltered.length === 0) {
+
+    if (selectedFavorite) {
+      const filterFavorites = favorites.filter(product =>
+        product.name.toLowerCase().includes(value.toLowerCase()));
+
+      if (filterFavorites && filterFavorites.length > 0) {
+        setResultSearchBar(filterFavorites);
+      }
+      else {
         setTimeout(() => {
           setEmptyResult(false);
         }, 5000);
         setEmptyResult(true);
-        setResultSearchBar(products)
-      } else {
-        setEmptyResult(false);
-        setResultSearchBar(productsFiltered);
       }
+
+    } else {
+      const productsFiltered = products.filter((product) =>
+        product.name.toLowerCase().includes(value.toLowerCase()) &&
+        value !== '',
+      )
+      if (value.length > 0) {
+        if (!productsFiltered || productsFiltered.length === 0) {
+          setTimeout(() => {
+            setEmptyResult(false);
+          }, 5000);
+          setEmptyResult(true);
+          setResultSearchBar(products)
+        } else {
+          setEmptyResult(false);
+          setResultSearchBar(productsFiltered);
+        }
+      }
+      setResultSearchBar(productsFiltered);
     }
   };
 
+  // const handleFavorites = () => {
+  //   const favorites = JSON.parse(localStorage.getItem('favorites'));
+  //   setSelectedFavorite(!selectedFavorite);
+
+  //   if (selectedFavorite) {
+  //     if (!favorites || favorites.length === 0) {
+  //       document.getElementById('favorites').checked = false;
+
+  //       setTimeout(() => {
+  //         setEmptyFavorites(false);
+  //       }, 5000);
+
+  //       setEmptyFavorites(true);
+  //       setResultSearchBar(products);
+
+  //     } else {
+  //       setEmptyFavorites(false);
+  //       setResultSearchBar(favorites);
+  //     }
+  //   }
+  //   else {
+  //     setResultSearchBar(products);
+  //   }
+  // }
+
   const handleFavorites = () => {
-    const favorites = JSON.parse(localStorage.getItem('favorites'));
-    setSelectedFavorite(!selectedFavorite);
+    setSelectedFavorite(!selectedFavorite)
 
-    if (selectedFavorite) {
-      if (!favorites || favorites.length === 0) {
-        document.getElementById('favorites').checked = false;
+    if (favorites && favorites.length > 0) {
+      if (selectedFavorite) {
+        setEmptyFavorites(false);
 
-        setTimeout(() => {
-          setEmptyFavorites(false);
-        }, 5000);
-
-        setEmptyFavorites(true);
-        setResultSearchBar(products);
+        if (searchBar.length > 0) {
+          const filterFavorites = favorites.filter((product) =>
+            product.name.toLowerCase().includes(searchBar.toLowerCase()) &&
+            searchBar !== '',
+          )
+          if (filterFavorites && filterFavorites.length > 0) {
+            setResultSearchBar(filterFavorites);
+          }
+          else {
+            setTimeout(() => {
+              setEmptyResult(false);
+            }, 5000);
+            setEmptyResult(true);
+          }
+        } else {
+          setResultSearchBar(favorites);
+        }
 
       } else {
         setEmptyFavorites(false);
-
-        setResultSearchBar(favorites);
+        setResultSearchBar(products);
       }
-    }
-    else {
+
+    } else {
+      document.getElementById('favorites').checked = false;
+
+      setTimeout(() => {
+        setEmptyFavorites(false);
+      }, 5000);
+
+      setEmptyFavorites(true);
       setResultSearchBar(products);
     }
   }
@@ -78,7 +139,7 @@ function SearchBar() {
         />
 
         <div className="div-favorites">
-          <input type="checkbox" id="favorites" className="favorites" onClick={handleFavorites} data-testid="favorites-select" />
+          <input type="checkbox" id="favorites" className="favorites" value={selectedFavorite} onClick={handleFavorites} data-testid="favorites-select" />
           <label htmlFor="favorites" className="favorites-label" data-testid="favorites-label">Favoritos</label>
         </div>
       </div>

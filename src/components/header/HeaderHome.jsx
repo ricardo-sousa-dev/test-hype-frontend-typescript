@@ -21,10 +21,8 @@ function HeaderHome() {
   const clearSearch = (page) => {
     setResultSearchBar([]);
     navigate(page);
-    setSelectedFavorite(!selectedFavorite)
-    
-    document.getElementById('favorites').checked && selectedFavorite === false ?
-      document.getElementById('favorites').checked = false : null;
+    setSelectedFavorite(!selectedFavorite)  
+    document.getElementById('favorites').checked = false;
   }
 
   return (
