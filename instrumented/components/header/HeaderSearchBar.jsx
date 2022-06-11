@@ -64,8 +64,8 @@ function SearchBar() {
           <input
             type="text"
             data-testid="search-input"
-            name="searchInput"
-            className="searchInput"
+            name="search-input"
+            className="search-input"
             value={searchBar}
             onChange={handleSearchBar}
             onFocus={() => setSearchBar('')}

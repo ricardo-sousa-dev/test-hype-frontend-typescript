@@ -29,7 +29,7 @@ function SearchBar() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     if (value || value.length > 0) { // case search bar is not empty
-      
+
       if (!selectedFavorite) { // case favorite exists and selected
 
         if (favorites && favorites.length > 0) { // case favorite exists
@@ -92,31 +92,6 @@ function SearchBar() {
     }
   }
 
-  // const handleFavorites = () => {
-  //   const favorites = JSON.parse(localStorage.getItem('favorites'));
-  //   setSelectedFavorite(!selectedFavorite);
-
-  //   if (selectedFavorite) {
-  //     if (!favorites || favorites.length === 0) {
-  //       document.getElementById('favorites').checked = false;
-
-  //       setTimeout(() => {
-  //         setEmptyFavorites(false);
-  //       }, 5000);
-
-  //       setEmptyFavorites(true);
-  //       setResultSearchBar(products);
-
-  //     } else {
-  //       setEmptyFavorites(false);
-  //       setResultSearchBar(favorites);
-  //     }
-  //   }
-  //   else {
-  //     setResultSearchBar(products);
-  //   }
-  // }
-
   const handleFavorites = () => { // select favorites
     setSelectedFavorite(!selectedFavorite)
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -138,10 +113,6 @@ function SearchBar() {
 
           } else { // case search bar is not empty and result not exists
             setResultSearchBar(products);
-            // setSearchBar('');
-            // document.getElementsByClassName('favorites')[0].checked = false;
-            // setSelectedFavorite(false);
-            console.log(selectedFavorite);
             setTimeout(() => {
               setEmptyResult(false);
             }, 5000);
@@ -183,17 +154,19 @@ function SearchBar() {
       </div>
 
       <div className="search">
-        <input
-          type="text"
-          data-testid="search-input"
-          name="searchInput"
-          className="searchInput"
-          id="searchInput"
-          value={searchBar}
-          onChange={handleSearchBar}
-          // onFocus={() => setSearchBar('')}
-          placeholder='Buscar produto...'
-        />
+        <div className="div-input">
+          <input
+            type="text"
+            data-testid="search-input"
+            value={searchBar}
+            onChange={handleSearchBar}
+            placeholder='Buscar produto...'
+          />
+          <div className='div-button-clear-search'>
+          {searchBar.length>0? <button className="button-clear-search" data-testid="button-clear-search" onClick={()=>setSearchBar('')}>x</button> : null}
+
+          </div>
+        </div>
 
         <div className="div-favorites">
           <input type="checkbox" id="favorites" className="favorites" value={selectedFavorite} onClick={handleFavorites} data-testid="favorites-select" />
