@@ -12,10 +12,12 @@ function Provider({ children }) {
   const [ quantityCart, setQuantityCart ] = useState(0);
   const [ selectedFavorite, setSelectedFavorite ] = useState(true);
   const [showModalCart, setShowModalCart] = useState(false);
+  const [searchBar, setSearchBar] = useState('');
 
   const providerValue = {
     products, setProducts,
     resultSearchBar, setResultSearchBar,
+    searchBar, setSearchBar,
     productsCart, setProductsCart,
     quantityCart, setQuantityCart,
     viewProductDetails, setViewProductDetails,

@@ -9,7 +9,7 @@ import { FaCartArrowDown } from "react-icons/fa";
 function HeaderHome() {
 
   const navigate = useNavigate();
-  const { resultSearchBar, setResultSearchBar, quantityCart, setQuantityCart, setSelectedFavorite, selectedFavorite } = useContext(Context);
+  const { resultSearchBar, setResultSearchBar, quantityCart, setQuantityCart, setSelectedFavorite, selectedFavorite, setSearchBar } = useContext(Context);
   let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
 
   useEffect(() => {
@@ -21,8 +21,9 @@ function HeaderHome() {
   const clearSearch = (page) => {
     setResultSearchBar([]);
     navigate(page);
-    setSelectedFavorite(!selectedFavorite)  
+    setSelectedFavorite(true)  
     document.getElementById('favorites').checked = false;
+    setSearchBar('');
   }
 
   return (
