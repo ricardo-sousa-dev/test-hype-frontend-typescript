@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Context from '../../context/Context';
 import './css/CardsHome.css';
-import CardProduct from './CardProduct';
-import Loading from '../home/Loading';
+import { CardProduct, Loading, SearchEmpty } from '../../components';
 import productsGenerator from '../../database/dataProducts';
 
 function CardsHome() {
-  const { products, setProducts, resultSearchBar } = useContext(Context);
+  const { products, setProducts, resultSearchBar, searchBar } = useContext(Context);
 
   const [ loading, setLoading ] = useState(false);
 
@@ -32,14 +31,16 @@ function CardsHome() {
   return (
     <>
       {loading ? <Loading /> : null}
-      <div className="container-cards" data-testid="container-cards">
-        <div className="cards" data-testid="cards">
-          {resultSearchBar.length === 0 ?
-            products.map((product) =>
-              <CardProduct key={product.id} product={product} />):null}
-        </div>
-      </div>
-   </>
+      {resultSearchBar.length === 0 && searchBar.length > 0 ?
+        <SearchEmpty /> :
+        <div className="container-cards" data-testid="container-cards">
+          <div className="cards" data-testid="cards">
+            {resultSearchBar.length === 0 ?
+              products.map((product) =>
+                <CardProduct key={product.id} product={product} />) : null}
+          </div>
+        </div>}
+    </>
   );
 }
 

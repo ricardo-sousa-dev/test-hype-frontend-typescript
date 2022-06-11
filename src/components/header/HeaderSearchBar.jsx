@@ -3,7 +3,6 @@ import Context from '../../context/Context';
 import './css/HeaderSearchBar.css';
 
 function SearchBar() {
-  // const [ searchBar, setSearchBar ] = useState('');
 
   const [ emptyResult, setEmptyResult ] = useState(false);
   const [ emptyFavorites, setEmptyFavorites ] = useState(false);
@@ -42,11 +41,7 @@ function SearchBar() {
             setResultSearchBar(filterFavorites);
 
           } else { // case favorite exists and doesn't contain the search
-            setResultSearchBar(products)
-            setTimeout(() => {
-              setEmptyResult(false);
-            }, 5000);
-            setEmptyResult(true);
+            setResultSearchBar([])
           }
 
         } else { // case favorite doesn't exist
@@ -59,10 +54,7 @@ function SearchBar() {
             setResultSearchBar(productsFiltered);
 
           } else { // case products doesn't exist
-            setTimeout(() => {
-              setEmptyResult(false);
-            }, 5000);
-            setEmptyResult(true);
+            setResultSearchBar([])
           }
         }
       } else {
@@ -76,11 +68,7 @@ function SearchBar() {
           setResultSearchBar(productsFiltered);
 
         } else { // case products doesn't exist
-          setResultSearchBar(products);
-          setTimeout(() => {
-            setEmptyResult(false);
-          }, 5000);
-          setEmptyResult(true);
+          setResultSearchBar([])
         }
       }
     } else {
@@ -112,11 +100,7 @@ function SearchBar() {
             setResultSearchBar(filterFavorites);
 
           } else { // case search bar is not empty and result not exists
-            setResultSearchBar(products);
-            setTimeout(() => {
-              setEmptyResult(false);
-            }, 5000);
-            setEmptyResult(true);
+            setResultSearchBar([]);
           }
 
         } else { // case search bar is empty
@@ -136,13 +120,8 @@ function SearchBar() {
 
     } else { // case favorite not exists
       document.getElementById('favorites').checked = false;
-
-      setTimeout(() => {
-        setEmptyFavorites(false);
-      }, 5000);
-
-      setEmptyFavorites(true);
-      setResultSearchBar(products);
+      
+      setResultSearchBar([]);
     }
   }
 
@@ -161,6 +140,7 @@ function SearchBar() {
             value={searchBar}
             onChange={handleSearchBar}
             placeholder='Buscar produto...'
+            autoFocus
           />
           <div className='div-button-clear-search'>
           {searchBar.length>0? <button className="button-clear-search" data-testid="button-clear-search" onClick={()=>setSearchBar('')}>x</button> : null}
