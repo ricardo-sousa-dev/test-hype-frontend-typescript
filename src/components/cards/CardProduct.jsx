@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useContext, useEffect, useState, useMemo} from 'react';
+import React, { useContext, useEffect, useState, useMemo } from 'react';
 import './css/CardProduct.css';
 import { useNavigate } from 'react-router-dom';
 import Context from '../../context/Context';
@@ -108,16 +108,16 @@ function CardProduct(props) {
             }
           </button>
         </div>
-        <img
-          src={product.image}
-          alt={product.name}
-          className="thumbnail"
-        />
         <button
           className="link-product-detail"
           type="button"
           onClick={redirectProductDetails}
           data-testid='link-product-detail'>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="thumbnail"
+          />
           <div className="card-title">
             <h4>{product.name}</h4>
           </div>
