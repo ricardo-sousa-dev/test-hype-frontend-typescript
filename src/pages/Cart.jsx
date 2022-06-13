@@ -51,7 +51,7 @@ function Cart() {
             <CartShipping />
             <CartPaymentMethod method={setPaymentMethod} />
             <h2 className="cart-total">Total: {totalCart || 0}</h2>
-            <GoToButton route="/checkout" title="Finalizar compra" icon="FaCreditCard" payload={sale}/>
+            <GoToButton route="/checkout" title="Finalizar compra" icon="FaCreditCard" payload={sale} />
             <GoToButton route="/" title="Continuar comprando" icon="FaCartArrowDown" />
           </div>
         </div> : <CartEmpt />}

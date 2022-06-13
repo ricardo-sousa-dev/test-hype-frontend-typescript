@@ -24,16 +24,16 @@ function goToButton(props) {
 
       case "FaCartArrowDown":
         return <button
-        type="button"
-        onClick={() => navigate(route)}
-        className="go-to-button"
-        style={{ background: "#353e5292" }}
-      >
-        <FaCartArrowDown className="icon-button" />
-        <span className="text-button">
-          {title}
-        </span>
-      </button>
+          type="button"
+          onClick={() => navigate(route)}
+          className="go-to-button"
+          style={{ background: "#353e5292" }}
+        >
+          <FaCartArrowDown className="icon-button" />
+          <span className="text-button">
+            {title}
+          </span>
+        </button>
     }
   }
   return iconComponent();
