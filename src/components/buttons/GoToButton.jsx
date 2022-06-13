@@ -5,18 +5,14 @@ import './css/GoToButton.css';
 
 function goToButton(props) {
   const navigate = useNavigate();
-  const { route, title, icon } = props;
-
-  const goToPay = () => {
-    navigate(route);
-  }
+  const { route, title, icon, payload } = props;
 
   const iconComponent = () => {
     switch (icon) {
       case "FaCreditCard":
         return <button
           type="button"
-          onClick={() => goToPay()}
+          onClick={() => navigate(route, { state: payload })}
           className="go-to-button"
           style={{ background: "rgba(0, 128, 0, 0.683)" }}
         >
@@ -25,8 +21,19 @@ function goToButton(props) {
             {title}
           </span>
         </button>
+
       case "FaCartArrowDown":
-        return <FaCartArrowDown className="icon-button" />
+        return <button
+        type="button"
+        onClick={() => navigate(route)}
+        className="go-to-button"
+        style={{ background: "#353e5292" }}
+      >
+        <FaCartArrowDown className="icon-button" />
+        <span className="text-button">
+          {title}
+        </span>
+      </button>
     }
   }
   return iconComponent();

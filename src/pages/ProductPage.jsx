@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo, useContext } from 'react';
 import Context from '../context/Context';
 import { Link } from 'react-router-dom';
-import { Footer, HeaderGeneric, SelectQuantityProduct, CartModal } from '../components';
+import { Footer, HeaderGeneric, SelectQuantityProduct, CartModal, GoToButton } from '../components';
 import './css/ProductPage.css';
 import { FaCartArrowDown, FaCreditCard, FaHeart } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
 import formatCoin from '../utils/formatCoin';
@@ -15,7 +15,7 @@ function ProductPage() {
 
   useEffect(() => {
     setShowModalCart(false)
-  },[])
+  }, [])
 
   useEffect(() => {
     if (favorites && favorites.length > 0) {
@@ -88,19 +88,8 @@ function ProductPage() {
             <SelectQuantityProduct key={product.name} product={product}
             />
             <div className="buttons">
-
-              <Link type="button" to="/cart" className="go-to-cart">
-                <span className="text-button">
-                  <FaCreditCard style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
-                  Ver carrinho de compras
-                </span>
-              </Link>
-              <Link type="button" to="/" className="go-to-shopping">
-                <span className="text-button">
-                  <FaCartArrowDown style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
-                  Continuar comprando
-                </span>
-              </Link>
+              <GoToButton route="/cart" title="Ver carrinho de compras" icon="FaCreditCard" />
+              <GoToButton route="/" title="Continuar comprando" icon="FaCartArrowDown" />
             </div>
           </div>
         </div>

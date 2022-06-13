@@ -13,7 +13,7 @@
 }
 
 .go-to-button:hover{
-  background-color: #353e52;
+  background-color: #353e52 !important;
 }
 
 .text-button {

@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Context from '../context/Context';
-import { CartPaymentMethod, CartListProducts, CartEmpt, CartShipping, Footer, HeaderGeneric } from '../components';
-import { FaCartArrowDown, FaCreditCard } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
+import { CartPaymentMethod, CartListProducts, CartEmpt, CartShipping, Footer, HeaderGeneric, GoToButton } from '../components';
 import './css/Cart.css';
 
 
@@ -34,9 +33,6 @@ function Cart() {
     products: localStorageCart,
   }
 
-  const goCheckout = () => {
-    navigate('/checkout', { state: { sale } });
-  }
 
   return (
     <div className="cart">
@@ -55,18 +51,8 @@ function Cart() {
             <CartShipping />
             <CartPaymentMethod method={setPaymentMethod} />
             <h2 className="cart-total">Total: {totalCart || 0}</h2>
-            <button type="button" onClick={() => goCheckout()} className="go-to-cart">
-              <span className="text-button">
-                <FaCreditCard style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
-                Finalizar Compra
-              </span>
-            </button>
-            <Link type="button" to="/" className="go-to-shopping">
-              <span className="text-button">
-                <FaCartArrowDown style={{ fill: '#fff', cursor: 'pointer', fontSize: '20px', marginRight: '10px' }} />
-                Continuar comprando
-              </span>
-            </Link>
+            <GoToButton route="/checkout" title="Finalizar compra" icon="FaCreditCard" payload={sale}/>
+            <GoToButton route="/" title="Continuar comprando" icon="FaCartArrowDown" />
           </div>
         </div> : <CartEmpt />}
       <Footer />

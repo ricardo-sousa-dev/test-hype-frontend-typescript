@@ -11,7 +11,7 @@ import SelectQuantityProduct from './cards/CardSelectQuantityProduct';
 import CartListProducts from '../components/cart/CartListProducts';
 import CartShipping from './cart/CartShipping';
 import CartModal from './cart/CartOffCanvas';
-import GoToPayButton from './buttons/GoToButton';
+import GoToButton from './buttons/GoToButton';
 import SearchEmpty from './header/SearchEmpty';
 import Loading from './home/Loading';
 import CardProduct from './cards/CardProduct';
@@ -30,7 +30,7 @@ export {
   CartListProducts,
   CartShipping,
   CartModal,
-  GoToPayButton,
+  GoToButton,
   SearchEmpty,
   Loading,
   CardProduct
