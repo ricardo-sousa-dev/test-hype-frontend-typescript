@@ -10,7 +10,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 5px 5px 5px 0;
+  padding: 0 5px 5px 0;
   width: 220px;
 }
 
@@ -19,9 +19,9 @@
   border: 1px solid #353e52;
   border-radius: 5px;
   display: flex;
-  height: 25px;
+  height: 18px;
   justify-content: space-between;
-  width: 87px;
+  width: 70px;
 }
 
 .quantity {
@@ -34,9 +34,9 @@
   background-color: #353e5222;
   border: none;
   font-weight: bold;
-  height: 25px;
+  height: 18px;
   margin: 0;
-  width: 25px;
+  width: 18px;
 }
 
 .quantity-product button:hover {
@@ -45,5 +45,10 @@
 }
 
 .total-product {
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.description{
+  font-size: 12px;
 }
