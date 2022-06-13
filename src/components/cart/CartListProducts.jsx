@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Context from '../../context/Context';
-import { SelectQuantityProduct, ClearCartButton } from '../../components';
+import { SelectQuantityProduct, ClearCartButton, DeleteProductCartButton } from '../../components';
 import './css/CartListProducts.css';
 import { useNavigate } from 'react-router-dom';
 import formatCoin from '../../utils/formatCoin';
@@ -42,6 +42,9 @@ function CartListProducts() {
                   />
                 </button>
                 <div className="detail-product">
+                  <div className='product-delete-button'>
+                    <DeleteProductCartButton product={product} />
+                  </div>
                   <button
                     className="product-detail-cart"
                     type="button"

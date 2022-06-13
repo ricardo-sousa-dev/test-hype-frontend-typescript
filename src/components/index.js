@@ -16,6 +16,7 @@ import SearchEmpty from './header/SearchEmpty';
 import Loading from './home/Loading';
 import CardProduct from './cards/CardProduct';
 import ClearCartButton from './buttons/ClearCartButton';
+import DeleteProductCartButton from './buttons/DeleteProductCartButton';
 
 
 export {
@@ -35,5 +36,6 @@ export {
   SearchEmpty,
   Loading,
   CardProduct,
-  ClearCartButton
+  ClearCartButton,
+  DeleteProductCartButton
 };
