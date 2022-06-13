@@ -5,7 +5,7 @@ import HeaderHome from './header/HeaderHome';
 import HeaderGeneric from './header/HeaderGeneric';
 import HeaderSearchBar from '../components/header/HeaderSearchBar.jsx';
 import HomeCardProduct from './cards/CardProduct';
-import CartEmpt from '../components/cart/CartEmpt';
+import CartEmpt from './cart/CartEmpty';
 import CartPaymentMethod from '../components/cart/CartPaymentMethod';
 import SelectQuantityProduct from './cards/CardSelectQuantityProduct';
 import CartListProducts from '../components/cart/CartListProducts';

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useMemo, useEffect} from 'react';
 import Context from '../context/Context';
 import './css/Home.css';
 
@@ -12,14 +12,16 @@ import {
 function Home() {
 
   const { showModalCart, setShowModalCart } = useContext(Context);
-  
-  useEffect(() => {
-    setShowModalCart(false)
-  },[])
 
+  const localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
+    
+  useEffect(() => {
+    setShowModalCart(false);
+  }, []);
+  
   return (
     <div className="page-home">
-      {showModalCart && <CartModal />}
+      {showModalCart && (localStorageCart && localStorageCart.length > 0) && <CartModal />}
       <HeaderHome />
       <CardsHome />
       <Footer />

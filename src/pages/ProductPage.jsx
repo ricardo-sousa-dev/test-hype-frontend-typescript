@@ -1,21 +1,21 @@
 import React, { useEffect, useState, useMemo, useContext } from 'react';
 import Context from '../context/Context';
-import { Link } from 'react-router-dom';
 import { Footer, HeaderGeneric, SelectQuantityProduct, CartModal, GoToButton } from '../components';
 import './css/ProductPage.css';
-import { FaCartArrowDown, FaCreditCard, FaHeart } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
+import { FaHeart } from "react-icons/fa";
 import formatCoin from '../utils/formatCoin';
 
 function ProductPage() {
   const product = useMemo(() => JSON.parse(localStorage.getItem('viewProductDetails')) || [], []);
   const favorites = useMemo(() => JSON.parse(localStorage.getItem('favorites')) || [], []);
+  const localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
 
   const [ isFavorite, setIsFavorite ] = useState(false);
   const { showModalCart, setShowModalCart } = useContext(Context);
 
   useEffect(() => {
-    setShowModalCart(false)
-  }, [])
+    setShowModalCart(false);
+  }, []);
 
   useEffect(() => {
     if (favorites && favorites.length > 0) {
@@ -55,7 +55,8 @@ function ProductPage() {
 
   return (
     <div className="product-page">
-      {showModalCart && <CartModal />}
+      {showModalCart && (localStorageCart && localStorageCart.length > 0) && <CartModal />}
+
       <HeaderGeneric />
       <div className="route-page">
         <a href="/" className="route-link">Home</a>

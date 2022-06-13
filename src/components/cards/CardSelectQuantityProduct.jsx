@@ -36,8 +36,10 @@ function SelectQuantityProduct(props) {
       productInCart ? formatCoin(productInCart.quantity * product.price) : 0);
   }, [ quantityInCart, sumPriceProduct, localStorageCart, product ]);
 
+  useEffect(() => { 
+    
+  })
   const decrementCart = () => {
-    setShowModalCart(true);
 
     if (findProduct) {
       if (findProduct.quantity === 1) {
@@ -54,6 +56,8 @@ function SelectQuantityProduct(props) {
         setQuantityInCart(findProduct.quantity);
       }
     }
+
+  !localStorageCart || localStorageCart.length === 0 ? setShowModalCart(false) : setShowModalCart(true);
   };
 
   const incrementCart = () => {

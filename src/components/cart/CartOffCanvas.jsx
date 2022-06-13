@@ -13,10 +13,9 @@ function CartOffCanvas() {
   useOnClickOutside(ref, () => setShowModalCart(false));
 
   return (
-    <div className="cart-offCanvas" show={showModalCart}>
+    <div className="cart-offCanvas" show={showModalCart?1:0}>
       <div
         ref={ref}
-        animation={false}
         className="cart-offCanvas-content">
         <div
           className="cart-offCanvas-content-container">

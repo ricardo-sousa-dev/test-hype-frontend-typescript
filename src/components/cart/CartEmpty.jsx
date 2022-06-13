@@ -2,7 +2,7 @@ import React from 'react';
 import { FaCartArrowDown } from "react-icons/fa";
 import './css/CartEmpty.css';
 
-function CartEmpt() {
+function CartEmpty() {
   return (
     <div className="cart-empty">
       <div className="div-icon-empty">
@@ -13,4 +13,4 @@ function CartEmpt() {
   );
 }
 
-export default CartEmpt;
+export default CartEmpty;

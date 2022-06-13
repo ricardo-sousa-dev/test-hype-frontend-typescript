@@ -33,7 +33,6 @@ function CardProduct(props) {
   const addToCart = () => {
     setShowModalCart(true);
 
-
     if (!JSON.parse(localStorage.getItem('cartProducts')) || JSON.parse(localStorage.getItem('cartProducts')).length === 0) {
       const setProduct = product;
       setProduct.quantity = 1;

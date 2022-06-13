@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Context from '../../context/Context';
-import SelectQuantityProduct from '../cards/CardSelectQuantityProduct';
+import {SelectQuantityProduct} from '../../components';
 import './css/CartListProducts.css';
 import { useNavigate } from 'react-router-dom';
 import formatCoin from '../../utils/formatCoin';
@@ -59,7 +59,7 @@ function CartListProducts() {
               {cartProducts.length > 1 ? <hr className="divisor-item" /> : null}
             </li>
           ))}
-        </ul> : navigate("/cart")}
+        </ul> :null}
       </div>
 
     </div>
