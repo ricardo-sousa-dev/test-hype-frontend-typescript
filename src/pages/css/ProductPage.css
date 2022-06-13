@@ -112,10 +112,6 @@ a:hover {
   margin-top: 30px;
 }
 
-.product-cart {
-  background-color: blue;
-}
-
 .add-cart {
-  margin-top: 20px;
+  margin: 20px 0 10px;
 }

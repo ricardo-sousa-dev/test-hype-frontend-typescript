@@ -38,9 +38,10 @@
 
 .shipping-timing {
   display: flex;
-  font-size: 14px;
+  font-size: 12px;
   height: 20px;
   width: 200px;
+  margin-top:5px;
 }
 
 .shipping-timing p {
