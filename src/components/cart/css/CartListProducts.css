@@ -1,4 +1,12 @@
-.header-list-products{
+.clear-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.header-list-products {
   display: flex;
   align-items: center;
   justify-content: space-between;

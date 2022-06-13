@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Context from '../../context/Context';
-import {SelectQuantityProduct} from '../../components';
+import { SelectQuantityProduct, ClearCartButton } from '../../components';
 import './css/CartListProducts.css';
 import { useNavigate } from 'react-router-dom';
 import formatCoin from '../../utils/formatCoin';
@@ -10,8 +10,7 @@ function CartListProducts() {
   const navigate = useNavigate();
   const { setViewProductDetails } = useContext(Context);
 
-  let localStorageCart =
-    JSON.parse(localStorage.getItem('cartProducts')) || [];
+  let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
   const [ cartProducts ] = useState(localStorageCart);
 
   const redirectProductDetails = (product) => {
@@ -22,9 +21,12 @@ function CartListProducts() {
 
   return (
     <div className="cart-list-products">
-      <h2>Produtos:</h2>
+      <div className="clear-cart">
+        <h2>Produtos:</h2>
+        <ClearCartButton />
+      </div>
       <div className="list-products">
-        {localStorageCart.length > 0 ? <ul>
+        {localStorageCart && localStorageCart.length > 0 ? <ul>
           {localStorageCart.map((product) =>
           (
             <li className="li-product-cart" key={product.id} data-testid='li-product-cart'>
@@ -32,7 +34,7 @@ function CartListProducts() {
                 <button
                   className="product-detail-cart"
                   type="button"
-                  onClick={()=>redirectProductDetails(product)}>
+                  onClick={() => redirectProductDetails(product)}>
                   <img
                     className="img-product-cart"
                     src={product.image}
@@ -43,7 +45,7 @@ function CartListProducts() {
                   <button
                     className="product-detail-cart"
                     type="button"
-                    onClick={()=>redirectProductDetails(product)}>
+                    onClick={() => redirectProductDetails(product)}>
                     <div className="name-product-cart">
                       <h3>{product.name}</h3>
                     </div>
@@ -59,7 +61,7 @@ function CartListProducts() {
               {cartProducts.length > 1 ? <hr className="divisor-item" /> : null}
             </li>
           ))}
-        </ul> :null}
+        </ul> : null}
       </div>
 
     </div>

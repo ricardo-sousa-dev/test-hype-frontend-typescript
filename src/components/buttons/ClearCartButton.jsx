@@ -4,13 +4,13 @@ import { AiOutlineClear } from "react-icons/ai"; //https://react-icons.github.io
 import './css/ClearCartButton.css';
 
 function ClearCartButton() {
-  const { setShowModalCart } = useContext(Context);
+  const { setTotalCart } = useContext(Context);
 
-  const localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts'))||[],[]);
+  const localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
 
   const clearCart = () => {
-    localStorage.removeItem('cartProducts');
-    // setShowModalCart(false);
+    localStorage.setItem('cartProducts', JSON.stringify([]));
+    setTotalCart(0);
   }
 
   return localStorageCart.length > 0 ?

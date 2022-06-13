@@ -10,7 +10,7 @@ function SelectQuantityProduct(props) {
   const [ sumPriceProduct, setSumPriceProduct ] = useState();
   const [ quantityInCart, setQuantityInCart ] = useState();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
+  const localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
 
   const findProduct = localStorageCart? localStorageCart.find(
     (productFind) => productFind.name === product.name,
@@ -36,9 +36,7 @@ function SelectQuantityProduct(props) {
       productInCart ? formatCoin(productInCart.quantity * product.price) : 0);
   }, [ quantityInCart, sumPriceProduct, localStorageCart, product ]);
 
-  useEffect(() => { 
-    
-  })
+ 
   const decrementCart = () => {
 
     if (findProduct) {

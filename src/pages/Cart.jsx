@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Context from '../context/Context';
 import { CartPaymentMethod, CartListProducts, CartEmpt, CartShipping, Footer, HeaderGeneric, GoToButton } from '../components';
@@ -6,13 +6,20 @@ import './css/Cart.css';
 
 
 function Cart() {
-  let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  const localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts'))||[]);
   const totalCartStorage = localStorage.getItem('totalCart') || 0;
 
   const { totalCart } = useContext(Context);
 
   const [ paymentMethod, setPaymentMethod ] = useState('pix');
   const [ shippingMethod ] = useState('correios');
+  const [cartEmpty, setCartEmpty] = useState(true);
+
+  useEffect(() => {
+    if (localStorageCart.length === 0) {
+      setCartEmpty(false);
+    }
+  }, [localStorageCart]);
 
    const sale = {
     client: {
@@ -41,7 +48,7 @@ function Cart() {
         <span>/</span>
         <span className="route-link-current">Carrinho de Compras</span>
       </div>
-      {localStorageCart.length > 0 ?
+      {cartEmpty?
         <div className="cart-container">
           <div className="cart-products">
             <CartListProducts />
