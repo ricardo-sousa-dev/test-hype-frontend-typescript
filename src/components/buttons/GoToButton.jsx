@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaCreditCard, FaCartArrowDown } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
 import './css/GoToButton.css';
 
-function goToButton(props) {
+function GoToButton(props) {
   const navigate = useNavigate();
   const { route, title, icon, payload } = props;
 
@@ -41,4 +41,4 @@ function goToButton(props) {
 };
 
 
-export default goToButton;
+export default GoToButton;

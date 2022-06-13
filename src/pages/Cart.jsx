@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Context from '../context/Context';
 import { CartPaymentMethod, CartListProducts, CartEmpt, CartShipping, Footer, HeaderGeneric, GoToButton } from '../components';
 import './css/Cart.css';
 
 
 function Cart() {
-  const navigate = useNavigate();
   let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
   const totalCartStorage = localStorage.getItem('totalCart') || 0;
 
@@ -15,7 +14,7 @@ function Cart() {
   const [ paymentMethod, setPaymentMethod ] = useState('pix');
   const [ shippingMethod ] = useState('correios');
 
-  const sale = {
+   const sale = {
     client: {
       name: 'Hype',
       address: 'Rua paraíso, 71',

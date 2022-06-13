@@ -1,3 +1,10 @@
+.header-list-products{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .cart-list-products {
   align-items: flex-start;
   display: flex;
@@ -71,7 +78,6 @@ h2 {
   text-align: left;
 }
 
-.sku-product-cart,
 .price-product-cart {
   font-size: 12px;
 }
@@ -83,13 +89,4 @@ h2 {
   justify-content: space-between;
   margin-top: 10px;
   width: 250px;
-}
-
-.go-to-details {
-  border: none;
-}
-
-.go-to-details:hover {
-  border: none;
-  cursor: pointer;
 }

@@ -16,6 +16,7 @@
   display: flex;
   padding-left: 20px;
   width: 100%;
+  margin-top: 120px;
 }
 
 .route-link-current {
@@ -74,45 +75,7 @@
   margin-left: 10px;
 }
 
-.go-to-cart,
-.go-to-shopping {
-  align-items: center;
-  background-color: rgba(0, 128, 0, 0.683);
-  border: 1px solid #353e52;
-  border-radius: 5px;
-  display: flex;
-  font-size: 14px;
-  height: 40px;
-  justify-content: center;
-  margin-top: 15px;
-  max-width: 315px;
-  min-width: 280px;
-  padding: 0;
-}
-
 .cart-shipping {
   padding-left: 10px;
   width: 100%;
-}
-
-.payment-method-icons {
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
-}
-
-.go-to-shopping {
-  background-color: #353e5292;
-}
-
-.go-to-cart:hover,
-.go-to-shopping:hover {
-  background-color: #353e52;
-}
-
-.text-button {
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  margin-left: 10px;
 }

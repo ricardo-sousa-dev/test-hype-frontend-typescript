@@ -15,6 +15,7 @@ import GoToButton from './buttons/GoToButton';
 import SearchEmpty from './header/SearchEmpty';
 import Loading from './home/Loading';
 import CardProduct from './cards/CardProduct';
+import ClearCartButton from './buttons/ClearCartButton';
 
 
 export {
@@ -33,5 +34,6 @@ export {
   GoToButton,
   SearchEmpty,
   Loading,
-  CardProduct
+  CardProduct,
+  ClearCartButton
 };

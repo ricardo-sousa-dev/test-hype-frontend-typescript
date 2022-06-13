@@ -1,0 +1,16 @@
+.clear-cart-button{
+  font-size: 10px;
+  font-weight: bold;
+  /* background-color: transparent; */
+  border: none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding:5px;
+  border-radius: 5px;
+}
+
+.clear-cart-button-icon{
+  font-size: 15px;
+}
