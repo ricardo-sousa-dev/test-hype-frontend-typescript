@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Context from '../../context/Context';
 import { useNavigate } from 'react-router-dom';
 import { FaCreditCard, FaCartArrowDown } from "react-icons/fa"; //https://react-icons.github.io/react-icons/icons?name=fa
@@ -8,7 +8,7 @@ function GoToButton(props) {
   const navigate = useNavigate();
   const { route, title, icon, payload } = props;
 
-  const{setResultSearchBar, setSelectedFavorite, setSearchBar} = useContext(Context);
+  const { setResultSearchBar, setSelectedFavorite, setSearchBar } = useContext(Context);
 
   const clearSearch = () => {
     setResultSearchBar([]);
@@ -36,7 +36,7 @@ function GoToButton(props) {
           type="button"
           onClick={() => navigate(route)}
           className="go-to-button"
-          style={{ background: "#353e5292" }}
+          style={{ background: "#103b5092" }}
         >
           <FaCartArrowDown className="icon-button" />
           <span className="text-button">

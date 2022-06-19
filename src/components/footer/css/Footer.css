@@ -23,5 +23,5 @@
 
 .developer,
 .icon-social-media path {
-  color: white;
+  color: white !important;
 }

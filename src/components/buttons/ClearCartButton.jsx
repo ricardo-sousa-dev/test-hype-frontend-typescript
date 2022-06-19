@@ -13,7 +13,7 @@ function ClearCartButton() {
     setTotalCart(0);
   }
 
-  return localStorageCart.length > 0 ?
+  return localStorageCart && localStorageCart.length > 0 ?
     <button
       className="clear-cart-button"
       type="button"

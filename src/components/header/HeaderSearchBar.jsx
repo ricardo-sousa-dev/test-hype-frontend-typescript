@@ -96,7 +96,7 @@ function SearchBar() {
           )
 
           if (filterFavorites && filterFavorites.length > 0) { // case search bar is not empty and result exists
-            setEmptyResult(false);
+            setEmptyResult(true);
             setResultSearchBar(filterFavorites);
 
           } else { // case search bar is not empty and result not exists
