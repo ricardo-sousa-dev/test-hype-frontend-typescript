@@ -9,14 +9,6 @@ function SearchBar() {
 
   const { setResultSearchBar, products, selectedFavorite, setSelectedFavorite, searchBar, setSearchBar } = useContext(Context);
 
-  // useEffect(() => { // searchBar is empty and selectedFavorite is false
-
-  //   if((!favorites || favorites.length === 0) && selectedFavorite === true) {
-  //     setSelectedFavorite(!selectedFavorite);
-  //     document.getElementById('favorites').value = false;
-  //   }
-  // }, [ favorites, selectedFavorite, setSelectedFavorite ]);
-
   const handleSearchBar = ({ target: { value } }) => {
     setSearchBar(value);
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -119,6 +111,8 @@ function SearchBar() {
           setEmptyResult(false);
         }, 5000);
         setEmptyFavorites(true);
+        document.getElementById('favorites').checked = false;
+        setSelectedFavorite(true);
         setResultSearchBar([]);
       }
 
