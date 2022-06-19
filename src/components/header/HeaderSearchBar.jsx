@@ -140,7 +140,6 @@ function SearchBar() {
             value={searchBar}
             onChange={handleSearchBar}
             placeholder='Buscar produto...'
-            autoFocus
           />
           <div className='div-button-clear-search'>
           {searchBar.length>0? <button className="button-clear-search" data-testid="button-clear-search" onClick={()=>setSearchBar('')}>x</button> : null}
