@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useMemo } from 'react';
 import Context from '../../context/Context';
 import './css/HeaderSearchBar.css';
 
@@ -9,19 +9,13 @@ function SearchBar() {
 
   const { setResultSearchBar, products, selectedFavorite, setSelectedFavorite, searchBar, setSearchBar } = useContext(Context);
 
-  useEffect(() => { // searchBar is empty and selectedFavorite is false
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  // useEffect(() => { // searchBar is empty and selectedFavorite is false
 
-    if (searchBar.length === 0 && selectedFavorite) {
-      setEmptyResult(false);
-      setResultSearchBar(products);
-    }
-
-    if (searchBar.length === 0 && !selectedFavorite) {
-      setEmptyFavorites(false);
-      setResultSearchBar(favorites);
-    }
-  }, [ searchBar, products, selectedFavorite, setResultSearchBar ]);
+  //   if((!favorites || favorites.length === 0) && selectedFavorite === true) {
+  //     setSelectedFavorite(!selectedFavorite);
+  //     document.getElementById('favorites').value = false;
+  //   }
+  // }, [ favorites, selectedFavorite, setSelectedFavorite ]);
 
   const handleSearchBar = ({ target: { value } }) => {
     setSearchBar(value);
@@ -81,48 +75,96 @@ function SearchBar() {
   }
 
   const handleFavorites = () => { // select favorites
-    setSelectedFavorite(!selectedFavorite)
+
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-    if (favorites && favorites.length > 0) { // case favorite exists
+    setSelectedFavorite(!selectedFavorite);
 
-      if (selectedFavorite) { // case favorite exists and selected
-        setEmptyFavorites(false);
-
+    if (selectedFavorite) { // case favorite exists and selected
+      // console.log('SELECIONOU O FAVORITO');
+      if (favorites && favorites.length > 0) { // case favorite exists
+        // console.log('TEM FAVORITOS');
         if (searchBar.length > 0) { // case search bar is not empty
+          // console.log('TEM BUSCA');
           const filterFavorites = favorites.filter((product) =>
             product.name.toLowerCase().includes(searchBar.toLowerCase()) &&
             searchBar !== '',
           )
 
           if (filterFavorites && filterFavorites.length > 0) { // case search bar is not empty and result exists
-            setEmptyResult(true);
+            // console.log('TEM RESULTADO NA BUSCA');
             setResultSearchBar(filterFavorites);
 
           } else { // case search bar is not empty and result not exists
+            // console.log('NAO TEM RESULTADO NA BUSCA');
             setResultSearchBar([]);
+            setTimeout(() => {
+              setEmptyResult(false);
+              setEmptyFavorites(false);
+            }, 5000);
+            setEmptyResult(true);
           }
 
         } else { // case search bar is empty
+          // console.log('NAO TEM BUSCA');
           setEmptyResult(false);
+          setEmptyFavorites(false);
           setResultSearchBar(favorites);
         }
 
-      } else { // case favorite exists and not selected
-        const filterSearchBar = products.filter((product) =>
+      } else { // case favorite doesn't exist and selected
+        // console.log('NAO TEM FAVORITOS E SELECIONOU');
+        setTimeout(() => {
+          setEmptyFavorites(false);
+          setEmptyResult(false);
+        }, 5000);
+        setEmptyFavorites(true);
+        setResultSearchBar([]);
+      }
+
+    } else { // case favorite not selected
+      // console.log('NAO SELECIONOU O FAVORITO');
+
+      if (searchBar.length > 0) { // case search bar is not empty
+        // console.log('TEM BUSCA');
+        const productsFiltered = products.filter((product) =>
           product.name.toLowerCase().includes(searchBar.toLowerCase()) &&
           searchBar !== '',
         )
 
-        setEmptyFavorites(false);
-        setResultSearchBar(filterSearchBar);
+        if (productsFiltered && productsFiltered.length > 0) { // case products exists and contains the search
+          // console.log('TEM RESULTADO NA BUSCA');
+          setEmptyResult(false);
+          setResultSearchBar(productsFiltered);
+
+        } else { // case products doesn't exist
+          // console.log('NAO TEM RESULTADO NA BUSCA');
+          setResultSearchBar([]);
+          setTimeout(() => {
+            setEmptyResult(false);
+            setEmptyFavorites(false);
+          }, 5000);
+          setEmptyResult(true);
+        }
       }
 
-    } else { // case favorite not exists
-      document.getElementById('favorites').checked = false;
-      
-      setResultSearchBar([]);
+      else { // case search bar is empty
+        // console.log('NAO TEM BUSCA');
+        setEmptyResult(false);
+        setEmptyFavorites(false);
+        setResultSearchBar([]);
+      }
     }
+  }
+
+  const clearSearch = () => {
+    setResultSearchBar([]);
+    setSelectedFavorite(true)
+    document.getElementById('favorites').checked = false;
+    document.getElementById('favorites').value = false;
+    setSearchBar('');
+    setEmptyResult(false);
+    setEmptyFavorites(false);
   }
 
   return (
@@ -142,7 +184,14 @@ function SearchBar() {
             placeholder='Buscar produto...'
           />
           <div className='div-button-clear-search'>
-          {searchBar.length>0? <button className="button-clear-search" data-testid="button-clear-search" onClick={()=>setSearchBar('')}>x</button> : null}
+            {searchBar.length > 0
+              ? <button
+                className="button-clear-search"
+                data-testid="button-clear-search"
+                onClick={() => clearSearch()}>
+                x
+              </button>
+              : null}
 
           </div>
         </div>
