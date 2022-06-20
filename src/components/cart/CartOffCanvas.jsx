@@ -21,7 +21,7 @@ function CartOffCanvas() {
           className="cart-offCanvas-content-container">
           <div
             className="cart-offCanvas-content-header">
-            <button variant="secondary" onClick={() => setShowModalCart(false)}>
+            <button variant="secondary" data-testid="cart-offCanvas-close"  onClick={() => setShowModalCart(false)}>
               X
             </button>
           </div>

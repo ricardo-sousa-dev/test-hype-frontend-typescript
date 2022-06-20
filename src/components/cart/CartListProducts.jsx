@@ -25,7 +25,7 @@ function CartListProducts() {
         <h2>Produtos:</h2>
         <ClearCartButton />
       </div>
-      <div className="list-products">
+      <div className="list-products" data-testid="list-products">
         {localStorageCart && localStorageCart.length > 0 ? <ul>
           {localStorageCart.map((product) =>
           (
