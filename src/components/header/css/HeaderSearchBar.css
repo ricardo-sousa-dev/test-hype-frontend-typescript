@@ -9,8 +9,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-left:10px;
-  margin-right:10px;
+  /* margin-left:10px; */
+  /* margin-right:10px; */
   height: 72px;
   width: 100%;
 }
@@ -118,9 +118,14 @@
   }
 
   .div-input{
-    width: 150px;
-  }
-  .div-input input{
     width: 110px;
+  }
+
+  .div-input input{
+    width: 80px;
+  }
+
+  .div-input input::placeholder {
+    font-size: 11px;
   }
 }
