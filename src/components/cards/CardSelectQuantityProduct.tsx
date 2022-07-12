@@ -1,16 +1,19 @@
-import React, { useState, useEffect, useContext, useMemo } from 'react';
+import React, { useState, useEffect, useContext, useMemo, SetStateAction} from 'react';
 import './css/CardSelectQuantityProduct.css';
 import Context from '../../context/Context';
 import formatCoin from '../../utils/formatCoin';
+import {IProduct} from '../../interfaces';
 
-function SelectQuantityProduct(props) {
+function SelectQuantityProduct(props:IProduct) {
   const { product } = props;
+  type Products = IProduct[];
+
   const { setShowModalCart, totalCart, setTotalCart} = useContext(Context);
   
-  const [ sumPriceProduct, setSumPriceProduct ] = useState();
-  const [ quantityInCart, setQuantityInCart ] = useState();
+  const [ sumPriceProduct, setSumPriceProduct ] = useState<number>(0);
+  const [ quantityInCart, setQuantityInCart ] = useState<number>(0);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
+  const localStorageCart: Products = useMemo(() => localStorage.getItem('cartProducts') ? JSON.parse(localStorage.cartProducts) : [], []);
 
   const findProduct = localStorageCart? localStorageCart.find(
     (productFind) => productFind.name === product.name,
@@ -30,10 +33,10 @@ function SelectQuantityProduct(props) {
   }, [ localStorageCart, totalCart, setTotalCart ]);
 
   useEffect(() => { //update quantity in cart
-    const productInCart = localStorageCart ? localStorageCart.find((productCart) => productCart.name === product.name):null;
+    const productInCart:IProduct = localStorageCart ? localStorageCart.find((productCart) => productCart.name === product.name):null;
     setQuantityInCart(productInCart ? productInCart.quantity : 0);
     setSumPriceProduct(
-      productInCart ? formatCoin(productInCart.quantity * product.price) : 0);
+      productInCart && formatCoin(productInCart.quantity * product.price) || 0);
   }, [ quantityInCart, sumPriceProduct, localStorageCart, product ]);
 
  
@@ -61,7 +64,7 @@ function SelectQuantityProduct(props) {
   const incrementCart = () => {
     setShowModalCart(true);
 
-    if (!JSON.parse(localStorage.getItem('cartProducts'))) {
+    if (!localStorageCart) {
       const setProduct = product;
       setProduct.quantity = 1;
       localStorage.setItem('cartProducts', JSON.stringify([ setProduct ]));

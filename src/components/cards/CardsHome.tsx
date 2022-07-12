@@ -1,10 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import Context from '../../context/Context';
 import './css/CardsHome.css';
-import { CardProduct, Loading, SearchEmpty } from '../../components';
+import { CardProduct, Loading, SearchEmpty } from '..';
 import productsGenerator from '../../database/dataProducts';
+import {IProduct} from '../../interfaces';
 
 function CardsHome() {
+  type Products = IProduct[];
+  const localStorageProducts: Products = useMemo(() => localStorage.getItem('products') ? JSON.parse(localStorage.products) : [], []);
+
   const { products, setProducts, resultSearchBar, searchBar } = useContext(Context);
 
   const [ loading, setLoading ] = useState(false);
@@ -22,7 +26,7 @@ function CardsHome() {
     if (!localStorage.getItem('products')) {
       getProducts();
     } else {
-      setProducts(JSON.parse(localStorage.getItem('products')));
+      setProducts(localStorageProducts);
       setLoading(false);
     }
 
@@ -36,7 +40,7 @@ function CardsHome() {
         <div className="container-cards" data-testid="container-cards">
           <div className="cards" data-testid="cards">
             {resultSearchBar.length === 0 ?
-              products.map((product) =>
+              products.map((product:IProduct) =>
                 <CardProduct key={product.id} product={product} />) : null}
           </div>
         </div>}

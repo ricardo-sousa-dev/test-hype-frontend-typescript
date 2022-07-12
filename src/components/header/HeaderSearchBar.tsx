@@ -1,19 +1,22 @@
-import React, { useState, useContext, useEffect, useMemo } from 'react';
+import React, { useState, useContext, ChangeEvent} from 'react';
 import Context from '../../context/Context';
 import './css/HeaderSearchBar.css';
+import { IProduct } from '../../interfaces';
 
 function SearchBar() {
-
+  type Products = IProduct[];
   const [ emptyResult, setEmptyResult ] = useState(false);
   const [ emptyFavorites, setEmptyFavorites ] = useState(false);
 
   const { setResultSearchBar, products, selectedFavorite, setSelectedFavorite, searchBar, setSearchBar } = useContext(Context);
 
-  const handleSearchBar = ({ target: { value } }) => {
-    setSearchBar(value);
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const checkFavorites = document.getElementById('favorites') as HTMLInputElement | null;
 
-    if (value || value.length > 0) { // case search bar is not empty
+  const handleSearchBar = (value:string) => {
+    setSearchBar(value);
+    const favorites: Products = JSON.parse(localStorage.favorites) || [];
+
+    if (value && value.length > 0) { // case search bar is not empty
 
       if (!selectedFavorite) { // case favorite exists and selected
 
@@ -31,7 +34,7 @@ function SearchBar() {
           }
 
         } else { // case favorite doesn't exist
-          const productsFiltered = products.filter((product) =>
+          const productsFiltered = products.filter((product: IProduct) =>
             product.name.toLowerCase().includes(value.toLowerCase()) &&
             value !== '',
           )
@@ -45,7 +48,7 @@ function SearchBar() {
         }
       } else {
 
-        const productsFiltered = products.filter((product) =>
+        const productsFiltered = products.filter((product: IProduct) =>
           product.name.toLowerCase().includes(value.toLowerCase()) &&
           value !== '',
         )
@@ -62,13 +65,13 @@ function SearchBar() {
       if (!selectedFavorite && (favorites && favorites.length > 0)) {
         setResultSearchBar(favorites);
       }
-      setResultSearchBar(products);
+      setResultSearchBar([]);
     }
   }
 
   const handleFavorites = () => { // select favorites
 
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites: Products = JSON.parse(localStorage.favorites) || [];
 
     setSelectedFavorite(!selectedFavorite);
 
@@ -111,7 +114,7 @@ function SearchBar() {
           setEmptyResult(false);
         }, 5000);
         setEmptyFavorites(true);
-        document.getElementById('favorites').checked = false;
+        checkFavorites ? checkFavorites.checked = false : null;
         setSelectedFavorite(true);
         setResultSearchBar([]);
       }
@@ -121,7 +124,7 @@ function SearchBar() {
 
       if (searchBar.length > 0) { // case search bar is not empty
         // console.log('TEM BUSCA');
-        const productsFiltered = products.filter((product) =>
+        const productsFiltered = products.filter((product:IProduct) =>
           product.name.toLowerCase().includes(searchBar.toLowerCase()) &&
           searchBar !== '',
         )
@@ -152,10 +155,11 @@ function SearchBar() {
   }
 
   const clearSearch = () => {
+    
     setResultSearchBar([]);
     setSelectedFavorite(true)
-    document.getElementById('favorites').checked = false;
-    document.getElementById('favorites').value = false;
+    checkFavorites ? checkFavorites.checked = false : null;
+    // checkFavorites ? checkFavorites.value = false : null;
     setSearchBar('');
     setEmptyResult(false);
     setEmptyFavorites(false);
@@ -164,8 +168,8 @@ function SearchBar() {
   return (
     <div className="searchBar">
       <div className="div-messages">
-        {emptyFavorites ? <div className="message">Você não tem produtos favoritos!</div> : null}
-        {emptyResult ? <div className="message" data-testid="message-empty">Ops! Nenhum resultado encontrado!</div> : null}
+        { emptyFavorites ? <div className="message">Você não tem produtos favoritos!</div> : null }
+        { emptyResult ? <div className="message" data-testid="message-empty">Ops! Nenhum resultado encontrado!</div> : null }
       </div>
 
       <div className="search">
@@ -173,25 +177,25 @@ function SearchBar() {
           <input
             type="text"
             data-testid="search-input"
-            value={searchBar}
-            onChange={handleSearchBar}
+            value={ searchBar }
+            onChange={(e: ChangeEvent<HTMLInputElement>): void => handleSearchBar(e.target.value)}
             placeholder='Buscar produto...'
           />
           <div className='div-button-clear-search'>
-            {searchBar.length > 0
+            { searchBar.length > 0
               ? <button
                 className="button-clear-search"
                 data-testid="button-clear-search"
-                onClick={() => clearSearch()}>
+                onClick={ () => clearSearch() }>
                 x
               </button>
-              : null}
+              : null }
 
           </div>
         </div>
 
         <div className="div-favorites">
-          <input type="checkbox" id="favorites" className="favorites" value={selectedFavorite} onClick={handleFavorites} data-testid="favorites-select" />
+          <input type="checkbox" id="favorites" className="favorites" value={ selectedFavorite } onClick={ handleFavorites } data-testid="favorites-select" />
           <label htmlFor="favorites" className="favorites-label" data-testid="favorites-label">Favoritos</label>
         </div>
       </div>

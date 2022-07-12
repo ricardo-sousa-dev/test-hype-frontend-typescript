@@ -7,21 +7,21 @@ import GoToButton from '../buttons/GoToButton';
 
 function CartOffCanvas() {
 
-  const ref = useRef()
+  const ref = useRef<HTMLHeadingElement>(null)
   const { showModalCart, setShowModalCart } = useContext(Context);
 
   useOnClickOutside(ref, () => setShowModalCart(false));
 
-  return (
-    <div className="cart-offCanvas" show={showModalCart?1:0}>
+  return ( showModalCart?
+    <div className="cart-offCanvas" >
       <div
-        ref={ref}
+        ref={ ref }
         className="cart-offCanvas-content">
         <div
           className="cart-offCanvas-content-container">
           <div
             className="cart-offCanvas-content-header">
-            <button variant="secondary" data-testid="cart-offCanvas-close"  onClick={() => setShowModalCart(false)}>
+            <button data-testid="cart-offCanvas-close" onClick={ () => setShowModalCart(false) }>
               X
             </button>
           </div>
@@ -34,7 +34,7 @@ function CartOffCanvas() {
         </div>
         <GoToButton route="/cart" title="Finalizar Compra" icon="FaCreditCard" />
       </div>
-    </div>
+    </div>: null
   );
 }
 

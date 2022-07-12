@@ -1,19 +1,22 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useMemo } from 'react';
 import Context from '../../context/Context';
-import { SelectQuantityProduct, ClearCartButton, DeleteProductCartButton } from '../../components';
+import { SelectQuantityProduct, ClearCartButton, DeleteProductCartButton } from '..';
 import './css/CartListProducts.css';
 import { useNavigate } from 'react-router-dom';
 import formatCoin from '../../utils/formatCoin';
+import {IProduct} from '../../interfaces';
 
 function CartListProducts() {
+  type Products = IProduct[];
 
   const navigate = useNavigate();
   const { setViewProductDetails } = useContext(Context);
 
-  let localStorageCart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  const localStorageCart: Products = useMemo(() => localStorage.getItem('cartProducts') ? JSON.parse(localStorage.cartProducts) : [], []);
+
   const [ cartProducts ] = useState(localStorageCart);
 
-  const redirectProductDetails = (product) => {
+  const redirectProductDetails = (product:IProduct) => {
     setViewProductDetails(product);
     localStorage.setItem('viewProductDetails', JSON.stringify(product));
     navigate(`/product/${ product.id }`);

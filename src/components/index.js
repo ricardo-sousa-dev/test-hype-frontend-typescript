@@ -1,9 +1,9 @@
 
-import CardsHome from '../components/cards/CardsHome';
+import CardsHome from './cards/CardsHome.tsx';
 import Footer from './footer/Footer';
 import HeaderHome from './header/HeaderHome';
 import HeaderGeneric from './header/HeaderGeneric';
-import HeaderSearchBar from '../components/header/HeaderSearchBar.jsx';
+import HeaderSearchBar from '../components/header/HeaderSearchBar';
 import HomeCardProduct from './cards/CardProduct';
 import CartEmpt from './cart/CartEmpty';
 import CartPaymentMethod from '../components/cart/CartPaymentMethod';

@@ -1,6 +1,7 @@
 import React, { useContext, useMemo, useEffect} from 'react';
 import Context from '../context/Context';
 import './css/Home.css';
+import {IProduct} from '../interfaces';
 
 import {
   HeaderHome,
@@ -11,9 +12,12 @@ import {
 
 function Home() {
 
+  type Products = IProduct[];
+
   const { showModalCart, setShowModalCart } = useContext(Context);
 
-  const localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
+  const localStorageCart: Products = useMemo(() => localStorage.getItem('cartProducts') ? JSON.parse(localStorage.cartProducts) : [], []);
+  
     
   useEffect(() => {
     setShowModalCart(false);

@@ -1,19 +1,23 @@
-import React, { useContext, useState, useMemo, useEffect } from 'react';
+import React, { useContext, useState, useMemo, useEffect, useRef} from 'react';
 import { Link } from 'react-router-dom';
 import Context from '../context/Context';
 import { CartPaymentMethod, CartListProducts, CartEmpt, CartShipping, Footer, HeaderGeneric, GoToButton } from '../components';
+import {IProduct} from '../interfaces';
+
 import './css/Cart.css';
 
-
 function Cart() {
-  const localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts'))||[]);
-  const totalCartStorage = localStorage.getItem('totalCart') || 0;
+
+  type Cart = IProduct[];
+
+  const localStorageCart:Cart = useMemo(() => localStorage.getItem('cartProducts') ? JSON.parse(localStorage.cartProducts) : [], []);
 
   const { totalCart } = useContext(Context);
 
-  const [ paymentMethod, setPaymentMethod ] = useState('pix');
   const [ shippingMethod ] = useState('correios');
   const [cartEmpty, setCartEmpty] = useState(true);
+
+  const paymentMethod = useRef<string | null>(null);
 
   useEffect(() => {
     if (localStorageCart.length === 0) {
@@ -35,10 +39,9 @@ function Cart() {
     },
     paymentMethod: paymentMethod,
     shippingMethod: shippingMethod,
-    total: totalCartStorage,
+    total: totalCart,
     products: localStorageCart,
   }
-
 
   return (
     <div className="cart">
@@ -55,7 +58,7 @@ function Cart() {
           </div>
           <div className="cart-finalize-payment">
             <CartShipping />
-            <CartPaymentMethod method={setPaymentMethod} />
+            <CartPaymentMethod />
             <h2 className="cart-total">Total: {totalCart || 0}</h2>
             <GoToButton route="/checkout" title="Finalizar compra" icon="FaCreditCard" payload={sale} />
             <GoToButton route="/" title="Continuar comprando" icon="FaCartArrowDown" />

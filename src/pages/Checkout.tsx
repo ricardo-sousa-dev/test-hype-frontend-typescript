@@ -4,8 +4,8 @@ import { HeaderGeneric, Footer } from '../components';
 import './css/Checkout.css';
 
 function Checkout() {
+
   const { state } = useLocation();
-  const { sale } = state || {};
 
   const downloadFile = async () => {
     const fileName = "resultado-desafio-ricardo-sousa";

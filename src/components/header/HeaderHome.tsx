@@ -3,14 +3,17 @@ import Context from '../../context/Context';
 import { useNavigate } from 'react-router';
 import HeaderSearchBar from './HeaderSearchBar';
 import HomeCardProduct from '../cards/CardProduct';
+import { IProduct } from '../../interfaces';
 import './css/HeaderHome.css';
 import { FaCartArrowDown } from "react-icons/fa";
 
 function HeaderHome() {
+  type Products = IProduct[];
 
   const navigate = useNavigate();
   const { resultSearchBar, setResultSearchBar, quantityCart, setQuantityCart, setSelectedFavorite, selectedFavorite, setSearchBar } = useContext(Context);
-  let localStorageCart = useMemo(() => JSON.parse(localStorage.getItem('cartProducts')));
+  const localStorageCart: Products = useMemo(() => localStorage.getItem('cartProducts') ? JSON.parse(localStorage.cartProducts) : [], []);
+  const checkFavorites = document.getElementById('favorites') as HTMLInputElement | null;
 
   useEffect(() => {
     if (localStorageCart) {
@@ -18,11 +21,11 @@ function HeaderHome() {
     }
   }, [ localStorageCart, setQuantityCart ]);
 
-  const clearSearch = (page) => {
+  const clearSearch = (page: string) => {
     setResultSearchBar([]);
     navigate(page);
     setSelectedFavorite(true)  
-    document.getElementById('favorites').checked = false;
+    checkFavorites ? checkFavorites.checked = false : null;
     setSearchBar('');
   }
 
@@ -44,7 +47,7 @@ function HeaderHome() {
       </div>
       {resultSearchBar.length > 0 ? (
         <div className="cards">
-          {resultSearchBar.map((product) => (
+          {resultSearchBar.map((product:IProduct) => (
             <HomeCardProduct key={product.id} product={product} />
           ))}
         </div>
